@@ -3,7 +3,6 @@
 using System;
 using System.Web;
 
-
 public class SmallestDotNet : IHttpHandler {
 
     private bool firstVersionWritten = false;
@@ -72,12 +71,8 @@ public class SmallestDotNet : IHttpHandler {
         
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/javascript";
-        Version version = context.Request.Browser.ClrVersion;
-        string retVal = String.Empty;
 
         dr("SmallestDotNet = {};");
-        
-        bool net4 = false;
 
         if (Has40E(context))
             WriteLatest(context, 4, 0, "full", null);

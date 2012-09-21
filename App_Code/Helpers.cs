@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
 /// <summary>
@@ -87,6 +85,22 @@ public class Helpers
                   Also, you might make sure your system is setup to get updates from {1} automatically. 
                   This will make sure your system is up to date with the lastest stuff, including the latest .NET Framework.", Constants.dotnet35online, Constants.windowsupdate);
             }
+            else if (request.UserAgent.Contains("Chrome"))
+            {
+                netInfoString += String.Format(@"Looks like you're running Chrome. That's totally cool, but I can't tell if you've got .NET installed from Chrome. 
+                   Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
+                  Alternatively, if you're running Windows, you can go <strong>download the 2.8 meg installer for {0}.</strong> 
+                  Also, you might make sure your system is setup to get updates from {1} automatically. 
+                  This will make sure your system is up to date with the lastest stuff, including the latest .NET Framework.", Constants.dotnet35online, Constants.windowsupdate);
+            }
+            else if(request.UserAgent.Contains("Safari")) // Chrome also uses safari in the user agent so this check must come after
+            {
+                netInfoString += String.Format(@"Looks like you're running Safari. That's totally cool, but I can't tell if you've got .NET installed from Safari. 
+                   Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
+                  Alternatively, if you're running Windows, you can go <strong>download the 2.8 meg installer for {0}.</strong> 
+                  Also, you might make sure your system is setup to get updates from {1} automatically. 
+                  This will make sure your system is up to date with the lastest stuff, including the latest .NET Framework.", Constants.dotnet35online, Constants.windowsupdate);
+            }
             else
             {
                 string explain = String.Format(Constants.whyitissmall, 60);
@@ -95,7 +109,6 @@ public class Helpers
                   Also, you might make sure your system is setup to get updates from {2} automatically. 
                   This will make sure your system is up to date with the lastest stuff, including the latest .NET Framework.", Constants.dotnet35online, explain, Constants.windowsupdate);
             }
-
         }
 
         if (request.UserAgent.Contains("Mac"))
@@ -107,25 +120,21 @@ public class Helpers
         {
             netInfoString += "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
         }
-
-
+        
         //need to see if windows 2000 has the latest version
-        if (request.UserAgent.Contains("Windows NT 5.0"))
-        {
-            netInfoString += String.Format("It looks like you're running Windows 2000. Sorry, but .NET 3.5 isn't supported on Windows 2000, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
-        }
-
-        if (request.UserAgent.Contains("Windows 98"))
-        {
-            netInfoString += String.Format("It looks like you're running Windows 98. Sorry, but .NET 3.5 isn't supported on Windows 98, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
-        }
-
-        if (request.UserAgent.Contains("Windows 95"))
-        {
-            netInfoString += String.Format("It looks like you're running Windows 95. Sorry, but .NET 3.5 isn't supported on Windows 95, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
-        }
-
+        CheckDotNet3_5UnSupportedOs(request, "Windows NT 5.0", "Windows 2000", ref netInfoString);
+        CheckDotNet3_5UnSupportedOs(request, "Windows 98", "Windows 98", ref netInfoString);
+        CheckDotNet3_5UnSupportedOs(request, "Windows 95", "Windows 95", ref netInfoString);
+        
         return netInfoString;
+    }
+
+    private static void CheckDotNet3_5UnSupportedOs(HttpRequest request, string agent, string friendlyName, ref string userMessage)
+    {
+        if (request.UserAgent.Contains(agent))
+        {
+            userMessage += String.Format("It looks like you're running {1}. Sorry, but .NET 3.5 isn't supported on {1}, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en", friendlyName);
+        }
     }
 
 }
