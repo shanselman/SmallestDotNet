@@ -6,24 +6,22 @@ using System.Web;
 /// </summary>
 public class Helpers
 {
-    public static string GetUpdateInformation(HttpRequest request)
+    public static string GetUpdateInformation(string UserAgent, Version version)
     {
         bool net4 = false;
         string netInfoString = "";
 
-        if (request.UserAgent.Contains(".NET4.0E"))
+        if (UserAgent.Contains(".NET4.0E"))
         {
             netInfoString += String.Format("Seem you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ");
             net4 = true;
         }
-        else if (request.UserAgent.Contains(".NET4.0C"))
+        else if (UserAgent.Contains(".NET4.0C"))
         {
             netInfoString += String.Format("Seem you're an early adopter! You've got the <strong>.NET 4.0 Client Profile</strong> on your machine. ");
             net4 = true;
         }
 
-
-        Version version = request.Browser.ClrVersion;
         if (version != null && version.Major != 0)
         {
             switch (version.Major)
@@ -77,7 +75,7 @@ public class Helpers
         }
         else
         {
-            if (request.UserAgent.Contains("fox"))
+            if (UserAgent.Contains("fox"))
             {
                 netInfoString += String.Format(@"Looks like you're running FireFox. That's totally cool, but if you've got a version of .NET earlier than 3.5 SP1, I can't tell if you've got .NET installed from FireFox. 
                    Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
@@ -111,12 +109,12 @@ public class Helpers
             }
         }
 
-        if (request.UserAgent.Contains("Mac"))
+        if (UserAgent.Contains("Mac"))
         {
             netInfoString += "It looks like you're running a Mac. There's no .NET Framework download from Microsoft for the Mac, but you might check out either <a href=\"http://www.microsoft.com/silverlight/resources/install.aspx\">Silverlight</a> which is a browser plugin that includes a small version of the .NET Framework. You could also check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac.";
         }
 
-        if (request.UserAgent.Contains("nix"))
+        if (UserAgent.Contains("nix"))
         {
             netInfoString += "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
         }

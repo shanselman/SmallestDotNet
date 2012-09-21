@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestDotNet", "SmallestDotNet\SmallestDotNet.csproj", "{F80F0719-0AC1-4B4D-9F44-7D78C90FAEE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestDotNetLib", "SmallestDotNetLib\SmallestDotNetLib.csproj", "{3ECC85DC-EBC0-4A2E-930D-711ABC481388}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{F80F0719-0AC1-4B4D-9F44-7D78C90FAEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F80F0719-0AC1-4B4D-9F44-7D78C90FAEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F80F0719-0AC1-4B4D-9F44-7D78C90FAEE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ECC85DC-EBC0-4A2E-930D-711ABC481388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECC85DC-EBC0-4A2E-930D-711ABC481388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECC85DC-EBC0-4A2E-930D-711ABC481388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ECC85DC-EBC0-4A2E-930D-711ABC481388}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
