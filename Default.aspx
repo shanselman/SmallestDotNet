@@ -33,10 +33,10 @@
                 <div id="sidebar">
                     <h1>Javascript</h1>
                     <p>Want SmallestDotNet functionality for your own site? Add this chunk of Javascript, it'll spit out HTML and you can style to taste.</p>
-                    <textarea id="sidebartext">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/smallestdotnet/javascript.ashx"&GT;&LT;/script&GT;</textarea>
+                    <textarea id="sidebartext">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</textarea>
 
                     <p>Prefer a Javascript Object (JSON) to detect .NET Framework installatons? Try this instead:</p>
-                    <textarea id="sidebartext">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/smallestdotnet/javascriptdom.ashx"&GT;&LT;/script&GT;</textarea>
+                    <textarea id="sidebartext">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</textarea>
                     <p>Get examples on <a href="http://www.hanselman.com/blog/SmallestDotNetUpdateNowWithNet4SupportandanincludableJavascriptapi.aspx">how to use the JSON object on Scott's Blog.</a></p>
 
 
