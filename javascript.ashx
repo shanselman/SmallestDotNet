@@ -98,13 +98,13 @@ public class SmallestDotNet : IHttpHandler {
             retVal += String.Format("Detected Windows 2000. Sorry, .NET 3.5 isn't supported on Windows 2000, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
         }
 
-        //need to see if windows 2000 has the latest version
+        //need to see if windows 95 has the latest version
         if (context.Request.UserAgent.Contains("Windows 95"))
         {
             retVal += String.Format("Detected Windows 95. Sorry, .NET 3.5 isn't supported on Windows 95, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
         }
 
-        //need to see if windows 2000 has the latest version
+        //need to see if windows 98 has the latest version
         if (context.Request.UserAgent.Contains("Windows 98"))
         {
             retVal += String.Format("Detected Windows 98. Sorry, .NET 3.5 isn't supported on Windows 98, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
