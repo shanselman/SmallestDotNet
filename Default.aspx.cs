@@ -135,12 +135,12 @@ public partial class _Default : System.Web.UI.Page
 
        if (Request.UserAgent.Contains("Windows 98"))
        {
-           userResult.Text += String.Format("It looks like you're running Windows 98. Sorry, but .NET 3.5 isn't supported on Windows 2000, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
+           userResult.Text += String.Format("It looks like you're running Windows 98. Sorry, but .NET 3.5 isn't supported on Windows 98, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
        }
 
        if (Request.UserAgent.Contains("Windows 95"))
        {
-           userResult.Text += String.Format("It looks like you're running Windows 95. Sorry, but .NET 3.5 isn't supported on Windows 2000, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
+           userResult.Text += String.Format("It looks like you're running Windows 95. Sorry, but .NET 3.5 isn't supported on Windows 95, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en");
        }        
 
     }
