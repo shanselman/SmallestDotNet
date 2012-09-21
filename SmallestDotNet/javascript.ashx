@@ -11,7 +11,7 @@ public class SmallestDotNet : IHttpHandler
         WriteToResponse("<span class=\"smallerdotnet\">");
         context.Response.ContentType = "text/javascript";
 
-        WriteToResponse(Helpers.GetUpdateInformation(context.Request.UserAgent, context.Request.Browser.ClrVersion).Replace("'", @"\'"));
+        WriteToResponse(Helpers.GetUpdateInformation(context.Request.UserAgent, context.Request.Browser.ClrVersion).Replace("'", @"\'").Replace(Environment.NewLine, "<br />"));
         WriteToResponse("</span>");
     }
 
