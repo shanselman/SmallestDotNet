@@ -59,8 +59,7 @@
                 </div>
 
                 <div id="main">
-                    <a runat="server" id="getdotnet">
-                        <img src="images/badge.png" alt="" class="no-border" id="badge" /></a>
+                    <a runat="server" id="getdotnet"><img src="images/badge.png" alt="" class="no-border" id="badge" /></a>
                     <h1>The .NET Download for you is:</h1>
                     <a name="TemplateInfo"></a>
                     <div id="user">
