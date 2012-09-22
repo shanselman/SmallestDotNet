@@ -33,7 +33,7 @@ namespace UnitTest
             string explain = String.Format(Constants.whyItIsSmallMessage, "only 10");
 
             net4Beta += string.Format(@"Looks like you {2} have <strong>.NET version 3.0</strong>. 
-                That's a very recent version of the .NET Framework, but you can upgrade fairly easily to the 3.5 version by downloading the 2.8 meg installer for {0}. {1}", KjWhal.SmallestDotNet.Constants.htmlLinkToDotNet35Download, explain, true ? "also" : "");
+                That's a very recent version of the .NET Framework, but you can upgrade fairly easily to the 3.5 version by downloading the 2.8 meg installer for {0}. {1}", Constants.htmlLinkToDotNet35Download, explain, true ? "also" : "");
 
             Assert.AreEqual<string>(net4Beta, result);
         }
@@ -60,7 +60,7 @@ namespace UnitTest
             string explain = String.Format(Constants.whyItIsSmallMessage, "only 10");
 
             net4Beta += string.Format(@"Looks like you {2} have <strong>.NET version 3.0</strong>. 
-                That's a very recent version of the .NET Framework, but you can upgrade fairly easily to the 3.5 version by downloading the 2.8 meg installer for {0}. {1}", KjWhal.SmallestDotNet.Constants.htmlLinkToDotNet35Download, explain, true ? "also" : "");
+                That's a very recent version of the .NET Framework, but you can upgrade fairly easily to the 3.5 version by downloading the 2.8 meg installer for {0}. {1}", Constants.htmlLinkToDotNet35Download, explain, true ? "also" : "");
 
             Assert.AreEqual<string>(net4Beta, result);
         }
