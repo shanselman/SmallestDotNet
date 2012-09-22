@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 
 /// <summary>
@@ -69,9 +70,10 @@ public class Helpers
         }
         
         //need to see if windows 2000 has the latest version
-        CheckDotNet3_5UnSupportedOs(UserAgent, "Windows NT 5.0", "Windows 2000", ref netInfoString);
-        CheckDotNet3_5UnSupportedOs(UserAgent, "Windows 98", "Windows 98", ref netInfoString);
-        CheckDotNet3_5UnSupportedOs(UserAgent, "Windows 95", "Windows 95", ref netInfoString);
+        foreach (KeyValuePair<string, string> windowsVersion in Constants.oldwindows)
+        {
+            CheckDotNet3_5UnSupportedOs(UserAgent, windowsVersion.Key, windowsVersion.Value, ref netInfoString);
+        }
         
         return netInfoString;
     }

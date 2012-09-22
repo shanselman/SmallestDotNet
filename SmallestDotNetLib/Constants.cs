@@ -14,4 +14,11 @@ public static class Constants
                            For you, it'll probably be <strong>{0} megabytes total</strong>.";
 
     public const string earlyadopter = "Seems you're an early adopter! You've got a <strong>{0}</strong> on your machine. ";
+
+    public static readonly Dictionary<string, string> oldwindows = new Dictionary<string, string>
+    {
+        {"Windows NT 5.0", "Windows 2000"},
+        {"Windows 95", "Windows 95"},
+        {"Windows 98", "Windows 98"}
+    };
 }
