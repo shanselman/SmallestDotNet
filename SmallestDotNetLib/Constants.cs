@@ -12,4 +12,13 @@ public static class Constants
     public const string windowsupdate = "<a href=\"http://www.windowsupdate.com\">Windows Update</a>";
     public const string whyitissmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
                            For you, it'll probably be <strong>{0} megabytes total</strong>.";
+
+    public const string earlyadopter = "Seems you're an early adopter! You've got a <strong>{0}</strong> on your machine. ";
+
+    public static readonly Dictionary<string, string> oldwindows = new Dictionary<string, string>
+    {
+        {"Windows NT 5.0", "Windows 2000"},
+        {"Windows 95", "Windows 95"},
+        {"Windows 98", "Windows 98"}
+    };
 }
