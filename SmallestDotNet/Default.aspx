@@ -151,7 +151,6 @@
         $(function() { 
             var userAgent = navigator.userAgent;
             if (userAgent.indexOf('Trident/5.0)') !== -1 || userAgent.indexOf('Trident/6.0)') !== -1) {
-                console.log('Calling IE > 9 Methods');
                 $.get('/VersionCheck.ashx',
                         { 'userAgent': userAgent },
                         function (data) {
