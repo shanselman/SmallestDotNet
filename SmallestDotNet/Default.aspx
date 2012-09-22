@@ -66,7 +66,7 @@
                 <div id="user">
                     
                     <h2>YOUR PERSONALIZED RESULTS</h2>
-                    <p>
+                    <p id="javascriptResult">
                         
                         <asp:Literal runat="server" id="userResult"></asp:Literal>
                         
@@ -150,11 +150,11 @@
     <script type="text/javascript">
         $(function() { 
             var userAgent = navigator.userAgent;
-            if (userAgent.indexOf('Trident/5.0)') !== -1 || userAgent.indexOf('Trident/6.0)') !== -1) {
+            if (userAgent.indexOf('Trident/5.0') !== -1 || userAgent.indexOf('Trident/6.0') !== -1) {
                 $.get('/VersionCheck.ashx',
                         { 'userAgent': userAgent },
                         function (data) {
-                            $('#userResult').html(data);
+                            $('#javascriptResult').html(data);
                         }
                 );
             }
