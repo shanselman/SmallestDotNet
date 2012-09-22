@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" Inherits="_Default" Codebehind="Default.aspx.cs" %>
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="_Default" CodeBehind="Default.aspx.cs" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -10,28 +10,67 @@
     <meta name="t_omni_extblogid" content="msstoextblogs1" />
     <meta name="t_omni_blogname" content="Scott Hanselman" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <link rel="stylesheet" href="images/BrightSide.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="Stylesheet" href="css/main.css" type="text/css" />
     <title>Get the .NET Framework Fast - Download the smallest .NET Framework Distribution possible</title>
 </head>
 
 <body>
     <!-- wrap starts here -->
     <form runat="server">
-        <div id="wrap">
-
-            <div id="header">
-
-                <h1 id="logo">Smallest<span class="green">dot</span>NET<span class="gray"></span></h1>
-                <h2 id="slogan">Get the smallest .NET Framework download possible.</h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="span6 offest3" id="header">
+                    <h1 id="logo">Smallest<span class="green">dot</span>NET<span class="gray"></span></h1>
+                    <h2 id="slogan">Get the smallest .NET Framework download possible.</h2>
+                </div>
             </div>
+            <div class="row">
+                <div class="span112">
+                     <div id="main">
+                    <a runat="server" id="getdotnet">
+                        <img src="images/badge.png" alt="" class="no-border" id="badge" /></a>
+                    <h1>The .NET Download for you is:</h1>
+                    <a name="TemplateInfo"></a>
+                    <div id="user">
+                        <h2>YOUR PERSONALIZED RESULTS</h2>
+                        <p>
+                            <asp:Literal runat="server" Visible="true" ID="userResult" />
+                        </p>
+                    </div>
+                    <h2>What just happened?</h2>
+                    <p>This site looked at your browser's "UserAgent" and figured out what version (if any) of the .NET Framework you have (or don't have) installed, then calculated the total size if you chose to download the .NET Framework.</p>
+                    <h2>Are you a .NET Programmer?</h2>
+                    <p>If you're a programmer/developer, you might be trying to figure out which .NET Framework for your users to use. </p>
+                    <p>Sometimes finding the right .NET Framework is confusing because different kinds of machines (x86, x64, ia64) that may or may not have different versions of .NET already on them.</p>
+                    <p>
+                        If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. <strong>It's not</strong>. Those big downloads are the Complete Offline Versions of every version of the .NET 
+			Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive.
+                    </p>
+                    <p>Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.</p>
+                    <h3>Online Download</h3>
+                    <p>
+                        <asp:Literal runat="server" ID="developerOnline" />
+                    </p>
+                    <h3>Offline Download to Install Later</h3>
+                    <p>
+                        <asp:Literal runat="server" ID="developerOfflineResult" />
+                    </p>
 
+                    <p>
+                        For technical or debugging purposes, this is exactly what your browser said about itself:<br />
+                        <asp:Literal runat="server" ID="userAgent" />
+                    </p>
+                    <p>Thanks! If this was helpful to you, please visit <a href="http://www.hanselman.com">my blog</a>.</p>
+                </div>
+                </div>
+            </div>
             <!-- content-wrap starts here -->
             <div id="content-wrap">
 
-                <img src="images/headerphoto.jpg" width="820" height="120" alt="headerphoto" class="no-border" />
-
                 <div id="sidebar">
-                    <h1>Javascript</h1>
+                    <h3>Javascript</h3>
                     <p>Want SmallestDotNet functionality for your own site? Add this chunk of Javascript, it'll spit out HTML and you can style to taste.</p>
                     <textarea id="sidebartext">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</textarea>
 
@@ -58,36 +97,7 @@
 
                 </div>
 
-                <div id="main">
-                    <a runat="server" id="getdotnet"><img src="images/badge.png" alt="" class="no-border" id="badge" /></a>
-                    <h1>The .NET Download for you is:</h1>
-                    <a name="TemplateInfo"></a>
-                    <div id="user">
-                        <h2>YOUR PERSONALIZED RESULTS</h2>
-                        <p>
-                            <asp:Literal runat="server" Visible="true" ID="userResult" /></p>
-                    </div>
-                    <h2>What just happened?</h2>
-                    <p>This site looked at your browser's "UserAgent" and figured out what version (if any) of the .NET Framework you have (or don't have) installed, then calculated the total size if you chose to download the .NET Framework.</p>
-                    <h2>Are you a .NET Programmer?</h2>
-                    <p>If you're a programmer/developer, you might be trying to figure out which .NET Framework for your users to use. </p>
-                    <p>Sometimes finding the right .NET Framework is confusing because different kinds of machines (x86, x64, ia64) that may or may not have different versions of .NET already on them.</p>
-                    <p>
-                        If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. <strong>It's not</strong>. Those big downloads are the Complete Offline Versions of every version of the .NET 
-			Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive.
-                    </p>
-                    <p>Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.</p>
-                    <h3>Online Download</h3>
-                    <p>
-                        <asp:Literal runat="server" ID="developerOnline" /></p>
-                    <h3>Offline Download to Install Later</h3>
-                    <p>
-                        <asp:Literal runat="server" ID="developerOfflineResult" /></p>
-
-                    <p>For technical or debugging purposes, this is exactly what your browser said about itself:<br />
-                        <asp:Literal runat="server" ID="userAgent" /></p>
-                    <p>Thanks! If this was helpful to you, please visit <a href="http://www.hanselman.com">my blog</a>.</p>
-                </div>
+               
 
                 <div id="rightbar">
 
@@ -133,9 +143,12 @@
         </div>
     </form>
 
-    <script type="text/javascript" src="/blog/scripts/omni_external_blogs_v2.js"></script>
-    <noscript><a href='http://www.omniture.com' title='Web Analytics'>
-        <img src='http://mssto.112.2o7.net/b/ss/msstoextblogsnojs/1/H.20.2--NS/0' height='1' width='1' border='0' alt='' /></a></noscript>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <noscript>
+        <a href='http://www.omniture.com' title='Web Analytics'>
+            <img src='http://mssto.112.2o7.net/b/ss/msstoextblogsnojs/1/H.20.2--NS/0' height='1' width='1' border='0' alt='' /></a>
+    </noscript>
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
