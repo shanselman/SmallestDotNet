@@ -64,9 +64,15 @@
                 <h1>The .NET Download for you is:</h1>
                 <a name="TemplateInfo"></a>
                 <div id="user">
+                    
                     <h2>YOUR PERSONALIZED RESULTS</h2>
                     <p>
-                        <span id="userResult">Fetching Results</span>
+                        <noscript>
+                            This page works best if you have javascript enabled.
+                        </noscript>
+                        <br />
+                        <asp:Literal runat="server" id="userResult"></asp:Literal>
+                        
                     </p>
                 </div>
                 <h2>What just happened?</h2>
@@ -147,12 +153,15 @@
     <script type="text/javascript">
         $(function() { 
             var userAgent = navigator.userAgent;
-            $.get('/VersionCheck.ashx',
-                    { 'userAgent': userAgent },
-                    function (data) {
-                        $('#userResult').html(data);
-                    }
-            );
+            if (userAgent.indexOf('Trident/5.0)') !== -1 || userAgent.indexOf('Trident/6.0)') !== -1) {
+                console.log('Calling IE > 9 Methods');
+                $.get('/VersionCheck.ashx',
+                        { 'userAgent': userAgent },
+                        function (data) {
+                            $('#userResult').html(data);
+                        }
+                );
+            }
         })
     </script>
     <noscript>
