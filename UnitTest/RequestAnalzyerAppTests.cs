@@ -55,7 +55,7 @@ namespace UnitTest
 
             string result = sut.GetUpdateInformation(request);
 
-            string net4Beta = "Seem you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ";
+            string net4Beta = "Seem you're an early adopter! You've got a <strong>.NET 4.0 Client Profile</strong> on your machine. ";
 
             string explain = String.Format(Constants.whyItIsSmallMessage, "only 10");
 

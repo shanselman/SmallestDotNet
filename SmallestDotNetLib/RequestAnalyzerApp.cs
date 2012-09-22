@@ -21,15 +21,18 @@ namespace SmallestDotNetLib
         public string GetUpdateInformation(HttpRequestBase request)
         {
             string message = string.Empty;
-           
+
             foreach (var requestAnalyzer in this.requestAnalyzers)
             {
-                requestAnalyzer.InitializeMessage(message);
-                
-                message = requestAnalyzer.GetInfoString(request);
+                message = requestAnalyzer.GetInfoString(request, message);
             }
 
             return message;
+        }
+
+        public string GetUpdateInformation(string userAgent, Version version)
+        {
+            return this.GetUpdateInformation(new RequestAnalyzerHttpRequest(new RequestAnalyzerHttpBrowserCapabilities(version), userAgent));
         }
     }
 }

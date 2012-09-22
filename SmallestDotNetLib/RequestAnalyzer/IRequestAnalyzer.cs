@@ -10,10 +10,8 @@ namespace SmallestDotNetLib.RequestAnalyzer
 
     public interface IRequestAnalyzer
     {
-        void InitializeMessage(string message);
+        string GetInfoString(HttpRequestBase request, string message = null);
 
-        string Message { get; }
-
-        string GetInfoString(HttpRequestBase request);
+        string GetInfoString(string userAgent, Version browserVersion, string message = null);
     }
 }

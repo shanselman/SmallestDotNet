@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace SmallestDotNetLib.RequestAnalyzer
 {
+    using System.Web;
+
     public class Net4RequestAnalyzer : RequestAnalyzer
     {
-        public override string GetInfoString(System.Web.HttpRequestBase request)
+        public override string GetInfoString(HttpRequestBase request, string message = null)
         {
             throw new NotImplementedException();
         }

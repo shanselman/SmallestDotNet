@@ -9,7 +9,7 @@ namespace SmallestDotNetLib.RequestAnalyzer
     using System.Web;
     public class FoxRequestAnalyzer : RequestAnalyzer
     {
-        public override string GetInfoString(HttpRequestBase request)
+        public override string GetInfoString(HttpRequestBase request, string message = null)
         {
             if (request.UserAgent.Contains("fox"))
             {

@@ -45,6 +45,9 @@
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestAnalyzerApp.cs" />
+    <Compile Include="RequestAnalyzerHttpBrowserCapabilities.cs" />
+    <Compile Include="RequestAnalyzerHttpRequest.cs" />
+    <Compile Include="RequestAnalyzer\ChromeAndSafariRequestAnalyzer.cs" />
     <Compile Include="RequestAnalyzer\FoxRequestAnalyzer.cs" />
     <Compile Include="RequestAnalyzer\IRequestAnalyzer.cs" />
     <Compile Include="RequestAnalyzer\MacRequestAnalyzer.cs" />

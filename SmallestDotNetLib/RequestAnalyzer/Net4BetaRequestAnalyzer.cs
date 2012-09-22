@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace SmallestDotNetLib.RequestAnalyzer
 {
+    using System.Web;
+
     public class Net4BetaRequestAnalyzer : RequestAnalyzer
     {
         public bool Is40BetaInstalled(System.Web.HttpRequestBase request)
@@ -15,7 +17,7 @@ namespace SmallestDotNetLib.RequestAnalyzer
             return identifiers.Any(i => request.UserAgent.Contains(i));
         }
 
-        public override string GetInfoString(System.Web.HttpRequestBase request)
+        public override string GetInfoString(HttpRequestBase request, string message = null)
         {
             if (request.UserAgent.Contains(".NET4.0E"))
             {

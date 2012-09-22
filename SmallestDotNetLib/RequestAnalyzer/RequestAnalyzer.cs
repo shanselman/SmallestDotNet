@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace SmallestDotNetLib.RequestAnalyzer
 {
+    using System.Web;
+
     public abstract class RequestAnalyzer : IRequestAnalyzer
     {
-        public string Message { get; set; }
+        public abstract string GetInfoString(HttpRequestBase request, string message = null);
 
-        public abstract string GetInfoString(System.Web.HttpRequestBase request);
-
-        public void InitializeMessage(string message)
+        public string GetInfoString(string userAgent, Version browserVersion, string message = null)
         {
-            this.Message = message;
+            var browserCapabilities = new RequestAnalyzerHttpBrowserCapabilities(browserVersion);
+
+            return GetInfoString(new RequestAnalyzerHttpRequest(browserCapabilities, userAgent), message);
         }
     }
 }
