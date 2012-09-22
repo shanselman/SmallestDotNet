@@ -42,15 +42,15 @@ public class Helpers
         {
             if (UserAgent.Contains("fox"))
             {
-                MessageForBrowser("Firefox");
+                netInfoString += MessageForBrowser("Firefox");
             }
             else if (UserAgent.Contains("Chrome"))
             {
-                MessageForBrowser("Chrome");
+                netInfoString += MessageForBrowser("Chrome");
             }
             else if(UserAgent.Contains("Safari")) // Chrome also uses safari in the user agent so this check must come after
             {
-                MessageForBrowser("Safari");
+                netInfoString += MessageForBrowser("Safari");
             }
             else
             {
