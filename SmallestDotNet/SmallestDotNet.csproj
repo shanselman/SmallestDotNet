@@ -70,7 +70,6 @@
     <Content Include="images\page.gif" />
     <Content Include="images\tableft.gif" />
     <Content Include="images\tabright.gif" />
-    <Content Include="template.html" />
     <Content Include="testjs.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -83,11 +82,15 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionCheck.ashx.cs">
+      <DependentUpon>VersionCheck.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\Thumbs.db" />
     <Content Include="javascript.ashx" />
     <Content Include="javascriptdom.ashx" />
+    <Content Include="VersionCheck.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
