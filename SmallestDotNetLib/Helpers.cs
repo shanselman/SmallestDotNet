@@ -11,16 +11,8 @@ public class Helpers
         bool net4 = false;
         string netInfoString = "";
 
-        if (UserAgent.Contains(".NET4.0E"))
-        {
-            netInfoString += String.Format("Seems you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ");
-            net4 = true;
-        }
-        else if (UserAgent.Contains(".NET4.0C"))
-        {
-            netInfoString += String.Format("Seems you're an early adopter! You've got the <strong>.NET 4.0 Client Profile</strong> on your machine. ");
-            net4 = true;
-        }
+        net4 = CheckDotNet4Installed(UserAgent, ref netInfoString);
+
 
         if (version != null && version.Major != 0)
         {
@@ -125,6 +117,22 @@ public class Helpers
         CheckDotNet3_5UnSupportedOs(UserAgent, "Windows 95", "Windows 95", ref netInfoString);
         
         return netInfoString;
+    }
+
+    private static bool CheckDotNet4Installed(ref string userMessage)
+    {
+        if (UserAgent.Contains(".NET4.0E"))
+        {
+            userMessage += String.Format("Seems you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ");
+            return true;
+        }
+        else if (UserAgent.Contains(".NET4.0C"))
+        {
+            userMessage += String.Format("Seems you're an early adopter! You've got the <strong>.NET 4.0 Client Profile</strong> on your machine. ");
+            return true;
+        }
+
+        return false;
     }
 
     private static void CheckDotNet3_5UnSupportedOs(string UserAgent, string agent, string friendlyName, ref string userMessage)
