@@ -67,10 +67,7 @@
                     
                     <h2>YOUR PERSONALIZED RESULTS</h2>
                     <p>
-                        <noscript>
-                            This page works best if you have javascript enabled.
-                        </noscript>
-                        <br />
+                        
                         <asp:Literal runat="server" id="userResult"></asp:Literal>
                         
                     </p>
