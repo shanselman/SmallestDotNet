@@ -80,12 +80,12 @@ public class Helpers
     {
         if (UserAgent.Contains(".NET4.0E"))
         {
-            userMessage += String.Format("Seems you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ");
+            userMessage += String.Format(Constants.earlyadopter, "full install of .NET 4.0");
             return true;
         }
         else if (UserAgent.Contains(".NET4.0C"))
         {
-            userMessage += String.Format("Seems you're an early adopter! You've got the <strong>.NET 4.0 Client Profile</strong> on your machine. ");
+            userMessage += String.Format(Constants.earlyadopter, ".NET 4.0 Client Profile");
             return true;
         }
 
