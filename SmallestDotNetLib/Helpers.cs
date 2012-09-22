@@ -13,12 +13,12 @@ public class Helpers
 
         if (UserAgent.Contains(".NET4.0E"))
         {
-            netInfoString += String.Format("Seem you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ");
+            netInfoString += String.Format("Seems you're an early adopter! You've got a <strong>full install of .NET 4.0</strong> on your machine. ");
             net4 = true;
         }
         else if (UserAgent.Contains(".NET4.0C"))
         {
-            netInfoString += String.Format("Seem you're an early adopter! You've got the <strong>.NET 4.0 Client Profile</strong> on your machine. ");
+            netInfoString += String.Format("Seems you're an early adopter! You've got the <strong>.NET 4.0 Client Profile</strong> on your machine. ");
             net4 = true;
         }
 
