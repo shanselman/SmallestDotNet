@@ -72,7 +72,7 @@ public class Helpers
         //need to see if windows 2000 has the latest version
         foreach (KeyValuePair<string, string> windowsVersion in Constants.oldwindows)
         {
-            CheckDotNet3_5UnSupportedOs(UserAgent, windowsVersion.Key, windowsVersion.Value, ref netInfoString);
+            netInfoString += CheckDotNet3_5UnSupportedOs(UserAgent, windowsVersion.Key, windowsVersion.Value);
         }
         
         return netInfoString;
@@ -147,12 +147,14 @@ public class Helpers
         return "";
     }
 
-    private static void CheckDotNet3_5UnSupportedOs(string UserAgent, string agent, string friendlyName, ref string userMessage)
+    private static string CheckDotNet3_5UnSupportedOs(string UserAgent, string agent, string friendlyName)
     {
+        string userMessage = "";
         if (UserAgent.Contains(agent))
         {
             userMessage += String.Format("It looks like you're running {1}. Sorry, but .NET 3.5 isn't supported on {1}, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en", friendlyName);
         }
+        return userMessage;
     }
 
 }
