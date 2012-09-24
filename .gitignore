@@ -2,6 +2,9 @@
 bin
 obj
 
+#VSArtifacts
+*suo
+
 # mstest test results
 TestResults
 
