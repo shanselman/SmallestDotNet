@@ -61,17 +61,6 @@
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="Default.aspx" />
-    <Content Include="images\badge.png" />
-    <Content Include="images\bg.gif" />
-    <Content Include="images\BrightSide.css" />
-    <Content Include="images\clock.gif" />
-    <Content Include="images\comment.gif" />
-    <Content Include="images\firefox-gray.jpg" />
-    <Content Include="images\headerbg.gif" />
-    <Content Include="images\headerphoto.jpg" />
-    <Content Include="images\page.gif" />
-    <Content Include="images\tableft.gif" />
-    <Content Include="images\tabright.gif" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="js\bootstrap.min.js" />
@@ -92,7 +81,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\Thumbs.db" />
     <Content Include="javascript.ashx" />
     <Content Include="javascriptdom.ashx" />
     <Content Include="VersionCheck.ashx" />
