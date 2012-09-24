@@ -42,7 +42,7 @@
 
         <!-- Main hero unit for a primary marketing message or call to action -->
         <div class="hero-unit">
-            <h1>Your Results</h1>
+            <h1>Your .NET!</h1>
             <p id="javascriptResult">
                 <asp:Literal runat="server" Visible="true" ID="userResult" />
             </p>
@@ -59,70 +59,92 @@
             </div>
             <div class="span4">
                 <h2>Offline Download</h2>
-                <p><asp:Literal runat="server" ID="developerOfflineResult" /></p>
+                <p>
+                    <asp:Literal runat="server" ID="developerOfflineResult" />
+                </p>
                 <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
             <div class="span4">
                 <h2>Online Download</h2>
-                <p><asp:Literal runat="server" ID="developerOnline" /></p>
-                <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
-            </div>
-            </div>
-                <div class="row-fluid">
-
-            <div class="span8">
-                <h2>Are you a .NET Programmer?</h2>
-                <p>If you're a programmer/developer, you might be trying to figure out which .NET Framework for your users to use.</p>
-                <p>Sometimes finding the right .NET Framework is confusing because different kinds of machines (x86, x64, ia64) that may or may not have different versions of .NET already on them.</p>
-                <p>If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. It's not. Those big downloads are the Complete Offline Versions of every version of the .NET Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive. The download for .NET 4.5 is even smaller.</p>
-                <p>Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.</p>
-                <%--<p><a class="btn" href="#">View details &raquo;</a></p>--%>
-            </div>
-            <div class="span4">
-                <h2>Your User Agent</h2>
                 <p>
-                    For technical or debugging purposes, this is exactly what your browser said about itself:</p>
-                    <p><asp:Literal runat="server" ID="userAgent" /></p>
+                    <asp:Literal runat="server" ID="developerOnline" />
+                </p>
                 <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
         </div>
+        <div class="row-fluid">
 
-        <div class="span12">
-            <hr />
-            <footer>
-            <p>&copy; Scott Hanselman, Michael Sarchet and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.</p>
-        </footer>
+            <div class="row-fluid">
+                <div class="span8">
+                    <h2>Are you a .NET Programmer?</h2>
+                    <p>If you're a programmer/developer, you might be trying to figure out which .NET Framework for your users to use.</p>
+                    <p>Sometimes finding the right .NET Framework is confusing because different kinds of machines (x86, x64, ia64) that may or may not have different versions of .NET already on them.</p>
+                    <p>If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. It's not. Those big downloads are the Complete Offline Versions of every version of the .NET Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive. The download for .NET 4.5 is even smaller.</p>
+                    <p>Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.</p>
+                    <%--<p><a class="btn" href="#">View details &raquo;</a></p>--%>
+                </div>
+                <div class="span4">
+                    <h2>Your User Agent</h2>
+                    <p>
+                        For technical or debugging purposes, this is exactly what your browser said about itself:
+                    </p>
+                    <p>
+                        <asp:Literal runat="server" ID="userAgent" />
+                    </p>
+                    <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <h2>JavaScript</h2>
+                    <p>Want SmallestDotNet functionality for your own site? Add this chunk of Javascript, it'll spit out HTML and you can style to taste.</p>
+                    <textarea class="field span12">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</textarea>
+
+                    <p>Prefer a Javascript Object (JSON) to detect .NET Framework installatons? Try this instead:</p>
+                    <textarea class="field span12">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</textarea>
+                    <p>Get examples on <a href="http://www.hanselman.com/blog/SmallestDotNetUpdateNowWithNet4SupportandanincludableJavascriptapi.aspx">how to use the JSON object on Scott's Blog.</a></p>
+
+
+                </div>
+            </div>
+
+            <div class="span12">
+                <hr />
+                <footer>
+                    <p>&copy; Scott Hanselman, Michael Sarchet and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.</p>
+                </footer>
+            </div>
         </div>
-    </div>
-    <!-- /container -->
+        <!-- /container -->
 
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(function() { 
-            var userAgent = navigator.userAgent;
-            if (userAgent.indexOf('Trident/5.0') !== -1 || userAgent.indexOf('Trident/6.0') !== -1) {
-                $.get('/VersionCheck.ashx',
-                        { 'userAgent': userAgent },
-                        function (data) {
-                            $('#javascriptResult').html(data);
-                        }
-                );
-            }
-        })
-    </script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var userAgent = navigator.userAgent;
+                if (userAgent.indexOf('Trident/5.0') !== -1 || userAgent.indexOf('Trident/6.0') !== -1) {
+                    $.get('/VersionCheck.ashx',
+                            { 'userAgent': userAgent },
+                            function (data) {
+                                $('#javascriptResult').html(data);
+                            }
+                    );
+                }
+            })
+        </script>
 
-    <noscript>
-        <a href='http://www.omniture.com' title='Web Analytics'>
-            <img src='http://mssto.112.2o7.net/b/ss/msstoextblogsnojs/1/H.20.2--NS/0' height='1' width='1' border='0' alt='' /></a>
-    </noscript>
-    <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-        var pageTracker = _gat._getTracker("UA-130207-3");
-        pageTracker._trackPageview();
-    </script>
+        <noscript>
+            <a href='http://www.omniture.com' title='Web Analytics'>
+                <img src='http://mssto.112.2o7.net/b/ss/msstoextblogsnojs/1/H.20.2--NS/0' height='1' width='1' border='0' alt='' /></a>
+        </noscript>
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            var pageTracker = _gat._getTracker("UA-130207-3");
+            pageTracker._trackPageview();
+        </script>
 </body>
 </html>
