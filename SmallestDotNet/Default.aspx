@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="#">Smallestdotnet</a>
+                <a class="brand" href="#">SmallestDotNET</a>
                 <div class="nav-collapse ">
                     <ul class="nav">
                         <li><a href="http://www.hanselman.com">Scott's Blog</a></li>
@@ -52,8 +52,9 @@
         <!-- Example row of columns -->
         <div class="row-fluid">
             <div class="span4">
-                <h2>What just happened?</h2>
+                <h2>What happened?</h2>
                 <p>This site looked at your browser's "UserAgent" and figured out what version (if any) of the .NET Framework you have (or don't have) installed, then calculated the total size if you chose to download the .NET Framework.</p>
+                <p>There's no database, no cookies, and nothing about your computer has been stored or kept. We just look at the information your browser already reports about your computer and make a suggestion as to the best .NET Framework download for you.</p>
                 <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
             <div class="span4">
@@ -73,16 +74,15 @@
                 <h2>Are you a .NET Programmer?</h2>
                 <p>If you're a programmer/developer, you might be trying to figure out which .NET Framework for your users to use.</p>
                 <p>Sometimes finding the right .NET Framework is confusing because different kinds of machines (x86, x64, ia64) that may or may not have different versions of .NET already on them.</p>
-                <p>If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. It's not. Those big downloads are the Complete Offline Versions of every version of the .NET Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive.</p>
+                <p>If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. It's not. Those big downloads are the Complete Offline Versions of every version of the .NET Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive. The download for .NET 4.5 is even smaller.</p>
                 <p>Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.</p>
                 <%--<p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
             <div class="span4">
                 <h2>Your User Agent</h2>
                 <p>
-                    For technical or debugging purposes, this is exactly what your browser said about itself:<br />
-                    <asp:Literal runat="server" ID="userAgent" />
-                </p>
+                    For technical or debugging purposes, this is exactly what your browser said about itself:</p>
+                    <p><asp:Literal runat="server" ID="userAgent" /></p>
                 <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
         </div>
@@ -90,7 +90,7 @@
         <div class="span12">
             <hr />
             <footer>
-            <p>&copy; Scott Hanselman and Friends 2012</p>
+            <p>&copy; Scott Hanselman, Michael Sarchet and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.</p>
         </footer>
         </div>
     </div>
