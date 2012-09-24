@@ -12,7 +12,7 @@ public class Helpers
         bool net4 = false;
         string netInfoString = "";
 
-        net4 = CheckDotNet4Installed(UserAgent, ref netInfoString);
+        net4 = (CheckForWindows8(UserAgent, ref netInfoString) || CheckDotNet4Installed(UserAgent, ref netInfoString));
 
 
         if (version != null && version.Major != 0)
@@ -39,7 +39,7 @@ public class Helpers
                     break;
             }
         }
-        else
+        else if(!net4)
         {
             if (UserAgent.Contains("fox"))
             {
@@ -78,8 +78,20 @@ public class Helpers
         return netInfoString;
     }
 
+    private static bool CheckForWindows8(string UserAgent, ref string userMessage)
+    {
+        if (UserAgent.Contains("Windows NT 6.2"))
+        {
+            userMessage += String.Format(Constants.earlyadopter, ".NET 4.5");
+            return true;
+        }
+
+        return false;
+    }
+
     private static bool CheckDotNet4Installed(string UserAgent, ref string userMessage)
     {
+        
         if (UserAgent.Contains(".NET4.0E"))
         {
             userMessage += String.Format(Constants.earlyadopter, "full install of .NET 4.0");
