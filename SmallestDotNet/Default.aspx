@@ -111,7 +111,7 @@
 
                 <h1>Support</h1>
                 <p>There's no support for this website. It's just a single page meant to save you some time and confusion. I hope it helps you. If not, I'm sorry. When all else fails, you usually can't go wrong by a visit to <a href="http://www.windowsupdate.com">WindowsUpdate.com</a>.</p>
-                <p>However, if the site breaks or tells you something that's not right, <a href="http://2idi.com/contact/=scott.hanselman">do let me know.</a></p>
+                <p>However, if the site breaks or tells you something that's not right, <a href="https://github.com/shanselman/SmallestDotNet/issues/new">file an issue.</a></p>
             </div>
 
             <!-- content-wrap ends here -->
