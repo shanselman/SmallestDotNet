@@ -97,7 +97,7 @@ public class Helpers
     private static string MessageForBrowser(string browser)
     {
         return String.Format(@"Looks like you're running {2}. That's totally cool, but I can't tell if you've got .NET installed from {2}. 
-                   Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
+                  Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
                   Alternatively, if you're running Windows, you can go <strong>download the 2.8 meg installer for {0}.</strong> 
                   Also, you might make sure your system is setup to get updates from {1} automatically. 
                   This will make sure your system is up to date with the lastest stuff, including the latest .NET Framework.", Constants.dotnet35online, Constants.windowsupdate, browser);
