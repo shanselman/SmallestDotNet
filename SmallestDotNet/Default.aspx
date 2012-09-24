@@ -43,7 +43,7 @@
         <!-- Main hero unit for a primary marketing message or call to action -->
         <div class="hero-unit">
             <h1>You're up to date! (or...)</h1>
-            <p>
+            <p id="javascriptResult">
                 <asp:Literal runat="server" Visible="true" ID="userResult" />
             </p>
             <p><a runat="server" id="getdotnet" class="btn btn-primary btn-large" href="#">Get .NET now! &raquo;</a></p>
