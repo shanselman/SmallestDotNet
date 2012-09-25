@@ -169,4 +169,44 @@ public class Helpers
         return "";
     }
 
+    public static bool Has40E(String UserAgent)
+    {
+        return UserAgent.Contains(".NET4.0E");
+    }
+
+    public static bool Has40C(String UserAgent)
+    {
+        return UserAgent.Contains(".NET4.0C");
+    }
+
+    public static bool Has35SP1E(String UserAgent)
+    {
+        return UserAgent.Contains(".NET CLR 3.5.30729");
+    }
+
+    public static bool Has35SP1C(String UserAgent)
+    {
+        return UserAgent.Contains(".NET Client 3.5");
+    }
+
+    public static bool Has35(String UserAgent)
+    {
+        return UserAgent.Contains(".NET CLR 3.5.21022");
+    }
+
+    public static bool Has20(String UserAgent)
+    {
+        return UserAgent.Contains(".NET CLR 2.0");
+    }
+
+    public static bool Has11(String UserAgent)
+    {
+        return UserAgent.Contains(".NET CLR 1.1");
+    }
+
+    public static bool Has10(String UserAgent)
+    {
+        return UserAgent.Contains(".NET CLR 1.0");
+    }
+
 }

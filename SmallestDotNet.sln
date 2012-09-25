@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestDotNetLib", "Smalle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckForDotNet45", "CheckForDotNet45\CheckForDotNet45.csproj", "{2D8463F4-3C7A-42C8-9A2D-8F585460EE74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestTest", "SmallestTest\SmallestTest.csproj", "{21BD13C9-725E-447D-8CF9-07E8CBE797B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2D8463F4-3C7A-42C8-9A2D-8F585460EE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D8463F4-3C7A-42C8-9A2D-8F585460EE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D8463F4-3C7A-42C8-9A2D-8F585460EE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21BD13C9-725E-447D-8CF9-07E8CBE797B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BD13C9-725E-447D-8CF9-07E8CBE797B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21BD13C9-725E-447D-8CF9-07E8CBE797B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21BD13C9-725E-447D-8CF9-07E8CBE797B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
