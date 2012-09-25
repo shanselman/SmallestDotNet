@@ -99,10 +99,14 @@
                 <div class="span12">
                     <h2>JavaScript</h2>
                     <p>Want SmallestDotNet functionality for your own site? Add this chunk of Javascript, it'll spit out HTML and you can style to taste.</p>
-                    <textarea class="field span12">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</textarea>
+                    <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</pre>
 
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
                     <p>Prefer a Javascript Object (JSON) to detect .NET Framework installatons? Try this instead:</p>
-                    <textarea class="field span12">&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</textarea>
+                    <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</pre>
                     <p>Get examples on <a href="http://www.hanselman.com/blog/SmallestDotNetUpdateNowWithNet4SupportandanincludableJavascriptapi.aspx">how to use the JSON object on Scott's Blog.</a></p>
 
 
