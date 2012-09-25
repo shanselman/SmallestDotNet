@@ -30,7 +30,7 @@
                     <ul class="nav">
                         <li><a href="http://www.hanselman.com">Scott's Blog</a></li>
                         <li><a href="https://github.com/shanselman/SmallestDotNet/">This site on GitHub</a></li>
-                        <li><a href="https://github.com/shanselman/SmallestDotNet/imags">Report a Bug</a></li>
+                        <li><a href="https://github.com/shanselman/SmallestDotNet/issues">Report a Bug</a></li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
