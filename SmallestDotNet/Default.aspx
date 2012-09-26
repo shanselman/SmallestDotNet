@@ -42,7 +42,7 @@
 
         <!-- Main hero unit for a primary marketing message or call to action -->
         <div class="hero-unit">
-            <h1>Your .NET!</h1>
+            <h1>Your .NET Verion Results!</h1>
             <p id="javascriptResult">
                 <asp:Literal runat="server" Visible="true" ID="userResult" />
             </p>
