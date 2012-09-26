@@ -149,15 +149,15 @@ namespace SmallestTest
         public void Test45Json()
         {
             var expected = @"{
-                major: 1,
-                minor: 0,
+                major: 4,
+                minor: 5,
                 profile: ""full"",
                 servicePack: null                
             }";
 
             int? servicePack = null;
 
-            var actual = SmallestDotNetLib.JsonVersions.WriteVersion(1, 0, "full", servicePack);
+            var actual = SmallestDotNetLib.JsonVersions.WriteVersion(4, 5, "full", servicePack);
 
             Assert.AreEqual(expected, actual);
         }

@@ -14,7 +14,7 @@ public class SmallestDotNet : IHttpHandler
     {
         dr(JsonVersions.WriteLatest(major, minor, profile, sp));
     }
-    
+
     public void WriteVersion(int major, int minor, string profile, int? sp)
     {
         if (firstVersionWritten) dr(",");
@@ -29,21 +29,22 @@ public class SmallestDotNet : IHttpHandler
 
         dr("SmallestDotNet = {};");
 
-        if (Helpers.Has40E(context))
+        var userAgent = context.Request.UserAgent;
+        if (Helpers.Has40E(userAgent))
             WriteLatest(4, 0, "full", null);
-        else if (Helpers.Has40C(context))
+        else if (Helpers.Has40C(userAgent))
             WriteLatest(4, 0, "client", null);
-        else if (Helpers.Has35SP1E(context))
+        else if (Helpers.Has35SP1E(userAgent))
             WriteLatest(3, 5, "full", 1);
-        else if (Helpers.Has35SP1C(context))
+        else if (Helpers.Has35SP1C(userAgent))
             WriteLatest(3, 5, "client", 1);
-        else if (Helpers.Has35(context))
+        else if (Helpers.Has35(userAgent))
             WriteLatest(3, 5, "full", null);
-        else if (Helpers.Has20(context))
+        else if (Helpers.Has20(userAgent))
             WriteLatest(2, 0, "full", null);
-        else if (Helpers.Has11(context))
+        else if (Helpers.Has11(userAgent))
             WriteLatest(1, 1, "full", null);
-        else if (Helpers.Has10(context))
+        else if (Helpers.Has10(userAgent))
             WriteLatest(1, 0, "full", null);
         else
             dr("SmallestDotNet.latestVersion = null;");
@@ -51,28 +52,28 @@ public class SmallestDotNet : IHttpHandler
         dr(@"SmallestDotNet.allVersions =
         [");
 
-        if (Helpers.Has40E(context))
-            WriteVersion(context, 4, 0, "full", null);
-        if (Helpers.Has40C(context))
-            WriteVersion(context, 4, 0, "client", null);
+        if (Helpers.Has40E(userAgent))
+            WriteVersion(4, 0, "full", null);
+        if (Helpers.Has40C(userAgent))
+            WriteVersion(4, 0, "client", null);
 
-        if (Helpers.Has35SP1E(context))
-            WriteVersion(context, 3, 5, "full", 1);
+        if (Helpers.Has35SP1E(userAgent))
+            WriteVersion(3, 5, "full", 1);
 
-        if (Helpers.Has35SP1C(context))
-            WriteVersion(context, 3, 5, "client", 1);
+        if (Helpers.Has35SP1C(userAgent))
+            WriteVersion(3, 5, "client", 1);
 
-        if (Helpers.Has35(context))
-            WriteVersion(context, 3, 5, "full", null);
+        if (Helpers.Has35(userAgent))
+            WriteVersion(3, 5, "full", null);
 
-        if (Helpers.Has20(context))
-            WriteVersion(context, 2, 0, "full", null);
+        if (Helpers.Has20(userAgent))
+            WriteVersion(2, 0, "full", null);
 
-        if (Helpers.Has11(context))
-            WriteVersion(context, 1, 1, "full", null);
+        if (Helpers.Has11(userAgent))
+            WriteVersion(1, 1, "full", null);
 
-        if (Helpers.Has10(context))
-            WriteVersion(context, 1, 0, "full", null);
+        if (Helpers.Has10(userAgent))
+            WriteVersion(1, 0, "full", null);
 
         dr(@"];");
 
