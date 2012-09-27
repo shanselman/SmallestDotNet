@@ -12,7 +12,7 @@ public class SmallestDotNet : IHttpHandler
 
     public void WriteLatest(int major, int minor, string profile, int? sp)
     {
-        dr(JsonVersions.WriteLatest(major, minor, profile, sp));
+        dr(JsonVersions.WriteLatestVersion(major, minor, profile, sp));
     }
 
     public void WriteVersion(int major, int minor, string profile, int? sp)
@@ -29,102 +29,18 @@ public class SmallestDotNet : IHttpHandler
 
         dr("SmallestDotNet = {};");
 
-        var userAgent = context.Request.UserAgent;
-        if (Helpers.Has40E(userAgent))
-            WriteLatest(4, 0, "full", null);
-        else if (Helpers.Has40C(userAgent))
-            WriteLatest(4, 0, "client", null);
-        else if (Helpers.Has35SP1E(userAgent))
-            WriteLatest(3, 5, "full", 1);
-        else if (Helpers.Has35SP1C(userAgent))
-            WriteLatest(3, 5, "client", 1);
-        else if (Helpers.Has35(userAgent))
-            WriteLatest(3, 5, "full", null);
-        else if (Helpers.Has20(userAgent))
-            WriteLatest(2, 0, "full", null);
-        else if (Helpers.Has11(userAgent))
-            WriteLatest(1, 1, "full", null);
-        else if (Helpers.Has10(userAgent))
-            WriteLatest(1, 0, "full", null);
-        else
-            dr("SmallestDotNet.latestVersion = null;");
+        dr(JsonVersions.WriteLatestVersions(context.Request.UserAgent));
 
         dr(@"SmallestDotNet.allVersions =
         [");
 
-        if (Helpers.Has40E(userAgent))
-            WriteVersion(4, 0, "full", null);
-        if (Helpers.Has40C(userAgent))
-            WriteVersion(4, 0, "client", null);
-
-        if (Helpers.Has35SP1E(userAgent))
-            WriteVersion(3, 5, "full", 1);
-
-        if (Helpers.Has35SP1C(userAgent))
-            WriteVersion(3, 5, "client", 1);
-
-        if (Helpers.Has35(userAgent))
-            WriteVersion(3, 5, "full", null);
-
-        if (Helpers.Has20(userAgent))
-            WriteVersion(2, 0, "full", null);
-
-        if (Helpers.Has11(userAgent))
-            WriteVersion(1, 1, "full", null);
-
-        if (Helpers.Has10(userAgent))
-            WriteVersion(1, 0, "full", null);
+        dr(JsonVersions.WriteAllVersions(context.Request.UserAgent));
 
         dr(@"];");
 
 
         //Download links
-        dr(@"
-                SmallestDotNet.downloadableVersions =
-                [{
-                        major: 4,
-                        minor: 0,
-                        profile: 'client',
-                        servicePack: null,
-                        url: 'http://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en'                                        
-                },{
-                        major: 4,
-                        minor: 0,
-                        profile: 'full',
-                        servicePack: null,
-                        url: 'http://www.microsoft.com/downloads/details.aspx?FamilyID=9f5e8774-c8dc-4ff6-8285-03a4c387c0db&displaylang=en'                                        
-                },{
-                        major: 3,
-                        minor: 5,
-                        profile: 'client',
-                        servicePack: 1,
-                        url: 'http://www.microsoft.com/downloads/details.aspx?FamilyId=8CEA6CD1-15BC-4664-B27D-8CEBA808B28B&displaylang=en'                        
-                },{
-                        major: 3,
-                        minor: 5,
-                        profile: 'full',
-                        servicePack: 1,               
-                        url: 'http://go.microsoft.com/fwlink/?LinkId=124150'                                        
-                },{
-                        major: 3,
-                        minor: 0,
-                        profile: 'full',
-                        servicePack: 1,
-                        url: 'http://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en'                                        
-                },{
-                        major: 2,
-                        minor: 0,
-                        profile: 'full',
-                        servicePack: 2,
-                        url: 'http://www.microsoft.com/downloads/details.aspx?familyid=5B2C0358-915B-4EB5-9B1D-10E506DA9D0F&displaylang=en'                                        
-                },{
-                        major: 1,
-                        minor: 1,
-                        profile: 'full',
-                        servicePack: 1,
-                        url: 'http://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en'                                        
-                }];
-                ");
+        dr(JsonVersions.WriteDownloads(context.Request.UserAgent).Trim());
 
 
 
