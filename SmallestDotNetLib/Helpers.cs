@@ -82,7 +82,7 @@ public class Helpers
     {
         if (UserAgent.Contains("Windows NT 6.2"))
         {
-            userMessage += String.Format(Constants.EarlyAdopter, ".NET 4.5");
+            userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET 4.5");
             return true;
         }
 
