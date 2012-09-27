@@ -171,42 +171,42 @@ public class Helpers
 
     public static bool Has40E(String UserAgent)
     {
-        return UserAgent.Contains(".NET4.0E");
+        return UserAgent.Contains(Constants.Version40Full);
     }
 
     public static bool Has40C(String UserAgent)
     {
-        return UserAgent.Contains(".NET4.0C");
+        return UserAgent.Contains(Constants.Version40Client);
     }
 
     public static bool Has35SP1E(String UserAgent)
     {
-        return UserAgent.Contains(".NET CLR 3.5.30729");
+        return UserAgent.Contains(Constants.Version35SP1Full);
     }
 
     public static bool Has35SP1C(String UserAgent)
     {
-        return UserAgent.Contains(".NET Client 3.5");
+        return UserAgent.Contains(Constants.Version35SP1Client);
     }
 
     public static bool Has35(String UserAgent)
     {
-        return UserAgent.Contains(".NET CLR 3.5.21022");
+        return UserAgent.Contains(Constants.Version35Full);
     }
 
     public static bool Has20(String UserAgent)
     {
-        return UserAgent.Contains(".NET CLR 2.0");
+        return UserAgent.Contains(Constants.Version20Full);
     }
 
     public static bool Has11(String UserAgent)
     {
-        return UserAgent.Contains(".NET CLR 1.1");
+        return UserAgent.Contains(Constants.Version11Full);
     }
 
     public static bool Has10(String UserAgent)
     {
-        return UserAgent.Contains(".NET CLR 1.0");
+        return UserAgent.Contains(Constants.Version10Full);
     }
 
 }

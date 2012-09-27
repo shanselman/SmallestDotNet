@@ -85,7 +85,7 @@ namespace SmallestDotNetLib
             if (Helpers.Has10(userAgent))
                 versions.Add(WriteVersion(1, 0, "full", null));
 
-            return String.Join("", versions.ToArray());
+            return String.Format(@"SmallestDotNet.allVersions = [{0}];", String.Join(",", versions.ToArray()));
 
         }
 

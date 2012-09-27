@@ -21,4 +21,14 @@ public static class Constants
         {"Windows 95", "Windows 95"},
         {"Windows 98", "Windows 98"}
     };
+
+    public const string Version40Full = ".NET4.0E";
+    public const string Version40Client = ".NET4.0C";
+    public const string Version35SP1Full = ".NET CLR 3.5.30729";
+    public const string Version35SP1Client = ".NET Client 3.5";
+    public const string Version35Full = ".NET CLR 3.5.21022";
+    public const string Version20Full = ".NET CLR 2.0";
+    public const string Version11Full = ".NET CLR 1.1";
+    public const string Version10Full = ".NET CLR 1.0";
+
 }
