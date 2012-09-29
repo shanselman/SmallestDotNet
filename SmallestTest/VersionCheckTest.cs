@@ -37,5 +37,13 @@ namespace SmallestTest
             Assert.IsTrue(Helpers.Has40C(userAgentCLRString), ".NET Version 4.0 Client Profile");
             Assert.IsTrue(Helpers.Has40E(userAgentCLRString), ".NET Version 4.0 Full");
         }
+
+        [TestMethod]
+        public void CheckWindows8Detection()
+        {
+            var userAgent = "Windows NT 6.2";
+
+            Assert.IsTrue(Helpers.HasWindows8(userAgent), "Windows 8");
+        }
     }
 }

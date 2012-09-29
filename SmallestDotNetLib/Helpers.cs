@@ -12,32 +12,37 @@ public class Helpers
         bool net4 = false;
         string netInfoString = "";
 
+
+        //We should check this first since we don't need to check .NET versions if they can't have .NET versions
+        if (UserAgent.Contains("Mac"))
+        {
+            netInfoString = "It looks like you're running a Mac. There's no .NET Framework download from Microsoft for the Mac, but you might check out either <a href=\"http://www.microsoft.com/silverlight/resources/install.aspx\">Silverlight</a> which is a browser plugin that includes a small version of the .NET Framework. You could also check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac.";
+            return netInfoString;
+        }
+        if (UserAgent.Contains("nix"))
+        {
+            netInfoString = "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
+            return netInfoString;        
+        }
+        
+        
         net4 = (CheckForWindows8(UserAgent, ref netInfoString) || CheckDotNet4Installed(UserAgent, ref netInfoString));
 
-
-        if (version != null && version.Major != 0)
+        if ( Helpers.Has11(UserAgent) || Helpers.Has10(UserAgent))
         {
-            switch (version.Major)
-            {
-                case 1:
-                    if (version.Minor == 0 || version.Minor == 1)
-                        netInfoString += DotNet1Message(net4);
-                    break;
-                case 2:
-                    netInfoString += DotNet2Message(net4);
-                    break;
-                case 3:
-                    switch (version.Minor)
-                    {
-                        case 0:
-                            netInfoString += DotNet3Message(net4);
-                            break;
-                        case 5:
-                            netInfoString += DotNet3_5Message(version.Build, net4);
-                            break;
-                    }
-                    break;
-            }
+            netInfoString += DotNet1Message(net4);
+        }
+        else if (Helpers.Has20(UserAgent))
+        {
+            netInfoString += DotNet2Message(net4);
+        }
+        else if (Helpers.Has30(UserAgent))
+        {
+            netInfoString += DotNet3Message(net4);
+        }
+        else if (Helpers.Has35(UserAgent))
+        {
+            netInfoString += DotNet3_5Message(version.Build, net4);
         }
         else if(!net4)
         {
@@ -59,16 +64,6 @@ public class Helpers
             }
         }
 
-        if (UserAgent.Contains("Mac"))
-        {
-            netInfoString += "It looks like you're running a Mac. There's no .NET Framework download from Microsoft for the Mac, but you might check out either <a href=\"http://www.microsoft.com/silverlight/resources/install.aspx\">Silverlight</a> which is a browser plugin that includes a small version of the .NET Framework. You could also check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac.";
-        }
-
-        if (UserAgent.Contains("nix"))
-        {
-            netInfoString += "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
-        }
-        
         //need to see if windows 2000 has the latest version
         foreach (KeyValuePair<string, string> windowsVersion in Constants.OldWindows)
         {
@@ -80,7 +75,7 @@ public class Helpers
 
     private static bool CheckForWindows8(string UserAgent, ref string userMessage)
     {
-        if (UserAgent.Contains("Windows NT 6.2"))
+        if (Helpers.HasWindows8(UserAgent))
         {
             userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET 4.5");
             return true;
@@ -92,12 +87,12 @@ public class Helpers
     private static bool CheckDotNet4Installed(string UserAgent, ref string userMessage)
     {
         
-        if (UserAgent.Contains(".NET4.0E"))
+        if (Helpers.Has40E(UserAgent))
         {
             userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET 4.0");
             return true;
         }
-        else if (UserAgent.Contains(".NET4.0C"))
+        else if (Helpers.Has40C(UserAgent))
         {
             userMessage += String.Format(Constants.EarlyAdopter, ".NET 4.0 Client Profile");
             return true;
@@ -169,6 +164,12 @@ public class Helpers
         return "";
     }
 
+
+    public static bool HasWindows8(String UserAgent)
+    {
+        return UserAgent.Contains(Constants.Windows8);
+    }
+
     public static bool Has40E(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version40Full);
@@ -193,6 +194,12 @@ public class Helpers
     {
         return UserAgent.Contains(Constants.Version35Full);
     }
+
+    public static bool Has30(String UserAgent)
+    {
+        return UserAgent.Contains(Constants.Version30Full);
+    }
+
 
     public static bool Has20(String UserAgent)
     {
