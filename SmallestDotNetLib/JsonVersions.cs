@@ -104,12 +104,18 @@ namespace SmallestDotNetLib
                        version.ServicePack.HasValue ? version.ServicePack.Value.ToString() : "null", 
                        version.Url);
         }
+
+        private static string _downloadString = "";
         public static string WriteDownloads()
         {
-            var DownloadableVersions = CLRVersions.GetDownloadableVersions().Select(p => JsonVersions.WriteDownloadVersion(p.Value)).ToList();
+            if (_downloadString == "")
+            {
+                var DownloadableVersions = CLRVersions.GetDownloadableVersions().Select(p => JsonVersions.WriteDownloadVersion(p.Value)).ToList();
 
-            return String.Format(@"SmallestDotNet.downloadableVersions = [{0}];", String.Join(",", DownloadableVersions.ToArray()));
-            
+                _downloadString = String.Format(@"SmallestDotNet.downloadableVersions = [{0}];", String.Join(",", DownloadableVersions.ToArray()));
+            }
+
+            return _downloadString;
         }
 
     }
