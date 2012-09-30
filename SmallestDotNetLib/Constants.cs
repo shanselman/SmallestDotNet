@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 
 /// <summary>
-/// Summary description for Constants
+/// A Place for the Strings
 /// </summary>
 public static class Constants
 {
@@ -32,5 +32,14 @@ public static class Constants
     public const string Version20Full = ".NET CLR 2.0";
     public const string Version11Full = ".NET CLR 1.1";
     public const string Version10Full = ".NET CLR 1.0";
+
+    public const string Version11URL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en";
+    public const string Version20URL = "http://www.microsoft.com/downloads/details.aspx?familyid=5B2C0358-915B-4EB5-9B1D-10E506DA9D0F&displaylang=en";
+    public const string Version30URL = "http://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en";
+    public const string Version35SP1FullURL = "http://www.microsoft.com/en-us/download/details.aspx?id=22";
+    public const string Version35SP1ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyId=8CEA6CD1-15BC-4664-B27D-8CEBA808B28B&displaylang=en";
+    public const string Version40FullURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=9f5e8774-c8dc-4ff6-8285-03a4c387c0db&displaylang=en";
+    public const string Version40ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
+    public const string Version45URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
 
 }

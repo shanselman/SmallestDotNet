@@ -17,7 +17,7 @@ public class SmallestDotNet : IHttpHandler
         
         dr(JsonVersions.WriteAllVersions(context.Request.UserAgent));
 
-        dr(JsonVersions.WriteDownloads(context.Request.UserAgent).Trim());
+        dr(JsonVersions.WriteDownloads().Trim());
 
 
         if (context.Request.UserAgent.Contains("Mac") || context.Request.UserAgent.Contains("nix"))
