@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 
 /// <summary>
-/// Summary description for Helpers
+/// A Class containing general purposes methods
 /// </summary>
 public class Helpers
 {
@@ -26,7 +26,7 @@ public class Helpers
         }
         
         
-        net4 = (CheckForWindows8(UserAgent, ref netInfoString) || CheckDotNet4Installed(UserAgent, ref netInfoString));
+        net4 = (GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString));
 
         if ( Helpers.Has11(UserAgent) || Helpers.Has10(UserAgent))
         {
@@ -73,7 +73,7 @@ public class Helpers
         return netInfoString;
     }
 
-    private static bool CheckForWindows8(string UserAgent, ref string userMessage)
+    private static bool GetWindows8Message(string UserAgent, ref string userMessage)
     {
         if (Helpers.HasWindows8(UserAgent))
         {
@@ -84,7 +84,7 @@ public class Helpers
         return false;
     }
 
-    private static bool CheckDotNet4Installed(string UserAgent, ref string userMessage)
+    private static bool Get40Message(string UserAgent, ref string userMessage)
     {
         
         if (Helpers.Has40E(UserAgent))
@@ -165,52 +165,101 @@ public class Helpers
     }
 
 
+    /// <summary>
+    /// Determines if the User Agent String indicates Windows 8
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool HasWindows8(String UserAgent)
     {
         return UserAgent.Contains(Constants.Windows8);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 4.0 Full
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has40E(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version40Full);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 40 Client
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has40C(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version40Client);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 3.5 SP1 Full
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has35SP1E(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version35SP1Full);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 3.5 SP1 Client
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has35SP1C(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version35SP1Client);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 3.5
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has35(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version35Full);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 3.0
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has30(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version30Full);
     }
 
-
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 2.0
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has20(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version20Full);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 1.1
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has11(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version11Full);
     }
 
+    /// <summary>
+    /// Determines if the User Agent String indicates .NET 1.0
+    /// </summary>
+    /// <param name="UserAgent">A User Agent String</param>
+    /// <returns></returns>
     public static bool Has10(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version10Full);

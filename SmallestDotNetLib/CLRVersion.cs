@@ -7,12 +7,34 @@ using System.Drawing;
 
 namespace SmallestDotNetLib
 {
+    /// <summary>
+    /// Represent A .NET CLR Version
+    /// </summary>
     public struct CLRVersion
     {
+        /// <summary>
+        /// The Major Version
+        /// </summary>
         public int Major;
+
+        /// <summary>
+        /// The Minor Version
+        /// </summary>
         public int Minor;
+
+        /// <summary>
+        /// The .NET CLR Profile (Full or Client)
+        /// </summary>
         public string Profile;
+
+        /// <summary>
+        /// Service Pack Version, null if none
+        /// </summary>
         public int? ServicePack;
+
+        /// <summary>
+        /// A URL to download the CLR Version Installer
+        /// </summary>
         public string Url;
 
         public CLRVersion(int major, int minor, string profile, int? servicePack, string url)
@@ -26,8 +48,14 @@ namespace SmallestDotNetLib
 
     }
 
+    /// <summary>
+    /// Contains Methods for discovering information about CLR Versions
+    /// </summary>
     public class CLRVersions
     {
+        /// <summary>
+        /// A Dictionary of CLR Versions with information
+        /// </summary>
         public static Dictionary<string, CLRVersion> Versions = new Dictionary<string, CLRVersion>
         {
             {Constants.Version10Full, new CLRVersion(1, 0, "full", null, "")},
@@ -41,6 +69,10 @@ namespace SmallestDotNetLib
             {Constants.Version40Full, new CLRVersion(4, 0, "full", null, Constants.Version40FullURL)}
         };
 
+        /// <summary>
+        /// Gets all downloadable CLR Versions represented in the Versions Dictionary
+        /// </summary>
+        /// <returns>A Dictionary<string, CLRVersion> containing Versions with a download url</returns>
         public static Dictionary<string, CLRVersion> GetDownloadableVersions()
         {
             return Versions.Where(pair => pair.Value.Url != "").ToDictionary(pair => pair.Key, pair => pair.Value);
