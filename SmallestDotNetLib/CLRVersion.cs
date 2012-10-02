@@ -63,7 +63,8 @@ namespace SmallestDotNetLib
             {Constants.Version35SP1Client, new CLRVersion(3, 5, "client", 1, Constants.Version35SP1ClientURL)},
             {Constants.Version35SP1Full, new CLRVersion(3, 5, "full", 1, Constants.Version35SP1FullURL)},
             {Constants.Version40Client, new CLRVersion(4, 0, "client", null, Constants.Version40ClientURL)},
-            {Constants.Version40Full, new CLRVersion(4, 0, "full", null, Constants.Version40FullURL)}
+            {Constants.Version40Full, new CLRVersion(4, 0, "full", null, Constants.Version40FullURL)},
+            {Constants.Version45Full, new CLRVersion(4, 5, "full", null, Constants.Version45URL)}
         };
 
         /// <summary>

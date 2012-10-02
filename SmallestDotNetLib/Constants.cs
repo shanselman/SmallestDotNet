@@ -7,8 +7,8 @@ using System.Web;
 /// </summary>
 public static class Constants
 {
-    public const string DotNet35Url = "http://www.microsoft.com/downloads/details.aspx?FamilyId=AB99342F-5D1A-413D-8319-81DA479AB0D7&displaylang=en";
-    public static readonly string DotNet35Online = String.Format("<a href=\"{0}\">.NET Framework 3.5 SP1</a>", DotNet35Url);
+    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">{1}</a>", Version45URL, Version45Full);
+
     public const string WindowsUpdate = "<a href=\"http://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
                            For you, it'll probably be <strong>{0} megabytes total</strong>.";
@@ -23,6 +23,8 @@ public static class Constants
     };
 
     public const string Windows8 = "Windows NT 6.2";
+
+    public const string Version45Full = ".NET 4.5";
     public const string Version40Full = ".NET 4.0E";
     public const string Version40Client = ".NET 4.0C";
     public const string Version35SP1Full = ".NET CLR 3.5.30729";
@@ -32,6 +34,8 @@ public static class Constants
     public const string Version20Full = ".NET CLR 2.0";
     public const string Version11Full = ".NET CLR 1.1";
     public const string Version10Full = ".NET CLR 1.0";
+
+    public const string Version45OfflineURL = "http://go.microsoft.com/fwlink/?LinkId=225702";
 
     public const string Version11URL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en";
     public const string Version20URL = "http://www.microsoft.com/downloads/details.aspx?familyid=5B2C0358-915B-4EB5-9B1D-10E506DA9D0F&displaylang=en";

@@ -61,17 +61,14 @@
                 There's no database, no cookies, and nothing about your computer has been stored or kept. We just look at the information your browser already reports about your computer and make a suggestion as to the best .NET Framework download for you.
                 <br />
                 <br />
-                <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
             <div class="span4">
                 <h2><i class="icon-download-alt"></i> Offline Download</h2>
                     <asp:Literal runat="server" ID="developerOfflineResult" />
-                <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
             <div class="span4">
                 <h2><i class="icon-download-alt"></i> Online Download</h2>
                 <asp:Literal runat="server" ID="developerOnline" />
-                <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
         </div>
         <div class="row-fluid">
@@ -93,14 +90,13 @@
                 For technical or debugging purposes, this is exactly what your browser said about itself:
                 <br />
                 <pre><asp:Literal runat="server" ID="userAgent" /></pre>
-                <%--          <p><a class="btn" href="#">View details &raquo;</a></p>--%>
             </div>
         </div>
 
         <div class="row-fluid">
             <div class="span12">
                 <h3>Integration</h3>
-                Want SmallestDotNet functionality for your own site? Add this chunk of Javascript, it'll spit out HTML and you can style to taste.
+                Want SmallestDotNet functionality for your own site? Add this chunk of JavaScript, it'll spit out HTML and you can style to taste.
                 <br />
                 <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</pre>
 
@@ -108,7 +104,7 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
-                Prefer a Javascript Object (JSON) to detect .NET Framework installatons? Try this instead:
+                Prefer a JavaScript Object (JSON) to detect .NET Framework installations? Try this instead:
                 <br />
                 <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</pre>
                 Get examples on <a href="http://www.hanselman.com/blog/SmallestDotNetUpdateNowWithNet4SupportandanincludableJavascriptapi.aspx">how to use the JSON object on Scott's Blog.</a>
