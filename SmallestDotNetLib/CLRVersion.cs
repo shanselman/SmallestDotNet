@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace SmallestDotNetLib
 {
@@ -74,6 +75,37 @@ namespace SmallestDotNetLib
         public static Dictionary<string, CLRVersion> GetDownloadableVersions()
         {
             return Versions.Where(pair => pair.Value.Url != "").ToDictionary(pair => pair.Key, pair => pair.Value);
+        }
+
+        public static Dictionary<string, CLRVersion> GetVersionsFromUserAgent(string UserAgent)
+        {
+            var results = new Dictionary<string, CLRVersion>();
+
+            var regex = new Regex(@"(.NET.*?;)", RegexOptions.IgnoreCase);
+            var foundVersions = regex.Matches(UserAgent);
+
+            
+            foreach (Match match in foundVersions)
+            {
+                var v = match.Value.Replace(";", "");
+                if (v.Contains(Constants.Version35Full) && !v.Contains(Constants.Version35SP1Client) && !v.Contains(Constants.Version35SP1Full)) v = Constants.Version35Full;
+                if (v.Contains(Constants.Version30Full)) v = Constants.Version30Full;
+                if (v.Contains(Constants.Version20Full)) v = Constants.Version20Full;
+                if (v.Contains(Constants.Version11Full)) v = Constants.Version11Full;
+                if (v.Contains(Constants.Version10Full)) v = Constants.Version10Full;
+                if (Versions.ContainsKey(v))
+                {
+                    var version = Versions[v];
+                    results.Add(v, version);
+                }
+            }
+
+            if (Helpers.HasWindows8(UserAgent))
+            {
+                results.Add(Constants.Version45Full, Versions[Constants.Version45Full]);
+            }
+
+            return results;
         }
     }
 }

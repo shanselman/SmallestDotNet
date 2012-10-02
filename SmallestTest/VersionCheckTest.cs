@@ -13,8 +13,8 @@ namespace SmallestTest
         {
             return new List<string> 
             {
-                ".NET 4.0E"
-                , ".NET 4.0C"
+                ".NET4.0E"
+                , ".NET4.0C"
                 , ".NET CLR 3.5.30729"
                 , ".NET Client 3.5"
                 , ".NET CLR 3.5.21022"

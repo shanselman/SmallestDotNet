@@ -31,7 +31,7 @@ namespace SmallestTest
         [TestMethod]
         public void Write40AsLatestVersion()
         {
-            var userAgent = ".NET 4.0E";
+            var userAgent = ".NET4.0E";
 
             var expectedVersion = generateLatestVersionString(4, 0, "full", null);
 
@@ -44,7 +44,7 @@ namespace SmallestTest
         [TestMethod]
         public void Write40ClientAsLatestVersion()
         {
-            var userAgent = ".NET 4.0C";
+            var userAgent = ".NET4.0C";
 
             var expectedVersion = generateLatestVersionString(4, 0, "client", null);
 

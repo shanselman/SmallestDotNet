@@ -85,19 +85,26 @@ public class Helpers
 
     private static bool Get40Message(string UserAgent, ref string userMessage)
     {
-        
+
+        var whichVersion = "";
+        var ret = false;
         if (Helpers.Has40E(UserAgent))
         {
-            userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET 4.0");
-            return true;
+            whichVersion = ".NET 4.0";
+            ret = true;
         }
         else if (Helpers.Has40C(UserAgent))
         {
-            userMessage += String.Format(Constants.EarlyAdopter, ".NET 4.0 Client Profile");
-            return true;
+            whichVersion = ".NET 4.0 Client Profile";
+            ret = true;
         }
 
-        return false;
+        if (ret)
+        {
+            userMessage += String.Format(@"You have {0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", whichVersion ,Constants.DotNetOnline);
+        }
+
+        return ret;
     }
 
     private static string MessageForBrowser(string browser)
