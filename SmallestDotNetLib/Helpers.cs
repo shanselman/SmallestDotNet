@@ -27,22 +27,21 @@ public class Helpers
         
         
         net4 = (GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString));
-
-        if ( Helpers.Has11(UserAgent) || Helpers.Has10(UserAgent))
+        if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
         {
-            netInfoString += DotNet1Message(net4);
-        }
-        else if (Helpers.Has20(UserAgent))
-        {
-            netInfoString += DotNet2Message(net4);
+            netInfoString += DotNet3_5Message(version.Build, net4);
         }
         else if (Helpers.Has30(UserAgent))
         {
             netInfoString += DotNet3Message(net4);
         }
-        else if (Helpers.Has35(UserAgent))
+        else if (Helpers.Has20(UserAgent))
         {
-            netInfoString += DotNet3_5Message(version.Build, net4);
+            netInfoString += DotNet2Message(net4);
+        }
+        else if ( Helpers.Has11(UserAgent) || Helpers.Has10(UserAgent))
+        {
+            netInfoString += DotNet1Message(net4);
         }
         else if(!net4)
         {
@@ -129,26 +128,22 @@ public class Helpers
     {
         string explain = String.Format(Constants.WhyItIsSmall, "around 33");
         return String.Format(@"Looks like you {2} have <strong>.NET version 2.0</strong>. 
-                     That's a fairly recent version of the .NET Framework, but you can upgrade fairly easily to the newest version by downloading the 2.8 meg ""bootstrapper"" for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
+                     That's a fairly recent version of the .NET Framework, but you can upgrade fairly easily to the .NET 4.5 by downloading the 980 KB isntaller for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
     }
 
     private static string DotNet3Message(bool hasDotNet4)
     {
         string explain = String.Format(Constants.WhyItIsSmall, "only 10");
         return String.Format(@"Looks like you {2} have <strong>.NET version 3.0</strong>. 
-                     That's a very recent version of the .NET Framework, but you can upgrade fairly easily to the 3.5 version by downloading the 2.8 meg installer for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
+                     That's a very recent version of the .NET Framework, but you can upgrade fairly easily to .NET 4.5 by downloading the 980 KB installer for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
     }
 
     private static string DotNet3_5Message(int build, bool hasDotNet4)
     {
-        switch (build)
+
+        if (!hasDotNet4)
         {
-            case 21022: //RTM
-                return String.Format("Looks like you {2} have <strong>.NET version 3.5</strong>. The latest version is 3.5 SP1. You can upgrade quickly with this small download for {0}. Also, you should make sure your system is setup to get updates from {1} automatically. This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.DotNetOnline, Constants.WindowsUpdate, hasDotNet4 ? "also" : "");
-            case 30729: //SP1
-                return String.Format("Looks like you {1} have <strong>.NET version 3.5 SP1</strong>. That's the VERY latest .NET Framework. <strong>You don't need to do anything right now.</strong> However, you might make sure your system is setup to get updates from {0} automatically. This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.WindowsUpdate, hasDotNet4 ? "also" : "");
-            default:
-                return String.Format("Looks like you <i>might</i> {2} have a <em>beta</em> version of <strong>.NET version 3.5 SP1</strong>. Perhaps you're a programmer or you know one? You should probably uninstall that version and run the small setup program for {0}. Also, you might make sure your system is setup to get updates from {1} automatically. This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.DotNetOnline, Constants.WindowsUpdate, hasDotNet4 ? "also" : "");
+            return String.Format(@"You have .NET 3.5, this is a recent version of .NET. Download an installer for the newest version <strong>{0}</strong>.", Constants.DotNetOnline);
         }
 
         return "";
