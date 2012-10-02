@@ -81,13 +81,13 @@ namespace SmallestDotNetLib
         {
             var results = new Dictionary<string, CLRVersion>();
 
-            var regex = new Regex(@"(.NET.*?;)", RegexOptions.IgnoreCase);
-            var foundVersions = regex.Matches(UserAgent);
+            var foundVersions = UserAgent.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains(".NET"));
 
             
-            foreach (Match match in foundVersions)
+            foreach (string match in foundVersions)
             {
-                var v = match.Value.Replace(";", "");
+                var v = match.Trim();
+                //this really sucks and makes me mad
                 if (v.Contains(Constants.Version35Full) && !v.Contains(Constants.Version35SP1Client) && !v.Contains(Constants.Version35SP1Full)) v = Constants.Version35Full;
                 if (v.Contains(Constants.Version30Full)) v = Constants.Version30Full;
                 if (v.Contains(Constants.Version20Full)) v = Constants.Version20Full;

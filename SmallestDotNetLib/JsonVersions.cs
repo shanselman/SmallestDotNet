@@ -16,7 +16,7 @@ namespace SmallestDotNetLib
         /// <returns>A Json String Representing the latest version</returns>
         public static string WriteLatestVersion(int major, int minor, string profile, int? sp)
         {
-            return String.Format(@"SmallestDotNet.latestVersion = {0}", WriteVersion(major, minor, profile, sp));
+            return String.Format(@"SmallestDotNet.latestVersion = {0};", WriteVersion(major, minor, profile, sp));
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace SmallestDotNetLib
         /// <returns></returns>
         public static string WriteLatestVersion(CLRVersion version)
         {
-            return String.Format(@"SmallestDotNet.latestVersion = {0}", WriteVersion(version));
+            return String.Format(@"SmallestDotNet.latestVersion = {0};", WriteVersion(version));
         }
 
         /// <summary>
@@ -138,30 +138,12 @@ namespace SmallestDotNetLib
         public static string WriteAllVersions(string userAgent)
         {
             var versions = new List<string>();
+            var detectedVersions = CLRVersions.GetVersionsFromUserAgent(userAgent);
 
-            if (Helpers.Has40E(userAgent))
-                versions.Add(WriteVersion(4, 0, "full", null));
-
-            if (Helpers.Has40C(userAgent))
-                versions.Add(WriteVersion(4, 0, "client", null));
-
-            if (Helpers.Has35SP1E(userAgent))
-                versions.Add(WriteVersion(3, 5, "full", 1));
-
-            if (Helpers.Has35SP1C(userAgent))
-                versions.Add(WriteVersion(3, 5, "client", 1));
-
-            if (Helpers.Has35(userAgent))
-                versions.Add(WriteVersion(3, 5, "full", null));
-
-            if (Helpers.Has20(userAgent))
-                versions.Add(WriteVersion(2, 0, "full", null));
-
-            if (Helpers.Has11(userAgent))
-                versions.Add(WriteVersion(1, 1, "full", null));
-
-            if (Helpers.Has10(userAgent))
-                versions.Add(WriteVersion(1, 0, "full", null));
+            foreach (var version in detectedVersions)
+            {
+                versions.Add(WriteVersion(version.Value));
+            }
 
             return String.Format(@"SmallestDotNet.allVersions = [{0}];", String.Join(",", versions.ToArray()));
 
