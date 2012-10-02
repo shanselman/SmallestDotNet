@@ -105,7 +105,7 @@ public class Helpers
     {
         return String.Format(@"Looks like you're running {2}. That's totally cool, but I can't tell if you've got .NET installed from {2}. 
                   Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
-                  Alternatively, if you're running Windows, you can go <strong>download the 2.8 meg installer for {0}.</strong> 
+                  Alternatively, if you're running Windows, you can go <strong>download the 980 KB installer for {0}.</strong> 
                   Also, you might make sure your system is setup to get updates from {1} automatically. 
                   This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.DotNetOnline, Constants.WindowsUpdate, browser);
     }
@@ -114,7 +114,7 @@ public class Helpers
     {
         string explain = String.Format(Constants.WhyItIsSmall, 60);
         return String.Format(@"I can't tell if you've got .NET installed. Perhaps you don't have .NET installed or perhaps 
-                  your browser isn't letting me know. Consider visiting this site using Internet Explorer, which will tell me more about if your system has .NET on it or not. Alternatively, if you're running Windows, you can go <strong>download the 2.8 meg installer for {0}.</strong> {1}
+                  your browser isn't letting me know. Consider visiting this site using Internet Explorer, which will tell me more about if your system has .NET on it or not. Alternatively, if you're running Windows, you can go <strong>download the 980 KB installer for {0}.</strong> {1}
                   Also, you might make sure your system is setup to get updates from {2} automatically. 
                   This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.DotNetOnline, explain, Constants.WindowsUpdate);
     }

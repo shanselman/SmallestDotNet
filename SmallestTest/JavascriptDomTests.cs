@@ -186,6 +186,12 @@ namespace SmallestTest
                                         profile: 'full',
                                         servicePack: null,
                                         url: 'http://www.microsoft.com/downloads/details.aspx?FamilyID=9f5e8774-c8dc-4ff6-8285-03a4c387c0db&displaylang=en'
+                                    },{
+                                        major: 4,
+                                        minor: 5,
+                                        profile: 'full',
+                                        servicePack: null,
+                                        url: 'http://www.microsoft.com/en-us/download/details.aspx?id=30653'
                                     }];";
 
             var actual = JsonVersions.WriteDownloads();
