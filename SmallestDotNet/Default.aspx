@@ -10,6 +10,7 @@
     <meta name="t_omni_extblogid" content="msstoextblogs1" />
     <meta name="t_omni_blogname" content="Scott Hanselman" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta name="viewport" content="width=device-width" /> 
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
