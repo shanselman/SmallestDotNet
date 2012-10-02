@@ -29,7 +29,7 @@ public class Helpers
         net4 = (GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString));
         if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
         {
-            netInfoString += DotNet3_5Message(version.Build, net4);
+            netInfoString += DotNet3_5Message((Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent)), net4);
         }
         else if (Helpers.Has30(UserAgent))
         {
@@ -138,12 +138,12 @@ public class Helpers
                      That's a very recent version of the .NET Framework, but you can upgrade fairly easily to .NET 4.5 by downloading the 980 KB installer for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
     }
 
-    private static string DotNet3_5Message(int build, bool hasDotNet4)
+    private static string DotNet3_5Message(bool hasSp1, bool hasDotNet4)
     {
 
         if (!hasDotNet4)
         {
-            return String.Format(@"You have .NET 3.5, this is a recent version of .NET. Download an installer for the newest version <strong>{0}</strong>.", Constants.DotNetOnline);
+            return String.Format(@"You have .NET 3.5{0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", hasSp1 ? " Service Pack 1" : "" ,Constants.DotNetOnline);
         }
 
         return "";
