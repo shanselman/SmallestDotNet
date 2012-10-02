@@ -16,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
 
         getdotnet.HRef = Constants.DotNet35Url;
         
-        userAgent.Text = "<strong>" + HttpUtility.HtmlEncode(Request.UserAgent) + "</strong>";
+        userAgent.Text = HttpUtility.HtmlEncode(Request.UserAgent);
         userResult.Text = Helpers.GetUpdateInformation(Request.UserAgent, Request.Browser.ClrVersion);
 
         developerOnline.Text = String.Format(@"If your users have internet connectivity, the .NET Framework is only between 10 and 60 megs. Why such a wide range? Well, it depends on if they already have some version of .NET. 

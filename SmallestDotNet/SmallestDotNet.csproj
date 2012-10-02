@@ -60,7 +60,10 @@
   <ItemGroup>
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome-ie7.css" />
+    <Content Include="css\font-awesome.css" />
     <Content Include="Default.aspx" />
+    <Content Include="font\fontawesome-webfont.svg" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="js\bootstrap.min.js" />
@@ -84,6 +87,9 @@
     <Content Include="javascript.ashx" />
     <Content Include="javascriptdom.ashx" />
     <Content Include="VersionCheck.ashx" />
+    <Content Include="font\fontawesome-webfont.eot" />
+    <Content Include="font\fontawesome-webfont.ttf" />
+    <Content Include="font\fontawesome-webfont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
