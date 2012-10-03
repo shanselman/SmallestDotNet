@@ -52,21 +52,32 @@ namespace SmallestDotNetLib
     /// </summary>
     public class CLRVersions
     {
+        private static CLRVersion NET10Full = new CLRVersion(1, 0, "full", null, "");
+        private static CLRVersion NET11Full = new CLRVersion(1, 1, "full", null, Constants.Version11URL);
+        private static CLRVersion NET20Full = new CLRVersion(2, 0, "full", null, Constants.Version20URL);
+        private static CLRVersion NET30Full = new CLRVersion(3, 0, "full", null, Constants.Version30URL);
+        private static CLRVersion NET35Full = new CLRVersion(3, 5, "full", null, "");
+        private static CLRVersion NET35SP1Client = new CLRVersion(3, 5, "client", 1, Constants.Version35SP1ClientURL);
+        private static CLRVersion NET35SP1Full = new CLRVersion(3, 5, "full", 1, Constants.Version35SP1FullURL);
+        private static CLRVersion NET40Client = new CLRVersion(4, 0, "client", null, Constants.Version40ClientURL);
+        private static CLRVersion NET40Full = new CLRVersion(4, 0, "full", null, Constants.Version40FullURL);
+        private static CLRVersion NET45Full = new CLRVersion(4, 5, "full", null, Constants.Version45URL);
+
         /// <summary>
         /// A Dictionary of CLR Versions with information
         /// </summary>
         public static Dictionary<string, CLRVersion> Versions = new Dictionary<string, CLRVersion>
         {
-            {Constants.Version10Full, new CLRVersion(1, 0, "full", null, "")},
-            {Constants.Version11Full, new CLRVersion(1, 1, "full", null, Constants.Version11URL)},
-            {Constants.Version20Full, new CLRVersion(2, 0, "full", null, Constants.Version20URL)},
-            {Constants.Version30Full, new CLRVersion(3, 0, "full", null, Constants.Version30URL)},
-            {Constants.Version35Full, new CLRVersion(3, 5, "full", null, "")},
-            {Constants.Version35SP1Client, new CLRVersion(3, 5, "client", 1, Constants.Version35SP1ClientURL)},
-            {Constants.Version35SP1Full, new CLRVersion(3, 5, "full", 1, Constants.Version35SP1FullURL)},
-            {Constants.Version40Client, new CLRVersion(4, 0, "client", null, Constants.Version40ClientURL)},
-            {Constants.Version40Full, new CLRVersion(4, 0, "full", null, Constants.Version40FullURL)},
-            {Constants.Version45Full, new CLRVersion(4, 5, "full", null, Constants.Version45URL)}
+            {Constants.Version10Full, NET10Full},
+            {Constants.Version11Full, NET11Full},
+            {Constants.Version20Full, NET20Full},
+            {Constants.Version30Full, NET30Full},
+            {Constants.Version35Full, NET35Full},
+            {Constants.Version35SP1Client, NET35SP1Client},
+            {Constants.Version35SP1Full, NET35SP1Full},
+            {Constants.Version40Client, NET40Client},
+            {Constants.Version40Full, NET40Full},
+            {Constants.Version45Full, NET45Full}
         };
 
         /// <summary>
