@@ -15,7 +15,7 @@ namespace SmallestTest
                 minor: {1},
                 profile: ""{2}"",
                 servicePack: {3}                
-            }}", major, minor, profile, sp.HasValue ? sp.ToString() : "null");
+            }};", major, minor, profile, sp.HasValue ? sp.ToString() : "null");
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace SmallestTest
         [TestMethod]
         public void Write40AsLatestVersion()
         {
-            var userAgent = ".NET4.0E";
+            var userAgent = ".NET4.0E; .NET4.0C";
 
             var expectedVersion = generateLatestVersionString(4, 0, "full", null);
 
@@ -44,7 +44,7 @@ namespace SmallestTest
         [TestMethod]
         public void Write40ClientAsLatestVersion()
         {
-            var userAgent = ".NET4.0C";
+            var userAgent = ".NET4.0C; .NET CLR 2.0";
 
             var expectedVersion = generateLatestVersionString(4, 0, "client", null);
 

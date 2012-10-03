@@ -20,16 +20,6 @@ namespace SmallestDotNetLib
         }
 
         /// <summary>
-        /// Writes the Latest Version Json 
-        /// </summary>
-        /// <param name="version">CLRVersion Struct</param>
-        /// <returns></returns>
-        public static string WriteLatestVersion(CLRVersion version)
-        {
-            return String.Format(@"SmallestDotNet.latestVersion = {0};", WriteVersion(version));
-        }
-
-        /// <summary>
         /// Writes the Version Json
         /// </summary>
         /// <param name="major">Major Version</param>
@@ -104,30 +94,25 @@ namespace SmallestDotNetLib
         }
 
         /// <summary>
+        /// Writes the Latest Version Json 
+        /// </summary>
+        /// <param name="version">CLRVersion Struct</param>
+        /// <returns></returns>
+        public static string WriteLatestVersion(CLRVersion? version)
+        {
+            return String.Format(@"SmallestDotNet.latestVersion = {0};", version.HasValue ?  WriteVersion(version.Value) : "null");
+        }
+
+        /// <summary>
         /// Writes the latest .NET CLR Version found in the provided UserAgent String
         /// </summary>
         /// <param name="userAgent">A User Agent String</param>
         /// <returns>A Json string containing the latest .NET CLR Version</returns>
         public static string WriteLatestVersions(string userAgent)
         {
-            if (Helpers.Has40E(userAgent))
-                return WriteLatestVersion(4, 0, "full", null);
-            else if (Helpers.Has40C(userAgent))
-                return WriteLatestVersion(4, 0, "client", null);
-            else if (Helpers.Has35SP1E(userAgent))
-                return WriteLatestVersion(3, 5, "full", 1);
-            else if (Helpers.Has35SP1C(userAgent))
-                return WriteLatestVersion(3, 5, "client", 1);
-            else if (Helpers.Has35(userAgent))
-                return WriteLatestVersion(3, 5, "full", null);
-            else if (Helpers.Has20(userAgent))
-                return WriteLatestVersion(2, 0, "full", null);
-            else if (Helpers.Has11(userAgent))
-                return WriteLatestVersion(1, 1, "full", null);
-            else if (Helpers.Has10(userAgent))
-                return WriteLatestVersion(1, 0, "full", null);
-            else
-                return "SmallestDotNet.latestVersion = null;";
+            var latestVersion = (new CLRVersions(userAgent)).GetLatestVersion();
+
+            return WriteLatestVersion(latestVersion);
         }
 
         /// <summary>
@@ -138,7 +123,7 @@ namespace SmallestDotNetLib
         public static string WriteAllVersions(string userAgent)
         {
             var versions = new List<string>();
-            var detectedVersions = CLRVersions.GetVersionsFromUserAgent(userAgent);
+            var detectedVersions = (new CLRVersions(userAgent)).GetInstalledVersions();
 
             foreach (var version in detectedVersions)
             {

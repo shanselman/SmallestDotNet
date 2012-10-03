@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
+
 
 namespace SmallestDotNetLib
 {
@@ -44,6 +44,7 @@ namespace SmallestDotNetLib
             Url = url;
         }
 
+
     }
 
     /// <summary>
@@ -77,7 +78,13 @@ namespace SmallestDotNetLib
             return Versions.Where(pair => pair.Value.Url != "").ToDictionary(pair => pair.Key, pair => pair.Value);
         }
 
-        public static Dictionary<string, CLRVersion> GetVersionsFromUserAgent(string UserAgent)
+        public string UserAgent { get; set; }
+        public CLRVersions(string userAgent)
+        {
+            UserAgent = userAgent;
+        }
+
+        public Dictionary<string, CLRVersion> GetInstalledVersions()
         {
             var results = new Dictionary<string, CLRVersion>();
 
@@ -107,5 +114,24 @@ namespace SmallestDotNetLib
 
             return results;
         }
+
+        public CLRVersion? GetLatestVersion()
+        {
+            var installedVersions = GetInstalledVersions();
+
+            installedVersions = installedVersions.OrderByDescending(p => p.Value.Major)
+                .ThenByDescending(p => p.Value.Minor)
+                .ThenByDescending(p => p.Value.Profile)
+                .ThenByDescending(p => p.Value.ServicePack ?? 0)
+                .ToDictionary(p => p.Key, p => p.Value);
+
+            if (installedVersions.Any())
+            {
+                return installedVersions.First().Value;
+            }
+
+            return null;
+        }
+
     }
 }

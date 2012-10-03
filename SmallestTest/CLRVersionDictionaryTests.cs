@@ -23,11 +23,20 @@ namespace SmallestTest
             expected.Add(Constants.Version40Client, CLRVersions.Versions[Constants.Version40Client]);
             expected.Add(Constants.Version40Full, CLRVersions.Versions[Constants.Version40Full]);
 
-
-            var actual = CLRVersions.GetVersionsFromUserAgent(UserAgent);
+            var CLRVersionFac = new CLRVersions(UserAgent);
+            var actual = CLRVersionFac.GetInstalledVersions();
 
             
             CollectionAssert.AreEquivalent((ICollection)expected, (ICollection)actual);
+
+            var expectedLatestVersion = CLRVersions.Versions[Constants.Version40Full];
+            var actualLatestVersion = CLRVersionFac.GetLatestVersion();
+            Assert.IsTrue(actualLatestVersion.HasValue, "Version is not null");
+            
+            Assert.AreEqual(expectedLatestVersion.Major, actualLatestVersion.Value.Major, "Major Versions Are the Same");
+            Assert.AreEqual(expectedLatestVersion.Minor, actualLatestVersion.Value.Minor, "Minor Versions Are the Same");
+            Assert.AreEqual(expectedLatestVersion.Profile, actualLatestVersion.Value.Profile, "Profile is the Same");
+            Assert.AreEqual(expectedLatestVersion.ServicePack, actualLatestVersion.Value.ServicePack, "Service Pack is the Same");
 
         }
     }
