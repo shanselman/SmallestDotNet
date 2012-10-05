@@ -23,8 +23,7 @@ public partial class _Default : System.Web.UI.Page
          If you point your users to the online setup for the {0}, that 980 KB download will automatically detect and download the smallest archive possible to get the job done.", Constants.DotNetOnline);
         
         developerOfflineResult.Text = String.Format(@"If you are a developer and are distributing your code on CD or DVD, you might want to download the 
-                  <a href=""{0}"">FULL OFFLINE .NET 4.5 installation</a> on your media. The download is about 48 MB",
-                "http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe");
+                  <a href=""{0}"">FULL OFFLINE .NET 4.5 installation</a> on your media. The download is about 48 MB", Constants.DotNetOffline);
 
     }
 

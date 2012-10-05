@@ -8,6 +8,7 @@ using System.Web;
 public static class Constants
 {
     public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">{1}</a>", Version45URL, Version45Full);
+    public const string DotNetOffline = @"http://go.microsoft.com/fwlink/?LinkId=225702";
 
     public const string WindowsUpdate = "<a href=\"http://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
