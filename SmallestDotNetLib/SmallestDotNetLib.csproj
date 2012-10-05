@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLRVersion.cs" />
+    <Compile Include="CLRVersions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="JsonVersions.cs" />

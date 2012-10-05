@@ -98,9 +98,9 @@ namespace SmallestDotNetLib
         /// </summary>
         /// <param name="version">CLRVersion Struct</param>
         /// <returns></returns>
-        public static string WriteLatestVersion(CLRVersion? version)
+        public static string WriteLatestVersion(CLRVersion version)
         {
-            return String.Format(@"SmallestDotNet.latestVersion = {0};", version.HasValue ?  WriteVersion(version.Value) : "null");
+            return String.Format(@"SmallestDotNet.latestVersion = {0};", version != null ?  WriteVersion(version) : "null");
         }
 
         /// <summary>

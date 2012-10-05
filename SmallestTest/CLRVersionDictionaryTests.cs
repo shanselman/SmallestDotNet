@@ -31,12 +31,12 @@ namespace SmallestTest
 
             var expectedLatestVersion = CLRVersions.Versions[Constants.Version40Full];
             var actualLatestVersion = CLRVersionFac.GetLatestVersion();
-            Assert.IsTrue(actualLatestVersion.HasValue, "Version is not null");
+            Assert.IsTrue(actualLatestVersion != null, "Version is not null");
             
-            Assert.AreEqual(expectedLatestVersion.Major, actualLatestVersion.Value.Major, "Major Versions Are the Same");
-            Assert.AreEqual(expectedLatestVersion.Minor, actualLatestVersion.Value.Minor, "Minor Versions Are the Same");
-            Assert.AreEqual(expectedLatestVersion.Profile, actualLatestVersion.Value.Profile, "Profile is the Same");
-            Assert.AreEqual(expectedLatestVersion.ServicePack, actualLatestVersion.Value.ServicePack, "Service Pack is the Same");
+            Assert.AreEqual(expectedLatestVersion.Major, actualLatestVersion.Major, "Major Versions Are the Same");
+            Assert.AreEqual(expectedLatestVersion.Minor, actualLatestVersion.Minor, "Minor Versions Are the Same");
+            Assert.AreEqual(expectedLatestVersion.Profile, actualLatestVersion.Profile, "Profile is the Same");
+            Assert.AreEqual(expectedLatestVersion.ServicePack, actualLatestVersion.ServicePack, "Service Pack is the Same");
 
         }
     }
