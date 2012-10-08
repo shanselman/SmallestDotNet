@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JavascriptDomTests.cs" />
     <Compile Include="CLRVersionDictionaryTests.cs" />
+    <Compile Include="OperatingSystemVersionTests.cs" />
     <Compile Include="VersionCheckTest.cs" />
     <Compile Include="VersionWriterTests.cs" />
   </ItemGroup>

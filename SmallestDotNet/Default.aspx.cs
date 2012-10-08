@@ -12,10 +12,6 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
-        getdotnet.HRef = Constants.Version45URL;
-        
         userAgent.Text = HttpUtility.HtmlEncode(Request.UserAgent);
         userResult.Text = Helpers.GetUpdateInformation(Request.UserAgent, Request.Browser.ClrVersion);
 

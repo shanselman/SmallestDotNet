@@ -40,5 +40,13 @@ namespace SmallestDotNetLib
         /// </summary>
         public string PrettyVersion { get; set; }
 
+
+        public override bool Equals(object obj)
+        {
+            var version = (CLRVersion)obj;
+
+            return version.Major == this.Major && version.Minor == this.Minor && version.Profile == this.Profile && version.ServicePack == this.ServicePack;
+        }
+
     }
 }
