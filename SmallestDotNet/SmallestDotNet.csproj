@@ -71,7 +71,9 @@
     <Content Include="img\hero_home.jpg" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="testjs.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.designer.cs">

@@ -9,16 +9,16 @@ namespace SmallestDotNetLib
     /// </summary>
     public class CLRVersions
     {
-        private static CLRVersion NET10Full = new CLRVersion() { Major = 1, Minor = 0, Profile = "full", PrettyVersion = ".NET 1.0" };
-        private static CLRVersion NET11Full = new CLRVersion() { Major = 1, Minor = 1, Profile = "full", Url = Constants.Version11URL, PrettyVersion = ".NET 1.1" };
-        private static CLRVersion NET20Full = new CLRVersion() { Major = 2, Minor = 0, Profile = "full", Url = Constants.Version20URL, PrettyVersion = ".NET 2.0" };
-        private static CLRVersion NET30Full = new CLRVersion() { Major = 3, Minor = 0, Profile = "full", Url = Constants.Version30URL, PrettyVersion = ".NET 3.0" };
-        private static CLRVersion NET35Full = new CLRVersion() { Major = 3, Minor = 5, Profile = "full", PrettyVersion = ".NET 3.5" };
-        private static CLRVersion NET35SP1Client = new CLRVersion() { Major = 3, Minor = 5, Profile = "client", ServicePack = 1, Url = Constants.Version35SP1ClientURL, PrettyVersion = ".NET 3.5 Client SP1" };
-        private static CLRVersion NET35SP1Full = new CLRVersion() { Major = 3, Minor = 5, Profile = "full", ServicePack = 1, Url = Constants.Version35SP1FullURL, PrettyVersion = ".NET 3.5 SP1" };
-        private static CLRVersion NET40Client = new CLRVersion() { Major = 4, Minor = 0, Profile = "client", Url = Constants.Version40ClientURL, PrettyVersion = ".NET 4.0 Client" };
-        private static CLRVersion NET40Full = new CLRVersion() { Major = 4, Minor = 0, Profile = "full", Url = Constants.Version40FullURL, PrettyVersion = ".NET 4.0" };
-        private static CLRVersion NET45Full = new CLRVersion() { Major = 4, Minor = 5, Profile = "full", Url = Constants.Version45URL, PrettyVersion = ".NET 4.5" };
+	public static CLRVersion NET10Full = new CLRVersion() { Major = 1, Minor = 0, Profile = "full", PrettyVersion = ".NET 1.0" };
+	public static CLRVersion NET11Full = new CLRVersion() { Major = 1, Minor = 1, Profile = "full", Url = Constants.Version11URL, PrettyVersion = ".NET 1.1" };
+	public static CLRVersion NET20Full = new CLRVersion() { Major = 2, Minor = 0, Profile = "full", Url = Constants.Version20URL, PrettyVersion = ".NET 2.0" };
+	public static CLRVersion NET30Full = new CLRVersion() { Major = 3, Minor = 0, Profile = "full", Url = Constants.Version30URL, PrettyVersion = ".NET 3.0" };
+	public static CLRVersion NET35Full = new CLRVersion() { Major = 3, Minor = 5, Profile = "full", PrettyVersion = ".NET 3.5" };
+	public static CLRVersion NET35SP1Client = new CLRVersion() { Major = 3, Minor = 5, Profile = "client", ServicePack = 1, Url = Constants.Version35SP1ClientURL, PrettyVersion = ".NET 3.5 Client SP1" };
+	public static CLRVersion NET35SP1Full = new CLRVersion() { Major = 3, Minor = 5, Profile = "full", ServicePack = 1, Url = Constants.Version35SP1FullURL, PrettyVersion = ".NET 3.5 SP1" };
+	public static CLRVersion NET40Client = new CLRVersion() { Major = 4, Minor = 0, Profile = "client", Url = Constants.Version40ClientURL, PrettyVersion = ".NET 4.0 Client" };
+	public static CLRVersion NET40Full = new CLRVersion() { Major = 4, Minor = 0, Profile = "full", Url = Constants.Version40FullURL, PrettyVersion = ".NET 4.0" };
+	public static CLRVersion NET45Full = new CLRVersion() { Major = 4, Minor = 5, Profile = "full", Url = Constants.Version45URL, PrettyVersion = ".NET 4.5" };
 
         /// <summary>
         /// A Dictionary of CLR Versions with information
