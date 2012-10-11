@@ -14,3 +14,8 @@
 	font: bold 11px Tahoma, 'trebuchet MS', Sans-serif; 
 	text-transform: none;	
 }
+
+.hero-unit {
+    background-image: url(/img/hero_home.jpg);
+    color: #fff;
+}

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
     <!--[if IE 7]><link rel="stylesheet" href="/css/font-awesome-ie7.css"><![endif]-->
+    <link href="css/m-buttons.min.css" rel="stylesheet" />
     <link rel="Stylesheet" href="css/main.css" type="text/css" />
     <title>Get the .NET Framework Fast - Download the smallest .NET Framework Distribution possible</title>
 </head>
@@ -48,7 +49,7 @@
             <p id="javascriptResult">
                 <asp:Literal runat="server" Visible="true" ID="userResult" />
             </p>
-            <a runat="server" id="getdotnet" class="btn btn-primary btn-large" href="#"><i class="icon-download-alt"></i>  Get .NET</a>
+            <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  Get .NET</a>
         </div>
 
         <!-- Example row of columns -->
@@ -115,9 +116,11 @@
 
 
         <div class="row-fluid">
-            <div class="span12 well well-small">
+            <div class="span12 ">
                 <footer>
-                    &copy; Scott Hanselman, Michael Sarchet and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
+                    <hr />
+                    <p>&copy; Scott Hanselman, Michael Sarchet and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
+                    The lovely <a href="http://ace-subido.github.com/css3-microsoft-metro-buttons/index.html">CSS3 Microsoft-Modern Buttons</a> are by <a href="http://acesubido.com/">Ace Subido</a>.</p>
                 </footer>
             </div>
         </div>
