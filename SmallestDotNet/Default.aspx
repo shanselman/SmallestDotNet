@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                 </a>
                 <a class="brand" href="#">SmallestDotNET</a>
-                <div class="nav-collapse ">
+                <div class="nav-collapse pull-right">
                     <ul class="nav">
                         <li><a href="http://www.hanselman.com"><i class="icon-sign-blank"></i> Scott's Blog</a></li>
                         <li><a href="https://github.com/shanselman/SmallestDotNet/"><i class="icon-github-sign"></i> This site on GitHub</a></li>
@@ -44,12 +44,18 @@
 
     <div class="container">
 
-        <div class="hero-unit">
-            <h1>Your .NET Version Results!</h1>
-            <p id="javascriptResult">
-                <asp:Literal runat="server" Visible="true" ID="userResult" />
-            </p>
-            <a runat="server" id="getdotnet" class="m-btn" href="#"><i class="icon-download-alt"></i>  Get .NET</a>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="result-header">
+                    <h1>Your .NET Version Results!</h1>
+                        <p class="lead" id="javascriptResult">
+                        <asp:Literal runat="server" Visible="true" ID="userResult" />
+                        </p>
+                        
+                        <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  <strong>Get .NET</strong>    </a>
+                        
+                    </div>
+            </div>
         </div>
 
         <!-- Example row of columns -->

@@ -15,8 +15,31 @@
 	text-transform: none;	
 }
 
-.hero-unit {
+.result-header {
     background-image: url(/img/hero_home.jpg);
     background-size: 100%;
     color: #fff;
+    padding: 15px;
+}
+
+.result-header a
+{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.result-header a:hover
+{
+    color: #aaa;
+}
+
+#getdotnet
+{
+    color: #000;
+    text-decoration: none;
+    font-size: 40px;
+}
+body
+{
+    margin-top: 50px;
 }
