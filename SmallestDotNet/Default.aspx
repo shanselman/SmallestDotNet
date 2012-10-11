@@ -49,7 +49,7 @@
             <p id="javascriptResult">
                 <asp:Literal runat="server" Visible="true" ID="userResult" />
             </p>
-            <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  Get .NET</a>
+            <a runat="server" id="getdotnet" class="m-btn" href="#"><i class="icon-download-alt"></i>  Get .NET</a>
         </div>
 
         <!-- Example row of columns -->

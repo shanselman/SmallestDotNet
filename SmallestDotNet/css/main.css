@@ -17,5 +17,6 @@
 
 .hero-unit {
     background-image: url(/img/hero_home.jpg);
+    background-size: 100%;
     color: #fff;
 }
