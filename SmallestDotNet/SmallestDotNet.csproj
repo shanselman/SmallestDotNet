@@ -62,10 +62,13 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome-ie7.css" />
     <Content Include="css\font-awesome.css" />
+    <Content Include="css\m-buttons.min.css" />
+    <Content Include="css\main.css" />
     <Content Include="Default.aspx" />
     <Content Include="font\fontawesome-webfont.svg" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\hero_home.jpg" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="testjs.html" />
     <Content Include="Web.config" />
