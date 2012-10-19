@@ -9,7 +9,6 @@
     <meta name="Distribution" content="Global" />
     <meta name="t_omni_extblogid" content="msstoextblogs1" />
     <meta name="t_omni_blogname" content="Scott Hanselman" />
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <meta name="viewport" content="width=device-width" /> 
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
@@ -59,6 +58,14 @@
             </div>
         </div>
 
+        <div class="row-fluid">
+            <div class="span12">
+                <h2>What about .NET 4.5?</h2>
+                
+                Download this application <a href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe" class="m-btn blue"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a> and run it.
+                This harmless code signed application will tell us if you have .NET 4.5.
+            </div>
+        </div>
         <!-- Example row of columns -->
         <div class="row-fluid">
             <div class="span4">
@@ -70,13 +77,11 @@
                 <br />
                 <br />
             </div>
-            <div class="span4">
+            <div class="span8">
                 <h2><i class="icon-download-alt"></i> Offline Download</h2>
                     <asp:Literal runat="server" ID="developerOfflineResult" />
-            </div>
-            <div class="span4">
                 <h2><i class="icon-download-alt"></i> Online Download</h2>
-                <asp:Literal runat="server" ID="developerOnline" />
+                    <asp:Literal runat="server" ID="developerOnline" />
             </div>
         </div>
         <div class="row-fluid">

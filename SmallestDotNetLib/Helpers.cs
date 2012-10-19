@@ -9,6 +9,8 @@ public class Helpers
 {
     public static string GetUpdateInformation(string UserAgent, Version version)
     {
+
+
         bool net4 = false;
         string netInfoString = "";
 
@@ -167,6 +169,11 @@ public class Helpers
     }
 
 
+    public static bool Has45(String UserAgent)
+    {
+        return UserAgent.StartsWith("4.5");
+    }
+
     /// <summary>
     /// Determines if the User Agent String indicates Windows 8
     /// </summary>
@@ -184,7 +191,7 @@ public class Helpers
     /// <returns></returns>
     public static bool Has40E(String UserAgent)
     {
-        return UserAgent.Contains(Constants.Version40Full);
+        return UserAgent.Contains(Constants.Version40Full) || UserAgent.StartsWith("4.0");
     }
 
     /// <summary>
@@ -194,7 +201,7 @@ public class Helpers
     /// <returns></returns>
     public static bool Has40C(String UserAgent)
     {
-        return UserAgent.Contains(Constants.Version40Client);
+        return UserAgent.Contains(Constants.Version40Client) || UserAgent.StartsWith("4.0");
     }
 
     /// <summary>

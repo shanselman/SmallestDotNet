@@ -17,8 +17,14 @@ public partial class _Default : System.Web.UI.Page
         getdotnet.HRef = Constants.Version45URL;
         
         userAgent.Text = HttpUtility.HtmlEncode(Request.UserAgent);
-        userResult.Text = Helpers.GetUpdateInformation(Request.UserAgent, Request.Browser.ClrVersion);
-
+        if (Request.QueryString["realversion"] == "")
+        {
+            userResult.Text = Helpers.GetUpdateInformation(Request.QueryString["realversion"], Request.Browser.ClrVersion);
+        }
+        else
+        {
+            userResult.Text = Helpers.GetUpdateInformation(Request.UserAgent, Request.Browser.ClrVersion);
+        }
         developerOnline.Text = String.Format(@"If your users have internet connectivity, the .NET Framework is only between 10 and 60 megs. Why such a wide range? Well, it depends on if they already have some version of .NET. 
          If you point your users to the online setup for the {0}, that 980 KB download will automatically detect and download the smallest archive possible to get the job done.", Constants.DotNetOnline);
         
