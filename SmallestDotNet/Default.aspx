@@ -142,6 +142,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            if (document.location.search.indexOf('realversion') > -1) { return; }
+
             var userAgent = navigator.userAgent;
             if (userAgent.indexOf('Trident/5.0') !== -1 || userAgent.indexOf('Trident/6.0') !== -1) {
                 $.get('/VersionCheck.ashx',
@@ -154,10 +156,6 @@
         })
     </script>
 
-    <noscript>
-        <a href='http://www.omniture.com' title='Web Analytics'>
-            <img src='http://mssto.112.2o7.net/b/ss/msstoextblogsnojs/1/H.20.2--NS/0' height='1' width='1' border='0' alt='' /></a>
-    </noscript>
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
