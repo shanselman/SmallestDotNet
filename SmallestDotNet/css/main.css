@@ -22,7 +22,7 @@
 #header h2#slogan
 {
     color: #666666;
-    text-indent: 0px;
+    text-indent: 0;
     font: bold 11px Tahoma, 'trebuchet MS', Sans-serif;
     text-transform: none;
 }
@@ -30,9 +30,12 @@
 .result-header
 {
     background-image: url(/img/hero_home.jpg);
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    -webkit-background-size: 100%;
     background-size: 100%;
     color: #fff;
-    padding: 15px;
+    padding: 15px 15px 30px 15px;
 }
 
     .result-header a
@@ -63,7 +66,7 @@ body
 {
     body
     {
-        margin-top: 0px;
+        margin-top: 0;
     }
     .result-header
     {
