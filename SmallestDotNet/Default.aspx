@@ -63,7 +63,7 @@
             <div class="span12">
                 <h2>What about .NET 4.5?</h2>
                 
-                Download this application <a href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe" class="m-btn blue"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a> and run it.
+                Download this application <a href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
                 This harmless code signed application will tell us if you have .NET 4.5. Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
             </div>
         </div>
@@ -144,7 +144,10 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            if (document.location.search.indexOf('realversion') > -1) { return; }
+            if (document.location.search.indexOf('realversion') > -1) {
+                $('.result-header').addClass('checked');
+                return;
+            }
 
             var userAgent = navigator.userAgent;
             if (userAgent.indexOf('Trident/5.0') !== -1 || userAgent.indexOf('Trident/6.0') !== -1) {
@@ -161,8 +164,6 @@
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
         var pageTracker = _gat._getTracker("UA-130207-3");
         pageTracker._trackPageview();
     </script>
