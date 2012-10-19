@@ -1,11 +1,10 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="_Default" CodeBehind="Default.aspx.cs" %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="Description" content="Get the right .NET Framework download for you, as fast as possible by downloading as little as possible." />
     <meta name="Keywords" content=".NET Framework Gast" />
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8" />
     <meta name="Distribution" content="Global" />
     <meta name="t_omni_extblogid" content="msstoextblogs1" />
     <meta name="t_omni_blogname" content="Scott Hanselman" />
