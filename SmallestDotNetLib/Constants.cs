@@ -14,7 +14,7 @@ public static class Constants
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
                            For you, it'll probably be <strong>{0} megabytes total</strong>.";
 
-    public const string EarlyAdopter = "Seems you're an early adopter! You've got a <strong>{0}</strong> on your machine. ";
+    public const string EarlyAdopter = "You're totally up to date! You've got a <strong>{0}</strong> on your machine. ";
 
     public static readonly Dictionary<string, string> OldWindows = new Dictionary<string, string>
     {
