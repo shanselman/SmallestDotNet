@@ -72,4 +72,11 @@ body
     {
         background: #2080c0;
     }
+
+    .m-btn.blue
+    {
+        clear: both;
+        float: left;
+        margin: 20px;
+    }
 }
