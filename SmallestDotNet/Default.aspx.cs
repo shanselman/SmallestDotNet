@@ -31,7 +31,8 @@ public partial class _Default : System.Web.UI.Page
         developerOfflineResult.Text = String.Format(@"If you are a developer and are distributing your code on CD or DVD, you might want to download the 
                   <a href=""{0}"">FULL OFFLINE .NET 4.5 installation</a> on your media. The download is about 48 MB", Constants.DotNetOffline);
 
-        if (userResult.Text.Contains("can't")) //This is the worst thing I've ever done. We will fix it soon.
+        //I hate myself.
+        if (userResult.Text.Contains("can't") || userResult.Text.Contains("Mac") || userResult.Text.Contains("Linux")) //This is the worst thing I've ever done. We will fix it soon.
         {
             getdotnet.Visible = false;
             checkdotnet.Visible = true;
