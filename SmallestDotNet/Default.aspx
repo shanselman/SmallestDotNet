@@ -132,7 +132,7 @@
             <div class="span12 ">
                 <footer>
                     <hr />
-                    <p>&copy; Scott Hanselman, Michael Sarchet and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
+                    <p>&copy; <a href="http://www.hanselman.com">Scott Hanselman</a>, <a href="http://www.MichaelSarchet.com">Michael Sarchet</a> and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
                     The lovely <a href="http://ace-subido.github.com/css3-microsoft-metro-buttons/index.html">CSS3 Microsoft-Modern Buttons</a> are by <a href="http://acesubido.com/">Ace Subido</a>.</p>
                 </footer>
             </div>
