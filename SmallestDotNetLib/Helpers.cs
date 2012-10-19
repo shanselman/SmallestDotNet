@@ -112,14 +112,14 @@ public class Helpers
     private static string MessageForBrowser(string browser)
     {
         return String.Format(@"Looks like you're running {0}. That's totally cool, but I can't tell if you've got .NET installed from {0}. 
-                Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application, just once, and we'll tell you what version of .NET you're running.", browser);
+                Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application</a>, just once, and we'll tell you what version of .NET you're running.", browser);
     }
 
     private static string UnknownBrowserMessage()
     {
         string explain = String.Format(Constants.WhyItIsSmall, 48);
         return String.Format(@"I can't see what browser you have. That's totally cool, but I can't tell if you've got .NET installed. 
-                Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application, just once, and we'll tell you what version of .NET you're running.");
+                Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application</a>, just once, and we'll tell you what version of .NET you're running.");
     }
 
     private static string DotNet1Message(bool hasDotNet4)

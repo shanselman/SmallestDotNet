@@ -51,8 +51,10 @@
                         <asp:Literal runat="server" Visible="true" ID="userResult" />
                         </p>
                         <br />
-                        <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  <strong>Get .NET</strong>    </a>
-                        
+                        <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  <strong>Get .NET</strong> </a>
+
+                        <a runat="server" visible="false" id="checkdotnet" class="m-btn big" href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a>
+
                     </div>
             </div>
         </div>
