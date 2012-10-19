@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
     <!--[if IE 7]><link rel="stylesheet" href="/css/font-awesome-ie7.css"><![endif]-->
-    <link href="css/m-buttons.min.css" rel="stylesheet" />
+    <link href="css/m-buttons.min.css" rel="stylesheet" media="screen" />
     <link rel="Stylesheet" href="css/main.css" type="text/css" />
     <title>Get the .NET Framework Fast - Download the smallest .NET Framework Distribution possible</title>
+    
 </head>
 
 <body>
@@ -51,7 +52,7 @@
                         <p class="lead" id="javascriptResult">
                         <asp:Literal runat="server" Visible="true" ID="userResult" />
                         </p>
-                        
+                        <br />
                         <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  <strong>Get .NET</strong>    </a>
                         
                     </div>

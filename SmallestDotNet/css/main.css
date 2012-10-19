@@ -1,37 +1,50 @@
-﻿.green {	color: #9EC630; }
-.gray  {	color: #BFBFBF; }
-
-#header h1#logo {
-	margin: 0; padding: 0;
-	font: bolder 4.1em 'Trebuchet MS', Arial, Sans-serif;
-	letter-spacing: -2px;
-	text-transform: lowercase;
-	top: 0; left: 5px;	
-}
-#header h2#slogan {
-	color: #666666;
-	text-indent: 0px;
-	font: bold 11px Tahoma, 'trebuchet MS', Sans-serif; 
-	text-transform: none;	
+﻿.green
+{
+    color: #9EC630;
 }
 
-.result-header {
+.gray
+{
+    color: #BFBFBF;
+}
+
+#header h1#logo
+{
+    margin: 0;
+    padding: 0;
+    font: bolder 4.1em 'Trebuchet MS', Arial, Sans-serif;
+    letter-spacing: -2px;
+    text-transform: lowercase;
+    top: 0;
+    left: 5px;
+}
+
+#header h2#slogan
+{
+    color: #666666;
+    text-indent: 0px;
+    font: bold 11px Tahoma, 'trebuchet MS', Sans-serif;
+    text-transform: none;
+}
+
+.result-header
+{
     background-image: url(/img/hero_home.jpg);
     background-size: 100%;
     color: #fff;
     padding: 15px;
 }
 
-.result-header a
-{
-    color: #fff;
-    text-decoration: underline;
-}
+    .result-header a
+    {
+        color: #fff;
+        text-decoration: underline;
+    }
 
-.result-header a:hover
-{
-    color: #aaa;
-}
+        .result-header a:hover
+        {
+            color: #aaa;
+        }
 
 #getdotnet
 {
@@ -39,7 +52,21 @@
     text-decoration: none;
     font-size: 40px;
 }
+
 body
 {
     margin-top: 50px;
+}
+
+
+@media (max-width: 980px)
+{
+    body
+    {
+        margin-top: 0px;
+    }
+    .result-header
+    {
+        background: #2080c0;
+    }
 }
