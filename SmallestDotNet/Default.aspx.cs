@@ -17,7 +17,7 @@ public partial class _Default : System.Web.UI.Page
         getdotnet.HRef = Constants.Version45URL;
         
         userAgent.Text = HttpUtility.HtmlEncode(Request.UserAgent);
-        if (Request.QueryString["realversion"] != "")
+        if (Request.QueryString["realversion"] != null)
         {
             userResult.Text = Helpers.GetUpdateInformation(Request.QueryString["realversion"], Request.Browser.ClrVersion);
         }
