@@ -76,7 +76,7 @@ public class Helpers
 
     private static bool GetWindows8Message(string UserAgent, ref string userMessage)
     {
-        if (Helpers.HasWindows8(UserAgent))
+        if (Helpers.HasWindows8(UserAgent) || Helpers.Has45(UserAgent))
         {
             userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET 4.5");
             return true;
@@ -111,20 +111,15 @@ public class Helpers
 
     private static string MessageForBrowser(string browser)
     {
-        return String.Format(@"Looks like you're running {2}. That's totally cool, but I can't tell if you've got .NET installed from {2}. 
-                  Consider visiting this site, just once, using Internet Explorer, which will tell me more about if your system has .NET on it or not. 
-                  Alternatively, if you're running Windows, you can go <strong>download the 980 KB installer for {0}.</strong> 
-                  Also, you might make sure your system is setup to get updates from {1} automatically. 
-                  This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.DotNetOnline, Constants.WindowsUpdate, browser);
+        return String.Format(@"Looks like you're running {0}. That's totally cool, but I can't tell if you've got .NET installed from {0}. 
+                Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application, just once, and we'll tell you what version of .NET you're running.", browser);
     }
 
     private static string UnknownBrowserMessage()
     {
-        string explain = String.Format(Constants.WhyItIsSmall, 60);
-        return String.Format(@"I can't tell if you've got .NET installed. Perhaps you don't have .NET installed or perhaps 
-                  your browser isn't letting me know. Consider visiting this site using Internet Explorer, which will tell me more about if your system has .NET on it or not. Alternatively, if you're running Windows, you can go <strong>download the 980 KB installer for {0}.</strong> {1}
-                  Also, you might make sure your system is setup to get updates from {2} automatically. 
-                  This will make sure your system is up to date with the latest stuff, including the latest .NET Framework.", Constants.DotNetOnline, explain, Constants.WindowsUpdate);
+        string explain = String.Format(Constants.WhyItIsSmall, 48);
+        return String.Format(@"I can't see what browser you have. That's totally cool, but I can't tell if you've got .NET installed. 
+                Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application, just once, and we'll tell you what version of .NET you're running.");
     }
 
     private static string DotNet1Message(bool hasDotNet4)
