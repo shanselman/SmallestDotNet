@@ -46,7 +46,7 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="result-header">
-                    <h1 runat="server" id="header-statement">Do you have .NET?</h1>
+                    <h1 id="header-statement">Do you have .NET?</h1>
                         <p class="lead" id="javascriptResult">
                         <asp:Literal runat="server" Visible="true" ID="userResult" />
                         </p>
