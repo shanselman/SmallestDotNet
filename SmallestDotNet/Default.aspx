@@ -144,11 +144,12 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            $('.result-header').hide();
             if (document.location.search.indexOf('realversion') > -1) {
-                $('.result-header').addClass('checked');
+                $('.result-header').fadeIn(1000);
                 return;
             }
-
+            $('.result-header').show();
             var userAgent = navigator.userAgent;
             if (userAgent.indexOf('Trident/5.0') !== -1 || userAgent.indexOf('Trident/6.0') !== -1) {
                 $.get('/VersionCheck.ashx',

@@ -35,7 +35,7 @@
     -webkit-background-size: 100%;
     background-size: 100%;
     color: #fff;
-    padding: 15px 15px 30px 15px;
+    padding: 15px 15px 30px 15px
 }
 
     .result-header a
@@ -71,6 +71,7 @@ body
     .result-header
     {
         background: #2080c0;
+
     }
 
     .m-btn.blue
