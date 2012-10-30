@@ -21,13 +21,13 @@ public partial class _Default {
     protected global::System.Web.UI.WebControls.Literal userResult;
     
     /// <summary>
-    /// developerOnline control.
+    /// getdotnet control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Literal developerOnline;
+    protected global::System.Web.UI.HtmlControls.HtmlAnchor getdotnet;
     
     /// <summary>
     /// checkdotnet control.
@@ -46,6 +46,15 @@ public partial class _Default {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Literal developerOfflineResult;
+    
+    /// <summary>
+    /// developerOnline control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Literal developerOnline;
     
     /// <summary>
     /// userAgent control.

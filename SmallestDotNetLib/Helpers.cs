@@ -25,10 +25,10 @@ public class Helpers
         if (UserAgent.Contains("nix"))
         {
             netInfoString = "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
-            return netInfoString;        
+            return netInfoString;
         }
-        
-        
+
+
         net4 = (GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString));
         if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
         {
@@ -42,11 +42,11 @@ public class Helpers
         {
             netInfoString += DotNet2Message(net4);
         }
-        else if ( Helpers.Has11(UserAgent) || Helpers.Has10(UserAgent))
+        else if (Helpers.Has11(UserAgent) || Helpers.Has10(UserAgent))
         {
             netInfoString += DotNet1Message(net4);
         }
-        else if(!net4)
+        else if (!net4)
         {
             if (UserAgent.Contains("fox"))
             {
@@ -56,7 +56,7 @@ public class Helpers
             {
                 netInfoString += MessageForBrowser("Chrome");
             }
-            else if(UserAgent.Contains("Safari")) // Chrome also uses safari in the user agent so this check must come after
+            else if (UserAgent.Contains("Safari")) // Chrome also uses safari in the user agent so this check must come after
             {
                 netInfoString += MessageForBrowser("Safari");
             }
@@ -71,7 +71,7 @@ public class Helpers
         {
             netInfoString += CheckDotNet3_5UnSupportedOs(UserAgent, windowsVersion.Key, windowsVersion.Value);
         }
-        
+
         return netInfoString;
     }
 
@@ -104,7 +104,7 @@ public class Helpers
 
         if (ret)
         {
-            userMessage += String.Format(@"You have {0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", whichVersion ,Constants.DotNetOnline);
+            userMessage += String.Format(@"You have {0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", whichVersion, Constants.DotNetOnline);
         }
 
         return ret;
@@ -148,7 +148,7 @@ public class Helpers
 
         if (!hasDotNet4)
         {
-            return String.Format(@"You have .NET 3.5{0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", hasSp1 ? " Service Pack 1" : "" ,Constants.DotNetOnline);
+            return String.Format(@"You have .NET 3.5{0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", hasSp1 ? " Service Pack 1" : "", Constants.DotNetOnline);
         }
 
         return "";
@@ -169,24 +169,25 @@ public class Helpers
     {
         return UserAgent.StartsWith("4.5");
     }
-    
+
     public static string GetJsonPayload(String UserAgent)
     {
-	var OperatingSystem = OperatingSystems.GetOperatingSystem(UserAgent);
-	if (OperatingSystem.LatestCLRVersion != null)
-	{
-	    var Browser = BrowserSupport.GetBrowser(UserAgent);
+        var OperatingSystem = OperatingSystems.GetOperatingSystem(UserAgent);
+        if (OperatingSystem.LatestCLRVersion != null)
+        {
+            var Browser = BrowserSupport.GetBrowser(UserAgent);
 
-	    if (Browser.CanGetCLRVersion)
-	    {
-		var parsedVersions = new CLRVersions(UserAgent);
+            if (Browser.CanGetCLRVersion)
+            {
+                var parsedVersions = new CLRVersions(UserAgent);
 
-		var LatestVersion = parsedVersions.GetLatestVersion();
+                var LatestVersion = parsedVersions.GetLatestVersion();
 
-		var UpToDate = (LatestVersion == OperatingSystem.LatestCLRVersion);
-	    }
-	}
+                var UpToDate = (LatestVersion == OperatingSystem.LatestCLRVersion);
+            }
+        }
 
+        return "Not Implemented";
     }
 
     /// <summary>
