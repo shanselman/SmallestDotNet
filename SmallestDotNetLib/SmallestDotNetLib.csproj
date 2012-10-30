@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowserSupport.cs" />
     <Compile Include="CLRVersion.cs" />
     <Compile Include="CLRVersions.cs" />
     <Compile Include="Constants.cs" />

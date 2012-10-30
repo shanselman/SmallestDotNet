@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmallestDotNetLib;
+using System;
 using System.Collections.Generic;
 using System.Web;
 
@@ -167,6 +168,25 @@ public class Helpers
     public static bool Has45(String UserAgent)
     {
         return UserAgent.StartsWith("4.5");
+    }
+    
+    public static string GetJsonPayload(String UserAgent)
+    {
+	var OperatingSystem = OperatingSystems.GetOperatingSystem(UserAgent);
+	if (OperatingSystem.LatestCLRVersion != null)
+	{
+	    var Browser = BrowserSupport.GetBrowser(UserAgent);
+
+	    if (Browser.CanGetCLRVersion)
+	    {
+		var parsedVersions = new CLRVersions(UserAgent);
+
+		var LatestVersion = parsedVersions.GetLatestVersion();
+
+		var UpToDate = (LatestVersion == OperatingSystem.LatestCLRVersion);
+	    }
+	}
+
     }
 
     /// <summary>

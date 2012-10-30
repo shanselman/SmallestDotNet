@@ -25,6 +25,7 @@ public static class Constants
 
     public const string Windows8 = "Windows NT 6.2";
 
+    public const string Version45Detected = "4.5";
     public const string Version45Full = ".NET 4.5";
     public const string Version40Full = ".NET4.0E";
     public const string Version40Client = ".NET4.0C";
