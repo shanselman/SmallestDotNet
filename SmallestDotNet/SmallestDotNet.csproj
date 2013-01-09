@@ -70,6 +70,7 @@
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="img\hero_home.jpg" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-1.8.1.min.js" />
     <Content Include="testjs.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
