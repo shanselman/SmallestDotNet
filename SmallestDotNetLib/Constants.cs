@@ -49,5 +49,9 @@ public static class Constants
     public const string Version40FullURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=9f5e8774-c8dc-4ff6-8285-03a4c387c0db&displaylang=en";
     public const string Version40ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
     public const string Version45URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
+    public const string Version35CompactURL = "http://www.microsoft.com/en-us/download/details.aspx?id=65";
 
+    public const string MonoForAndroidURL = "http://xamarin.com/monoforandroid";
+    public const string MonoForiOSURL = "http://xamarin.com/monotouch";
+    public const string WindowsPhoneSDKURL = "http://dev.windowsphone.com/en-us/downloadsdk";
 }
