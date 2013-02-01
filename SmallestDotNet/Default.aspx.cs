@@ -33,7 +33,10 @@ public partial class _Default : System.Web.UI.Page
             checkdotnet.Visible = true;
         }
 
-        if (userResult.Text.Contains("Mac") || userResult.Text.Contains("Linux")) //No, THIS is the worst thing I've ever done. We will fix it soon.
+        if (userResult.Text.Contains("Mac") || userResult.Text.Contains("Linux") || 
+            userResult.Text.Contains("device") || userResult.Text.Contains("phone") ||
+            userResult.Text.Contains("iOS")) //No, THIS is the worst thing I've ever done. We will fix it soon. 
+            //Hate doing this. Temporarily adding, working on a fix is in progress.
         {
             getdotnet.Visible = false;
             checkdotnet.Visible = false;

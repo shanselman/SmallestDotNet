@@ -15,11 +15,40 @@ public class Helpers
         bool net4 = false;
         string netInfoString = "";
 
+        //Check mobile versions prior to .NET checking since some don't directly support .NET
+        //Most mobile user agent strings contain "mobile", Chrome for android doesn't so check for Android here as well.
+        if (UserAgent.Contains("Mobile") || UserAgent.Contains("Android"))
+        {
+            //iOS UA
+            if (UserAgent.Contains("iPad"))
+                return MessageForiOS("iPad");
+            
+            if (UserAgent.Contains("iPod"))
+                return MessageForiOS("iPod");
+
+            if (UserAgent.Contains("iPhone"))
+                return MessageForiOS("iPhone");
+
+            //Android UA
+            if (UserAgent.Contains("Android"))
+                return "It looks like you're running an Android device. There's no .NET Framework download from Microsoft for Android, but check out <a href=" + Constants.MonoForAndroidURL + ">Mono for Android</a> and write .NET apps for Android!";
+
+            //Windows UA
+            if (UserAgent.Contains("Windows Phone"))
+                return "It looks like you're running Windows Phone. Windows Phone uses a special version of the .NET Framework, check out the <a href=" + Constants.WindowsPhoneSDKURL + "> Windows Phone SDKs</a> and start writing apps for Windows Phone!";
+
+            if (UserAgent.Contains("Windows CE"))
+                return "It looks like you're running a Windows CE or Windows Mobile device.  Windows CE uses the .NET Compact Framework, check out <a href=" + Constants.Version35CompactURL + "> .NET Compact</a> for more information.";
+
+            //Unknown UA
+            return "It looks like you're running a mobile device, but I can't see what browser your running.  If you are interested in writing .NET apps for mobile devices, check out one of the following:  <a href="
+                + Constants.MonoForiOSURL + ">MonoTouch</a>, <a href=" + Constants.MonoForAndroidURL + ">Mono for Android</a>, <a href=" + Constants.WindowsPhoneSDKURL + ">Windows Phone SDK</a> or <a href=" + Constants.Version35CompactURL + ">.NET Compact Framework.</a>";
+        }
 
         //We should check this first since we don't need to check .NET versions if they can't have .NET versions
         if (UserAgent.Contains("Mac"))
         {
-            netInfoString = "It looks like you're running a Mac or an iPhone. There's no .NET Framework download from Microsoft for the Mac, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your iPhone, check out <a href=\"http://xamarin.com/monotouch\">MonoTouch</a> and write .NET apps for iOS!";
+            netInfoString = "It looks like you're running a Mac. There's no .NET Framework download from Microsoft for the Mac, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac.";
             return netInfoString;
         }
         if (UserAgent.Contains("nix"))
@@ -27,7 +56,6 @@ public class Helpers
             netInfoString = "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
             return netInfoString;
         }
-
 
         net4 = (GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString));
         if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
@@ -108,6 +136,12 @@ public class Helpers
         }
 
         return ret;
+    }
+
+    private static string MessageForiOS(string deviceType)
+    {
+        return String.Format(@"It looks like you're running an {0}. There's no .NET Framework download from Microsoft for the {0}, 
+                but check out <a href=" + Constants.MonoForiOSURL + ">MonoTouch</a> and write .NET apps for iOS!", deviceType);
     }
 
     private static string MessageForBrowser(string browser)
