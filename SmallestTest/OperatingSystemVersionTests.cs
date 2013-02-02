@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SmallestDotNetLib;
-
-namespace SmallestTest
+﻿namespace SmallestTest
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using SmallestDotNetLib;
+
     [TestClass]
     public class OperatingSystemVersionTests
     {
