@@ -1,8 +1,11 @@
-﻿namespace SmallestDotNetLib
-{
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace SmallestDotNetLib
+{
     public class Browser
     {
         public string BrowserString { get; set; }

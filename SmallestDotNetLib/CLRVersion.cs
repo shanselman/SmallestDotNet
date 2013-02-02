@@ -1,4 +1,9 @@
-﻿namespace SmallestDotNetLib
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace SmallestDotNetLib
 {
     /// <summary>
     /// Represent A .NET CLR Version

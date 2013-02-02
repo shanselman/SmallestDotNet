@@ -1,8 +1,9 @@
-﻿namespace SmallestDotNetLib
-{
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
+namespace SmallestDotNetLib
+{
     public class OperatingSystem
     {
         public string UserAgentVersion { get; set; }

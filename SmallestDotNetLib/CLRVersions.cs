@@ -1,9 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace SmallestDotNetLib
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
     /// Contains Methods for discovering information about CLR Versions
     /// </summary>

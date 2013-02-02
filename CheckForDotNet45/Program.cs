@@ -1,8 +1,11 @@
-﻿namespace CheckForDotNet45
-{
-    using System;
-    using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
 
+namespace CheckForDotNet45
+{
     class Program
     {
         const string site = "http://smallestdotnet.com/?realversion={0}";
