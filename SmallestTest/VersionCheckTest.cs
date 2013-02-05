@@ -1,11 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Drawing;
-using SmallestDotNetLib;
-
-namespace SmallestTest
+﻿namespace SmallestTest
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Collections.Generic;
+
     [TestClass]
     public class VersionCheckTest
     {

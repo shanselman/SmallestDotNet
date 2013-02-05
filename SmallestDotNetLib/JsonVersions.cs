@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SmallestDotNetLib
+﻿namespace SmallestDotNetLib
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class JsonVersions
     {
         /// <summary>

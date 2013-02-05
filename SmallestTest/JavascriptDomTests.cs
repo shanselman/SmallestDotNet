@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SmallestDotNetLib;
-using System.Linq;
-
-namespace SmallestTest
+﻿namespace SmallestTest
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using SmallestDotNetLib;
+    using System;
+    using System.Linq;
+
     [TestClass]
     public class JavascriptDomTests
     {
