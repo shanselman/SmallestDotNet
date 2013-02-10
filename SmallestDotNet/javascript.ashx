@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using SmallestDotNetLib;
 
 public class SmallestDotNet : IHttpHandler
 {

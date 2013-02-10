@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using SmallestDotNetLib;
 
 public partial class _Default : System.Web.UI.Page
 {

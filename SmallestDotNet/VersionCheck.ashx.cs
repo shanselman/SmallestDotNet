@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SmallestDotNetLib;
 
 namespace SmallestDotNet
 {
@@ -13,14 +14,13 @@ namespace SmallestDotNet
 
         public void ProcessRequest(HttpContext context)
         {
-            if (context.Request.RequestType == "GET")
-            {
-                var userAgent = context.Request["userAgent"];
-                var netVersions = userAgent.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains(".NET CLR"));
-                Version version = GetNetVersion(netVersions);
-                context.Response.ContentType = "text/plain";
-                context.Response.Write(Helpers.GetUpdateInformation(userAgent, version));
-            }
+            if (context.Request.RequestType != "GET")
+                return;
+            var userAgent = context.Request["userAgent"];
+            var netVersions = userAgent.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains(".NET CLR"));
+            Version version = GetNetVersion(netVersions);
+            context.Response.ContentType = "text/plain";
+            context.Response.Write(Helpers.GetUpdateInformation(userAgent, version));
         }
 
 

@@ -74,8 +74,8 @@ namespace SmallestDotNetLib
                     results.Add(v, version);
                 }
             }
-
-            if (Helpers.HasWindows8(UserAgent))
+            var userAgentChecker = new UserAgentReader(UserAgent);
+            if (userAgentChecker.HasWindows8)
             {
                 results.Add(Constants.Version45Full, Versions[Constants.Version45Full]);
             }

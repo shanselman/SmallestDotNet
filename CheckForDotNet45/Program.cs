@@ -10,15 +10,15 @@
         static void Main(string[] args)
         {
             Console.Write("Checking .NET version...");
-            if (IsNet45OrNewer())
-                Process.Start(String.Format(site, "4.5"));
-            else
-                Process.Start(String.Format(site, Environment.Version.ToString()));
+            var versionString = Environment.Version.ToString();
+            if (IsDotNet45OrNewer())
+                versionString = "4.5";
+             Process.Start(String.Format(site, versionString));
         }
 
-        public static bool IsNet45OrNewer()
+        public static bool IsDotNet45OrNewer()
         {
-            // Class "ReflectionContext" exists in .NET 4.5 .
+            // Class "ReflectionContext" exists in .NET 4.5 (and later).
             return Type.GetType("System.Reflection.ReflectionContext", false) != null;
         }
     }

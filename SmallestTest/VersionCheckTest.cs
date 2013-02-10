@@ -1,4 +1,6 @@
-﻿namespace SmallestTest
+﻿using SmallestDotNetLib;
+
+namespace SmallestTest
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
@@ -21,27 +23,30 @@
                 , ".NET CLR 1.0"
             };
         }
+
         [TestMethod]
         public void CheckAllCLRInUserAgentDetectionStrings()
         {
             var userAgentCLRString = String.Join(" ", CLRVersionStrings().ToArray());
+            var userAgentChecker = new UserAgentReader(userAgentCLRString);
 
-            Assert.IsTrue(Helpers.Has10(userAgentCLRString), ".NET Version 1.0");
-            Assert.IsTrue(Helpers.Has11(userAgentCLRString), ".NET Version 1.1");
-            Assert.IsTrue(Helpers.Has20(userAgentCLRString), ".NET Version 2.0");
-            Assert.IsTrue(Helpers.Has35(userAgentCLRString), ".NET Version 3.5");
-            Assert.IsTrue(Helpers.Has35SP1C(userAgentCLRString), ".NET Version 3.5 SP1 Client Profile");
-            Assert.IsTrue(Helpers.Has35SP1E(userAgentCLRString), ".NET Version 3.5 SP1 Full");
-            Assert.IsTrue(Helpers.Has40C(userAgentCLRString), ".NET Version 4.0 Client Profile");
-            Assert.IsTrue(Helpers.Has40E(userAgentCLRString), ".NET Version 4.0 Full");
+            Assert.IsTrue(userAgentChecker.HasDotNet10, ".NET Version 1.0");
+            Assert.IsTrue(userAgentChecker.HasDotNet11, ".NET Version 1.1");
+            Assert.IsTrue(userAgentChecker.HasDotNet20, ".NET Version 2.0");
+            Assert.IsTrue(userAgentChecker.HasDotNet35, ".NET Version 3.5");
+            Assert.IsTrue(userAgentChecker.HasDotNet35SP1Client, ".NET Version 3.5 SP1 Client Profile");
+            Assert.IsTrue(userAgentChecker.HasDotNet35SP1Full, ".NET Version 3.5 SP1 Full");
+            Assert.IsTrue(userAgentChecker.HasDotNet40Client, ".NET Version 4.0 Client Profile");
+            Assert.IsTrue(userAgentChecker.HasDotNet40Full, ".NET Version 4.0 Full");
         }
 
         [TestMethod]
         public void CheckWindows8Detection()
         {
-            var userAgent = "Windows NT 6.2";
+            const string userAgent = "Windows NT 6.2";
+            var userAgentReader = new UserAgentReader(userAgent);
 
-            Assert.IsTrue(Helpers.HasWindows8(userAgent), "Windows 8");
+            Assert.IsTrue(userAgentReader.HasWindows8, "Windows 8");
         }
     }
 }
