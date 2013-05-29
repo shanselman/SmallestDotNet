@@ -11,18 +11,18 @@ public class SmallestDotNet : IHttpHandler
     {
         context.Response.ContentType = "text/javascript";
 
-        dr("SmallestDotNet = {};");
+        WriteToResponse("SmallestDotNet = {};");
 
-        dr(JsonVersions.WriteLatestVersions(context.Request.UserAgent));
+        WriteToResponse(JsonVersions.WriteLatestVersions(context.Request.UserAgent));
         
-        dr(JsonVersions.WriteAllVersions(context.Request.UserAgent));
+        WriteToResponse(JsonVersions.WriteAllVersions(context.Request.UserAgent));
 
-        dr(JsonVersions.WriteDownloads().Trim());
+        WriteToResponse(JsonVersions.WriteDownloads().Trim());
 
 
         if (context.Request.UserAgent.Contains("Mac") || context.Request.UserAgent.Contains("nix"))
         {
-            dr(@"
+            WriteToResponse(@"
                 SmallestDotNet = {};
                 SmallestDotNet.latestVersion = null;
                 SmallestDotNet.allVersions = [];
@@ -31,7 +31,7 @@ public class SmallestDotNet : IHttpHandler
 
     }
 
-    private static void dr(string s)
+    private static void WriteToResponse(string s)
     {
         HttpResponse r = HttpContext.Current.Response;
         r.Write(s);

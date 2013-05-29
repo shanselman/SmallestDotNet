@@ -9,8 +9,7 @@
     <meta name="t_omni_extblogid" content="msstoextblogs1" />
     <meta name="t_omni_blogname" content="Scott Hanselman" />
     <meta name="viewport" content="width=device-width" /> 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
+    <link href="css/pure-min.css" rel="stylesheet" />
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
     <!--[if IE 7]><link rel="stylesheet" href="/css/font-awesome-ie7.css"><![endif]-->
     <link href="css/m-buttons.min.css" rel="stylesheet" media="screen" />
@@ -20,31 +19,19 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="#">SmallestDotNET</a>
-                <div class="nav-collapse pull-right">
-                    <ul class="nav">
-                        <li><a href="http://www.hanselman.com"><i class="icon-sign-blank"></i> Scott's Blog</a></li>
+    
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <a href="#" class="pure-menu-heading">Smallest  DotNET</a>
+            <ul>
+                    <li><a href="http://www.hanselman.com"><i class="icon-sign-blank"></i> Scott's Blog</a></li>
                         <li><a href="https://github.com/shanselman/SmallestDotNet/"><i class="icon-github-sign"></i> This site on GitHub</a></li>
                         <li><a href="https://github.com/shanselman/SmallestDotNet/issues"><i class="icon-heart"></i> Report a Bug</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
+                
+            </ul>
         </div>
-    </div>
 
-    <div class="container">
-
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="pure-g-r">
+            <div class="pure-u-1">
                 <div class="result-header">
                     <h1 id="header-statement">Do you have .NET?</h1>
                         <p class="lead" id="javascriptResult">
@@ -58,9 +45,9 @@
                     </div>
             </div>
         </div>
-
-        <div class="row-fluid">
-            <div class="span12">
+    
+        <div class="pure-g-r">
+            <div class="pure-u-1">
                 <h2>What about .NET 4.5?</h2>
                 
                 Download this application <a href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
@@ -68,8 +55,8 @@
             </div>
         </div>
         <!-- Example row of columns -->
-        <div class="row-fluid">
-            <div class="span4">
+        <div class="pure-g-r">
+            <div class="pure-u-1-3">
                 <h2><i class="icon-question-sign"></i> What happened</h2>
                 This site looked at your browser's "UserAgent" and figured out what version (if any) of the .NET Framework you have (or don't have) installed, then calculated the total size if you chose to download the .NET Framework.
                 <br />
@@ -78,15 +65,15 @@
                 <br />
                 <br />
             </div>
-            <div class="span8">
+            <div class="pure-u-2-3">
                 <h2><i class="icon-download-alt"></i> Offline Download</h2>
                     <asp:Literal runat="server" ID="developerOfflineResult" />
                 <h2><i class="icon-download-alt"></i> Online Download</h2>
                     <asp:Literal runat="server" ID="developerOnline" />
             </div>
         </div>
-        <div class="row-fluid">
-            <div class="span8">
+        <div class="pure-g-r">
+            <div class="pure-u-2-3">
                 <h3>Are you a .NET Programmer?</h3>
                  If you're a programmer/developer, you might be trying to figure out which .NET Framework for your users to use.
                 <br />
@@ -99,7 +86,7 @@
                 <br />
                  Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.
             </div>
-            <div class="span4">
+            <div class="pure-u-1-3">
                 <h3>Your User Agent</h3>
                 For technical or debugging purposes, this is exactly what your browser said about itself:
                 <br />
@@ -107,8 +94,8 @@
             </div>
         </div>
 
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="pure-g-r">
+            <div class="pure-u-1">
                 <h3>Integration</h3>
                 Want SmallestDotNet functionality for your own site? Add this chunk of JavaScript, it'll spit out HTML and you can style to taste.
                 <br />
@@ -116,8 +103,8 @@
 
             </div>
         </div>
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="pure-g-r">
+            <div class="pure-u-1">
                 Prefer a JavaScript Object (JSON) to detect .NET Framework installations? Try this instead:
                 <br />
                 <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</pre>
@@ -128,8 +115,8 @@
         </div>
 
 
-        <div class="row-fluid">
-            <div class="span12 ">
+        <div class="pure-g-r">
+            <div class="pure-u-1">
                 <footer>
                     <hr />
                     <p>&copy; <a href="http://www.hanselman.com">Scott Hanselman</a>, <a href="http://www.MichaelSarchet.com">Michael Sarchet</a> and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
@@ -138,8 +125,6 @@
             </div>
         </div>
     </div>
-    <!-- /container -->
-
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.1.min.js"></script>
     <script>
         (window.jQuery || document.write('<script src="/js/jquery-1.8.1.min.js"><\/script>'));
