@@ -78,7 +78,12 @@ public class Helpers
     {
         if (Helpers.HasWindows8(UserAgent) || Helpers.Has45(UserAgent))
         {
-            userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET 4.5");
+            var version = "4.5";
+
+            if (UserAgent == "4.5.1" || UserAgent == "4.5.2")
+                version = UserAgent;
+
+            userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET " + version);
             return true;
         }
 

@@ -1,4 +1,6 @@
-﻿namespace CheckForDotNet45
+﻿using Microsoft.Win32;
+
+namespace CheckForDotNet45
 {
     using System;
     using System.Diagnostics;
@@ -11,7 +13,9 @@
         {
             Console.Write("Checking .NET version...");
             if (IsNet45OrNewer())
-                Process.Start(String.Format(site, "4.5"));
+            {
+                Process.Start(String.Format(site, Get45or451FromRegistry()));
+            }
             else
                 Process.Start(String.Format(site, Environment.Version.ToString()));
         }
@@ -20,6 +24,28 @@
         {
             // Class "ReflectionContext" exists in .NET 4.5 .
             return Type.GetType("System.Reflection.ReflectionContext", false) != null;
+        }
+
+        //Improved but based on http://msdn.microsoft.com/en-us/library/hh925568%28v=vs.110%29.aspx#net_d
+        private static string Get45or451FromRegistry()
+        {
+            using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+               RegistryView.Registry32).OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\"))
+            {
+                var releaseKey = (int)ndpKey.GetValue("Release");
+                {
+                    if (releaseKey == 378389)
+                        return "4.5";
+
+                    if (releaseKey == 378758 || releaseKey == 378675)
+                        return "4.5.1";
+
+                    if (releaseKey == 379893)
+                        return "4.5.2";
+                }
+            }
+
+            return "4.5";
         }
     }
 }
