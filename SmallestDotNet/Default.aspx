@@ -143,7 +143,8 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.1.min.js"></script>
     <script>
         (window.jQuery || document.write('<script src="/js/jquery-1.8.1.min.js"><\/script>'));
-    </script>
+    </script>
+
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
