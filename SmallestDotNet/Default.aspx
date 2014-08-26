@@ -53,7 +53,7 @@
                         <br />
                         <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  <strong>Get .NET</strong> </a>
 
-                        <a runat="server" visible="false" id="checkdotnet" class="m-btn big" href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a>
+                        <a runat="server" visible="false" id="checkdotnet" class="m-btn big" href="http://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a>
 
                     </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="span12">
                 <h2>What about .NET 4.5?</h2>
                 
-                Download this application <a href="https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
+                Download this application <a href="http://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
                 This harmless code signed application will tell us if you have .NET 4.5. Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
             </div>
         </div>
