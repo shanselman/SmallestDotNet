@@ -6,12 +6,15 @@ using System.Collections.Generic;
 /// </summary>
 public static class Constants
 {
-    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">{1}</a>", Version45URL, Version45Full);
-    public const string DotNetOffline = @"http://go.microsoft.com/fwlink/?LinkId=225702";
+    public static readonly string DotNet = Version452Detected;
+    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version452WebURL, DotNet);
+    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version452OfflineURL, DotNet);
+    public const double DotNetOnlineMB = Version452WebMB;
+    public const double DotNetOfflineMB = Version452OfflineMB;
 
     public const string WindowsUpdate = "<a href=\"http://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
-                           For you, it'll probably be <strong>{0} megabytes total</strong>.";
+                           For you, it'll probably be <strong>around {0} megabytes total</strong>.";
 
     public const string EarlyAdopter = "You're totally up to date! You've got a <strong>{0}</strong> on your machine. ";
 
@@ -24,6 +27,7 @@ public static class Constants
 
     public const string Windows8 = "Windows NT 6.2";
 
+    public const string Version452Detected = "4.5.2";
     public const string Version45Detected = "4.5";
     public const string Version45Full = ".NET 4.5";
     public const string Version40Full = ".NET4.0E";
@@ -38,6 +42,8 @@ public static class Constants
     public const string Version11Full = ".NET CLR 1.1";
     public const string Version10Full = ".NET CLR 1.0";
 
+    public const string Version452WebURL = "http://microsoft.com/download/details.aspx?id=42643";
+    public const string Version452OfflineURL = "http://microsoft.com/download/details.aspx?id=42642";
     public const string Version45OfflineURL = "http://go.microsoft.com/fwlink/?LinkId=225702";
 
     public const string Version11URL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en";
@@ -49,4 +55,9 @@ public static class Constants
     public const string Version40ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
     public const string Version45URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
 
+    public const double Version452WebMB = 1.1;
+    public const int Version452OfflineMB = 66;
+    public const int Version3OfflineMB = 38;
+    public const int Version2OfflineMB = 15;
+    public const int Version1OfflineMB = 7;
 }

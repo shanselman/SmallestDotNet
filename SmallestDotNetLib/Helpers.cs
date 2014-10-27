@@ -122,29 +122,29 @@ public class Helpers
 
     private static string UnknownBrowserMessage()
     {
-        string explain = String.Format(Constants.WhyItIsSmall, 48);
+        string explain = String.Format(Constants.WhyItIsSmall, Constants.DotNetOfflineMB);
         return String.Format(@"I can't see what browser you have. That's totally cool, but I can't tell if you've got .NET installed. 
                 Consider running this <a href=""https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe"">little application</a>, just once, and we'll tell you what version of .NET you're running.");
     }
 
     private static string DotNet1Message(bool hasDotNet4)
     {
-        string explain = String.Format(Constants.WhyItIsSmall, "around 45-60");
+        string explain = String.Format(Constants.WhyItIsSmall, Constants.DotNetOfflineMB - Constants.Version1OfflineMB);
         return String.Format("Looks like you've {3} got a <strong>pretty old version of .NET</strong>. You should make sure your computer is up to date by visiting {0} then downloading the {1} from Microsoft. {2}", Constants.WindowsUpdate, Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
     }
 
     private static string DotNet2Message(bool hasDotNet4)
     {
-        string explain = String.Format(Constants.WhyItIsSmall, "around 33");
+        string explain = String.Format(Constants.WhyItIsSmall, Constants.DotNetOfflineMB - Constants.Version2OfflineMB);
         return String.Format(@"Looks like you {2} have <strong>.NET version 2.0</strong>. 
-                     That's a fairly recent version of the .NET Framework, but you can upgrade fairly easily to the .NET 4.5 by downloading the 980 KB isntaller for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
+          That's a fairly recent version of the .NET Framework, but you can upgrade fairly easily to the .NET {4} by downloading the {3} MB isntaller for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "", Constants.DotNetOnlineMB, Constants.DotNet);
     }
 
     private static string DotNet3Message(bool hasDotNet4)
     {
-        string explain = String.Format(Constants.WhyItIsSmall, "only 10");
+        string explain = String.Format(Constants.WhyItIsSmall, Constants.DotNetOfflineMB - Constants.Version3OfflineMB);
         return String.Format(@"Looks like you {2} have <strong>.NET version 3.0</strong>. 
-                     That's a very recent version of the .NET Framework, but you can upgrade fairly easily to .NET 4.5 by downloading the 980 KB installer for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "");
+          That's a very recent version of the .NET Framework, but you can upgrade fairly easily to .NET {4} by downloading the {3} MB installer for {0}. {1}", Constants.DotNetOnline, explain, hasDotNet4 ? "also" : "", Constants.DotNetOnlineMB, Constants.DotNet);
     }
 
     private static string DotNet3_5Message(bool hasSp1, bool hasDotNet4)
