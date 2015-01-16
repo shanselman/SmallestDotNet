@@ -12,12 +12,18 @@ namespace CheckForDotNet45
         static void Main(string[] args)
         {
             Console.Write("Checking .NET version...");
-            if (IsNet45OrNewer())
+
+            string version = IsNet45OrNewer() ? Get45or451FromRegistry() : Environment.Version.ToString();
+            try
             {
-                Process.Start(String.Format(site, Get45or451FromRegistry()));
+                Process.Start(String.Format(site, version));
             }
-            else
-                Process.Start(String.Format(site, Environment.Version.ToString()));
+            catch (Exception)
+            {
+                Console.WriteLine("\nApplication was unable to launch browser");
+                Console.WriteLine("Your current .NET version is: " + version);
+                Console.ReadLine(); //Pause
+            }
         }
 
         public static bool IsNet45OrNewer()
