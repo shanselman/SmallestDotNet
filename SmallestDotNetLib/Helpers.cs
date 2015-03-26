@@ -201,7 +201,7 @@ public class Helpers
     /// <returns></returns>
     public static bool HasWindows8(String UserAgent)
     {
-        return UserAgent.Contains(Constants.Windows8);
+        return UserAgent.Contains(Constants.Windows8) || UserAgent.Contains(Constants.Windows81);
     }
 
     /// <summary>
