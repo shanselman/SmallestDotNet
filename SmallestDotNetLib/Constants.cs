@@ -26,6 +26,7 @@ public static class Constants
     };
 
     public const string Windows8 = "Windows NT 6.2";
+    public const string Windows81 = "Windows NT 6.3";
 
     public const string Version452Detected = "4.5.2";
     public const string Version45Detected = "4.5";

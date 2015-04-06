@@ -15,7 +15,13 @@ public class Helpers
         string netInfoString = "";
 
 
-        //We should check this first since we don't need to check .NET versions if they can't have .NET versions
+        // We should check this first since we don't need to check .NET versions if they can't have .NET versions
+        // Check for windows phone first as it may contain 'Mac' in User Agent
+        if (UserAgent.Contains("Windows Phone"))
+        {
+            netInfoString = "It looks like you're running a Windows Phone, awesome! There's no .NET Framework download for the Windows phone, but you might check out <a href=\"https://dev.windows.com/\"/>the Windows Dev Center</a> or <a href=\"http://www.windowsphone.com/store/\"/>the Windows Phone Store</a>";
+            return netInfoString;
+        }
         if (UserAgent.Contains("Mac"))
         {
             netInfoString = "It looks like you're running a Mac or an iPhone. There's no .NET Framework download from Microsoft for the Mac, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your iPhone, check out <a href=\"http://xamarin.com/monotouch\">MonoTouch</a> and write .NET apps for iOS!";
@@ -201,7 +207,7 @@ public class Helpers
     /// <returns></returns>
     public static bool HasWindows8(String UserAgent)
     {
-        return UserAgent.Contains(Constants.Windows8);
+        return UserAgent.Contains(Constants.Windows8) || UserAgent.Contains(Constants.Windows81);
     }
 
     /// <summary>

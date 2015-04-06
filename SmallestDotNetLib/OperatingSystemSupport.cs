@@ -12,6 +12,7 @@
 
     public class OperatingSystems
     {
+        public static OperatingSystem Windows81 = new OperatingSystem() { UserAgentVersion = "Windows NT 6.3", PrettyVersion = "Windows 8.1", LatestCLRVersion = CLRVersions.NET45Full };
         public static OperatingSystem Windows8 = new OperatingSystem() { UserAgentVersion = "Windows NT 6.2", PrettyVersion = "Windows 8", LatestCLRVersion = CLRVersions.NET45Full };
         public static OperatingSystem Windows7 = new OperatingSystem() { UserAgentVersion = "Windows NT 6.1", PrettyVersion = "Windows 7", LatestCLRVersion = CLRVersions.NET45Full };
         public static OperatingSystem WindowsVista = new OperatingSystem() { UserAgentVersion = "Windows NT 6.0", PrettyVersion = "Windows Vista", LatestCLRVersion = CLRVersions.NET45Full };
@@ -26,6 +27,7 @@
 
         public static List<OperatingSystem> OSVersions = new List<OperatingSystem>
 	{
+	    Windows81,
 	    Windows8,
 	    Windows7,
 	    WindowsVista,

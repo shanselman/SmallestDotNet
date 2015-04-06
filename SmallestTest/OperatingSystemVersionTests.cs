@@ -29,6 +29,17 @@
 	    Assert.AreEqual(Windows8OperatingSystem, actualOS);
 	}
 
+    [TestMethod]
+    public void CheckWindows81()
+    {
+        var UserAgent = "Windows NT 6.3";
+        var Windows8OperatingSystem = OperatingSystems.Windows81;
+
+        var actualOS = OperatingSystems.GetOperatingSystem(UserAgent);
+
+        Assert.AreEqual(Windows8OperatingSystem, actualOS);
+    }
+
 	[TestMethod]
 	public void CheckWindows7()
 	{
