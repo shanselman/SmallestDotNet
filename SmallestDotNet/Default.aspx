@@ -59,12 +59,12 @@
             </div>
         </div>
 
-        <div class="row-fluid">
+        <div class="row-fluid" runat="server" id="dotnet45">
             <div class="span12">
                 <h2>What about .NET 4.5?</h2>
                 
                 Download this application <a href="http://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
-                This harmless code signed application will tell us if you have .NET 4.5. Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
+                This harmless code signed application will tell us if you have .NET 4.5 (or 4.5.1/4.5.2). Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
             </div>
         </div>
         <!-- Example row of columns -->
