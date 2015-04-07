@@ -7,34 +7,34 @@ using System.Collections.Generic;
 /// </summary>
 public class Helpers
 {
-    public static string GetUpdateInformation(string UserAgent, Version version)
+    public static UpdateInformationResponse GetUpdateInformation(string UserAgent, Version version)
     {
-
-
         bool net4 = false;
         string netInfoString = "";
-
+        var response = new UpdateInformationResponse();
 
         // We should check this first since we don't need to check .NET versions if they can't have .NET versions
         // Check for windows phone first as it may contain 'Mac' in User Agent
         if (UserAgent.Contains("Windows Phone"))
         {
-            netInfoString = "It looks like you're running a Windows Phone, awesome! There's no .NET Framework download for the Windows phone, but you might check out <a href=\"https://dev.windows.com/\"/>the Windows Dev Center</a> or <a href=\"http://www.windowsphone.com/store/\"/>the Windows Phone Store</a>";
-            return netInfoString;
+            response.Text = "It looks like you're running a Windows Phone, awesome! There's no .NET Framework download for the Windows phone, but you might check out <a href=\"https://dev.windows.com/\"/>the Windows Dev Center</a> or <a href=\"http://www.windowsphone.com/store/\"/>the Windows Phone Store</a>";
+            return response;
         }
         if (UserAgent.Contains("Mac"))
         {
-            netInfoString = "It looks like you're running a Mac or an iPhone. There's no .NET Framework download from Microsoft for the Mac, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your iPhone, check out <a href=\"http://xamarin.com/monotouch\">MonoTouch</a> and write .NET apps for iOS!";
-            return netInfoString;
+            response.Text = "It looks like you're running a Mac or an iPhone. There's no .NET Framework download from Microsoft for the Mac, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your iPhone, check out <a href=\"http://xamarin.com/monotouch\">MonoTouch</a> and write .NET apps for iOS!";
+            return response;
         }
         if (UserAgent.Contains("nix"))
         {
-            netInfoString = "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
-            return netInfoString;
+            response.Text = "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
+            return response;
         }
+        
+        response.CanRunCheckApp = true;
+        response.VersionCanBeDetermined = true;
 
-
-        net4 = (GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString));
+        net4 = GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString);
         if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
         {
             netInfoString += DotNet3_5Message((Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent)), net4);
@@ -69,6 +69,8 @@ public class Helpers
             {
                 netInfoString += UnknownBrowserMessage();
             }
+
+            response.VersionCanBeDetermined = false;
         }
 
         //need to see if windows 2000 has the latest version
@@ -77,7 +79,8 @@ public class Helpers
             netInfoString += CheckDotNet3_5UnSupportedOs(UserAgent, windowsVersion.Key, windowsVersion.Value);
         }
 
-        return netInfoString;
+        response.Text = netInfoString;
+        return response;
     }
 
     private static bool GetWindows8Message(string UserAgent, ref string userMessage)
