@@ -19,7 +19,7 @@ namespace SmallestDotNet
                 var netVersions = userAgent.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains(".NET CLR"));
                 Version version = GetNetVersion(netVersions);
                 context.Response.ContentType = "text/plain";
-                context.Response.Write(Helpers.GetUpdateInformation(userAgent, version));
+                context.Response.Write(Helpers.GetUpdateInformation(userAgent, version).Text);
             }
         }
 
