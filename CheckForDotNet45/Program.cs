@@ -7,16 +7,24 @@ namespace CheckForDotNet45
 
     class Program
     {
-        const string site = "http://smallestdotnet.com/?realversion={0}";
+        private const string Site = "http://smallestdotnet.com/?realversion={0}";
+        private const string ReleaseKeyParameter = "&releaseKey={1}";
 
         static void Main(string[] args)
         {
             Console.Write("Checking .NET version...");
 
-            string version = IsNet45OrNewer() ? Get45or451FromRegistry() : Environment.Version.ToString();
+            int releaseKey = 0;
+            bool exact = true;
+            string version = IsNet45OrNewer() 
+                ? Get45or451FromRegistry(out exact, out releaseKey) 
+                : Environment.Version.ToString();
             try
             {
-                Process.Start(String.Format(site, version));
+                string url = exact
+                    ? string.Format(Site, version)
+                    : string.Format(Site + ReleaseKeyParameter, version, releaseKey);
+                Process.Start(url);
             }
             catch (Exception)
             {
@@ -33,12 +41,13 @@ namespace CheckForDotNet45
         }
 
         //Improved but based on http://msdn.microsoft.com/en-us/library/hh925568%28v=vs.110%29.aspx#net_d
-        private static string Get45or451FromRegistry()
+        private static string Get45or451FromRegistry(out bool exact, out int releaseKey)
         {
             using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
                RegistryView.Registry32).OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\"))
             {
-                var releaseKey = (int)ndpKey.GetValue("Release");
+                exact = true;
+                releaseKey = (int)ndpKey.GetValue("Release");
                 {
                     if (releaseKey == 378389)
                         return "4.5";
@@ -48,10 +57,19 @@ namespace CheckForDotNet45
 
                     if (releaseKey == 379893)
                         return "4.5.2";
+
+                    if (releaseKey == 381029)
+                        return "4.6 Preview";
+
+                    if (releaseKey > 381029)
+                    {
+                        exact = false;
+                    }
                 }
             }
 
-            return "4.5";
+            exact = false;
+            return "4.5 or greater";
         }
     }
 }

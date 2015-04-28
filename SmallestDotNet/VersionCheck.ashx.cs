@@ -16,35 +16,11 @@ namespace SmallestDotNet
             if (context.Request.RequestType == "GET")
             {
                 var userAgent = context.Request["userAgent"];
-                var netVersions = userAgent.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains(".NET CLR"));
-                Version version = GetNetVersion(netVersions);
                 context.Response.ContentType = "text/plain";
-                context.Response.Write(Helpers.GetUpdateInformation(userAgent, version).Text);
+                context.Response.Write(Helpers.GetUpdateInformation(userAgent).Text);
             }
         }
 
-
-        private Version GetNetVersion(IEnumerable<string> versions)
-        {
-            //I think were only looking for CLR versions
-            if (versions.Any())
-            {
-                var versionNumbers = new List<string>();
-                versions.ToList().ForEach(v =>
-                {
-                    var number = v.Split(new string[] { ".NET CLR" }, StringSplitOptions.None)[1].Trim();
-                    versionNumbers.Add(number);
-
-                });
-
-                versionNumbers = versionNumbers.OrderByDescending(x => x).ToList();
-                Version ret = Version.Parse(versionNumbers.First());
-
-                return ret;
-            }
-
-            return null;
-        }
         public bool IsReusable
         {
             get
