@@ -18,7 +18,7 @@ public static class Constants
 
     public const string EarlyAdopter = "You're totally up to date! You've got a <strong>{0}</strong> on your machine. ";
     public const string CheckerFound = "The .Net Checker application determined that you have <strong>{0}</strong> on your machine. ";
-    public const string CheckerFoundNotExact = "The application was not able to determine the exact version you have. Please log an issue using the link at the bottom of the page including this information: <strong>releaseKey={1}</strong>";
+    public const string CheckerFoundNotExact = "The application was not able to determine the exact version you have. Please <a href=\"https://github.com/shanselman/SmallestDotNet/issues/\">log an issue</a> including this information.: <strong>releaseKey={1}</strong>";
 
     public static readonly Dictionary<string, string> OldWindows = new Dictionary<string, string>
     {
