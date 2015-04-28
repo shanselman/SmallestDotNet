@@ -64,6 +64,7 @@ namespace CheckForDotNet45
                     if (releaseKey > 381029)
                     {
                         exact = false;
+                        return "4.6 or greater";
                     }
                 }
             }

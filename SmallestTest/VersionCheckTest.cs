@@ -1,5 +1,7 @@
 ﻿namespace SmallestTest
 {
+    using System.Globalization;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Collections.Generic;
@@ -42,6 +44,40 @@
             var userAgent = "Windows NT 6.2";
 
             Assert.IsTrue(Helpers.HasWindows8(userAgent), "Windows 8");
+            userAgent = "Windows NT 6.3";
+
+            Assert.IsTrue(Helpers.HasWindows8(userAgent), "Windows 8.1");
+        }
+
+        [TestMethod]
+        public void CheckRealVersion()
+        {
+            // Arrange
+            const string UserAgent = ".NET Version 1.0";
+            const string RealVersion = "4.5.1";
+            const string CheckerApplicationText = "The .Net Checker application determined that you have";
+            const string UnableToDetermineText = "The application was not able to determine the exact version you have.";
+            var releaseKey = 0;
+
+            // Act
+            string message = Helpers.GetUpdateInformation(UserAgent, RealVersion, releaseKey).Text;
+
+            // Assert
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, RealVersion);
+            Assert.IsFalse(message.Contains(UnableToDetermineText), "The '...not able to determine the exact version...' message should NOT appear if releaseKey=0");
+   
+            // Arrange
+            releaseKey = 9999;
+
+            // Act
+            message = Helpers.GetUpdateInformation(UserAgent, RealVersion, releaseKey).Text;
+
+            // Assert
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, RealVersion);
+            StringAssert.Contains(message, UnableToDetermineText, "The '...not able to determine the exact version...' message SHOULD appear if releaseKey>0");
+            StringAssert.Contains(message, releaseKey.ToString(CultureInfo.InvariantCulture));
         }
     }
 }
