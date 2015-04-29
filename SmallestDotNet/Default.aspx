@@ -149,7 +149,7 @@
     <script type="text/javascript">
         $(function () {
             $('.result-header').hide();
-            if (document.location.search.indexOf('realversion') > -1) {
+            if (document.location.search.indexOf('releaseKey') > -1 || document.location.search.indexOf('realversion') > -1) {
                 $('#header-statement').text('We Found .NET!');
                 $('.result-header').fadeIn(1000);
                 return;
