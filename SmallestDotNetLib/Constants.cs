@@ -18,7 +18,7 @@ public static class Constants
 
     public const string EarlyAdopter = "You're totally up to date! You've got a <strong>{0}</strong> on your machine. ";
     public const string CheckerFound = "The .Net Checker application determined that you have <strong>{0}</strong> on your machine. ";
-    public const string CheckerFoundNotExact = "The application was not able to determine the exact version you have. Please <a href=\"https://github.com/shanselman/SmallestDotNet/issues/\">log an issue</a> including this information: <strong>releaseKey={1}</strong>";
+    public const string CheckerFoundNotExact = "The application was not able to determine the exact version you have. Please <a href=\"https://github.com/shanselman/SmallestDotNet/issues/\">log an issue</a> including this information: <strong>releaseKey={1}</strong> so we can get it exact in the future.";
 
     public static readonly Dictionary<string, string> OldWindows = new Dictionary<string, string>
     {
@@ -26,6 +26,19 @@ public static class Constants
         {"Windows 95", "Windows 95"},
         {"Windows 98", "Windows 98"}
     };
+
+    /// <summary>
+    /// The .Net versions (4.5 and above) keyed by the registry key value.
+    /// </summary>
+    public static readonly SortedDictionary<int, string> ReleaseVersions = new SortedDictionary<int, string>
+                           {
+                               { int.MinValue, "4.5" },
+                               { 378389, "4.5" },
+                               { 378675, "4.5.1" },
+                               { 378758, "4.5.1" },
+                               { 379893, "4.5.2" },
+                               { 381029, "4.6 Preview" },
+                           };
 
     public const string Windows8 = "Windows NT 6.2";
     public const string Windows81 = "Windows NT 6.3";

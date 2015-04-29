@@ -1,4 +1,6 @@
-﻿using SmallestDotNetLib;
+﻿using System.Linq;
+
+using SmallestDotNetLib;
 using System;
 using System.Collections.Generic;
 
@@ -11,7 +13,7 @@ public class Helpers
     {
         return GetUpdateInformation(userAgent, null, 0);
     }
-    
+
     public static UpdateInformationResponse GetUpdateInformation(string UserAgent, string realVersion, int releaseKey)
     {
         bool net4 = false;
@@ -40,7 +42,7 @@ public class Helpers
         response.VersionCanBeDetermined = true;
 
         net4 = GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString);
-        if (!string.IsNullOrEmpty(realVersion))
+        if (!string.IsNullOrEmpty(realVersion) || releaseKey != 0)
         {
             netInfoString = GetRealVersionMessage(realVersion, releaseKey);
         }
@@ -93,16 +95,42 @@ public class Helpers
     }
 
     /// <summary>
+    /// Gets the .Net version based on release key.
+    /// </summary>
+    /// <param name="releaseKey">The release key found in registry.</param>
+    /// <param name="exact">if set to <c>true</c> then an exact match was found; otherwise the return value will contain "X.Y or greater".</param>
+    /// <returns>Version number text e.g. "4.5.1"</returns>
+    private static string GetDotnetVersionFromReleaseKey(int releaseKey, out bool exact)
+    {
+        string version;
+        if (Constants.ReleaseVersions.TryGetValue(releaseKey, out version))
+        {
+            exact = true;
+            return version;
+        }
+
+        exact = false;
+        var releaseVersion = Constants.ReleaseVersions.Last(kvp => kvp.Key < releaseKey);
+        return releaseVersion.Value + " or greater";
+    }
+
+    /// <summary>
     /// Gets a message based on the "real" version as determined by the .Net Checker application.
     /// </summary>
     /// <param name="realVersion">The real version.</param>
-    /// <param name="releaseKey">The release key (will be zero in cases where the release key was exactly matched to a .Net Version).</param>
+    /// <param name="releaseKey">The release key.</param>
     /// <returns>A message like "The .Net Checker application determined that you've got X.Y on your machine."</returns>
     private static string GetRealVersionMessage(string realVersion, int releaseKey)
     {
-        return releaseKey > 0
-            ? string.Format(Constants.CheckerFound + Constants.CheckerFoundNotExact, realVersion, releaseKey)
-            : string.Format(Constants.CheckerFound, realVersion);
+        bool exact = true;
+        if (releaseKey != 0)
+        {
+            realVersion = GetDotnetVersionFromReleaseKey(releaseKey, out exact);
+        }
+
+        return exact
+            ? string.Format(Constants.CheckerFound, realVersion)
+            : string.Format(Constants.CheckerFound + Constants.CheckerFoundNotExact, realVersion, releaseKey);
     }
 
     private static bool GetWindows8Message(string UserAgent, ref string userMessage)

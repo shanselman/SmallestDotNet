@@ -65,19 +65,32 @@
             // Assert
             StringAssert.StartsWith(message, CheckerApplicationText);
             StringAssert.Contains(message, RealVersion);
-            Assert.IsFalse(message.Contains(UnableToDetermineText), "The '...not able to determine the exact version...' message should NOT appear if releaseKey=0");
+            Assert.IsFalse(message.Contains(UnableToDetermineText), "The '...not able to determine the exact version...' message should NOT appear if realVersion is present and releaseKey=0");
    
-            // Arrange
-            releaseKey = 9999;
+            foreach (var releaseVersion in Constants.ReleaseVersions)
+            {
+                // Arrange
+                releaseKey = releaseVersion.Key;
 
-            // Act
-            message = Helpers.GetUpdateInformation(UserAgent, RealVersion, releaseKey).Text;
+                // Act
+                message = Helpers.GetUpdateInformation(UserAgent, null, releaseKey).Text;
 
-            // Assert
-            StringAssert.StartsWith(message, CheckerApplicationText);
-            StringAssert.Contains(message, RealVersion);
-            StringAssert.Contains(message, UnableToDetermineText, "The '...not able to determine the exact version...' message SHOULD appear if releaseKey>0");
-            StringAssert.Contains(message, releaseKey.ToString(CultureInfo.InvariantCulture));
+                // Assert
+                StringAssert.StartsWith(message, CheckerApplicationText);
+                StringAssert.Contains(message, releaseVersion.Value);
+                Assert.IsFalse(message.Contains(UnableToDetermineText), "The '...not able to determine the exact version...' message should NOT appear if releaseKey is contained in Constants.ReleaseVersions");
+
+                // Arrange
+                releaseKey = releaseVersion.Key + 1;
+
+                // Act
+                message = Helpers.GetUpdateInformation(UserAgent, null, releaseKey).Text;
+
+                // Assert
+                StringAssert.StartsWith(message, CheckerApplicationText);
+                StringAssert.Contains(message, releaseVersion.Value + " or greater");
+                StringAssert.Contains(message, UnableToDetermineText, "The '...not able to determine the exact version...' message SHOULD appear if releaseKey is not contained in Constants.ReleaseVersions");
+            }
         }
     }
 }

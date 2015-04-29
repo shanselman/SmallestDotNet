@@ -13,7 +13,7 @@ public partial class _Default : System.Web.UI.Page
         string userAgentText = this.Request.UserAgent ?? string.Empty;
         userAgent.Text = HttpUtility.HtmlEncode(userAgentText);
 
-        if (Request.QueryString["realversion"] != null)
+        if (Request.QueryString["realversion"] != null || this.Request.QueryString["releaseKey"] != null)
         {
             realVersion = this.Request.QueryString["realversion"];
             int.TryParse(this.Request.QueryString["releaseKey"], out releaseKey);
