@@ -7,21 +7,21 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string userAgentText;
+        string realVersion = null;
+        int releaseKey = 0;
         bool runFromChecker = false;
-        userAgent.Text = HttpUtility.HtmlEncode(Request.UserAgent);
+        string userAgentText = this.Request.UserAgent ?? string.Empty;
+        userAgent.Text = HttpUtility.HtmlEncode(userAgentText);
 
-        if (Request.QueryString["realversion"] != null)
+        if (Request.QueryString["realversion"] != null || this.Request.QueryString["releaseKey"] != null)
         {
-            userAgentText = this.Request.QueryString["realversion"];
+            realVersion = this.Request.QueryString["realversion"];
+            int.TryParse(this.Request.QueryString["releaseKey"], out releaseKey);
             runFromChecker = true;
         }
-        else
-        {
-            userAgentText = this.Request.UserAgent;
-        }
 
-        UpdateInformationResponse response = Helpers.GetUpdateInformation(userAgentText, this.Request.Browser.ClrVersion);
+
+        UpdateInformationResponse response = Helpers.GetUpdateInformation(userAgentText, realVersion, releaseKey);
 
         userResult.Text = response.Text;
         developerOnline.Text = String.Format(@"If your users have internet connectivity, the .NET Framework is only between {1} and {2} megs. Why such a wide range? Well, it depends on if they already have some version of .NET.

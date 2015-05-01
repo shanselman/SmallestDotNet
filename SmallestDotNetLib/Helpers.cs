@@ -1,4 +1,6 @@
-﻿using SmallestDotNetLib;
+﻿using System.Linq;
+
+using SmallestDotNetLib;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +9,12 @@ using System.Collections.Generic;
 /// </summary>
 public class Helpers
 {
-    public static UpdateInformationResponse GetUpdateInformation(string UserAgent, Version version)
+    public static UpdateInformationResponse GetUpdateInformation(string userAgent)
+    {
+        return GetUpdateInformation(userAgent, null, 0);
+    }
+
+    public static UpdateInformationResponse GetUpdateInformation(string UserAgent, string realVersion, int releaseKey)
     {
         bool net4 = false;
         string netInfoString = "";
@@ -30,12 +37,16 @@ public class Helpers
             response.Text = "It looks like you're running a Unix machine. There's no .NET Framework download from Microsoft for Unix, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on Unix.";
             return response;
         }
-        
+
         response.CanRunCheckApp = true;
         response.VersionCanBeDetermined = true;
 
         net4 = GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString);
-        if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
+        if (!string.IsNullOrEmpty(realVersion) || releaseKey != 0)
+        {
+            netInfoString = GetRealVersionMessage(realVersion, releaseKey);
+        }
+        else if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
         {
             netInfoString += DotNet3_5Message((Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent)), net4);
         }
@@ -81,6 +92,45 @@ public class Helpers
 
         response.Text = netInfoString;
         return response;
+    }
+
+    /// <summary>
+    /// Gets the .Net version based on release key.
+    /// </summary>
+    /// <param name="releaseKey">The release key found in registry.</param>
+    /// <param name="exact">if set to <c>true</c> then an exact match was found; otherwise the return value will contain "X.Y or greater".</param>
+    /// <returns>Version number text e.g. "4.5.1"</returns>
+    private static string GetDotnetVersionFromReleaseKey(int releaseKey, out bool exact)
+    {
+        string version;
+        if (Constants.ReleaseVersions.TryGetValue(releaseKey, out version))
+        {
+            exact = true;
+            return version;
+        }
+
+        exact = false;
+        var releaseVersion = Constants.ReleaseVersions.Last(kvp => kvp.Key < releaseKey);
+        return releaseVersion.Value + " or greater";
+    }
+
+    /// <summary>
+    /// Gets a message based on the "real" version as determined by the .Net Checker application.
+    /// </summary>
+    /// <param name="realVersion">The real version.</param>
+    /// <param name="releaseKey">The release key.</param>
+    /// <returns>A message like "The .Net Checker application determined that you've got X.Y on your machine."</returns>
+    private static string GetRealVersionMessage(string realVersion, int releaseKey)
+    {
+        bool exact = true;
+        if (releaseKey != 0)
+        {
+            realVersion = GetDotnetVersionFromReleaseKey(releaseKey, out exact);
+        }
+
+        return exact
+            ? string.Format(Constants.CheckerFound, realVersion)
+            : string.Format(Constants.CheckerFound + Constants.CheckerFoundNotExact, realVersion, releaseKey);
     }
 
     private static bool GetWindows8Message(string UserAgent, ref string userMessage)
@@ -302,5 +352,6 @@ public class Helpers
     {
         return UserAgent.Contains(Constants.Version10Full);
     }
+
 
 }
