@@ -1,8 +1,7 @@
-﻿using System.Linq;
-
-using SmallestDotNetLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using SmallestDotNetLib;
 
 /// <summary>
 /// A Class containing general purposes methods
