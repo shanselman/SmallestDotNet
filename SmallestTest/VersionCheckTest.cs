@@ -22,6 +22,7 @@
                 , ".NET CLR 1.0"
             };
         }
+
         [TestMethod]
         public void CheckAllCLRInUserAgentDetectionStrings()
         {
@@ -46,6 +47,42 @@
             userAgent = "Windows NT 6.3";
 
             Assert.IsTrue(Helpers.HasWindows8(userAgent), "Windows 8.1");
+        }
+
+        /// <summary>
+        /// Checks that the helper detects Windows 10 correctly.
+        /// </summary>
+        [TestMethod]
+        public void CheckWindows10Detection()
+        {
+            // User agent from Edge (Windows 10 build 10074)
+            var userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0";
+
+            Assert.IsTrue(Helpers.HasWindows10(userAgent), "Windows 10 detection failed");
+
+            // User agent from IE11 (Windows 10 build 10074)
+            userAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; MALCJS; rv:11.0) like Gecko";
+
+            Assert.IsTrue(Helpers.HasWindows10(userAgent), "Windows 10 detection failed");
+            Assert.IsFalse(Helpers.HasWindows8(userAgent), "Windows 8 incorrectly detected");
+        }
+
+        /// <summary>
+        /// Checks that the helper shows 4.6 when Windows 10 detected.
+        /// </summary>
+        [TestMethod]
+        public void CheckWindows10Shows46()
+        {
+            // Arrange
+            const string UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0";
+
+
+            // Act
+            string message = Helpers.GetUpdateInformation(UserAgent).Text;
+
+            // Assert
+            Assert.IsTrue(Helpers.HasWindows10(UserAgent), "Windows 10 detection failed");
+            StringAssert.Contains(message, "4.6", "Windows 10 must have at least 4.6");
         }
 
         [TestMethod]

@@ -12,3 +12,21 @@ TestResults
 *user
 
 [Pp]ackages
+SmallestDotNet/ExceptionUtility.cs
+SmallestDotNet.sln.GhostDoc.xml
+SmallestDotNet/GenericErrorPage.aspx
+SmallestDotNet/GenericErrorPage.aspx.cs
+SmallestDotNet/GenericErrorPage.aspx.designer.cs
+SmallestDotNet/Global.asax
+SmallestDotNet/HttpErrorPage.aspx
+SmallestDotNet/Global.asax.cs
+SmallestDotNet/HttpErrorPage.aspx.cs
+SmallestDotNet/HttpErrorPage.aspx.designer.cs
+SmallestDotNet/sdn.aspx
+SmallestDotNet/sdn.aspx.designer.cs
+SmallestDotNet/sdn.aspx.cs
+SmallestDotNet/SmallestDotNet4WalkersRetreat.csproj
+SmallestDotNet/TestError.aspx
+SmallestDotNet/TestError.aspx.cs
+SmallestDotNet/TestError.aspx.designer.cs
+CopyrightInfo.xml

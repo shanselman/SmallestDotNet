@@ -16,7 +16,7 @@ public static class Constants
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
                            For you, it'll probably be <strong>around {0} megabytes total</strong>.";
 
-    public const string EarlyAdopter = "You're totally up to date! You've got a <strong>{0}</strong> on your machine. ";
+    public const string InferredText = "You have at least <strong>{0}</strong> on your machine. We can only infer this as the user agent of your browser doesn't give us the version. Try the .Net Checker application to get more accurate version information.";
     public const string CheckerFound = "The .Net Checker application determined that you have <strong>{0}</strong> on your machine. ";
     public const string CheckerFoundNotExact = "The application was not able to determine the exact version you have. Please <a href=\"https://github.com/shanselman/SmallestDotNet/issues/\">log an issue</a> including this information: <strong>releaseKey={1}</strong> so we can get it exact in the future.";
 
@@ -42,6 +42,7 @@ public static class Constants
 
     public const string Windows8 = "Windows NT 6.2";
     public const string Windows81 = "Windows NT 6.3";
+    public const string Windows10 = "Windows NT 10";
 
     public const string Version452Detected = "4.5.2";
     public const string Version45Detected = "4.5";
