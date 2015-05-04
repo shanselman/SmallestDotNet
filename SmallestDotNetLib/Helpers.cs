@@ -1,8 +1,7 @@
-﻿using System.Linq;
-
-using SmallestDotNetLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using SmallestDotNetLib;
 
 /// <summary>
 /// A Class containing general purposes methods
@@ -41,7 +40,7 @@ public class Helpers
         response.CanRunCheckApp = true;
         response.VersionCanBeDetermined = true;
 
-        net4 = GetWindows8Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString);
+        net4 = GetWindows8Or10Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString);
         if (!string.IsNullOrEmpty(realVersion) || releaseKey != 0)
         {
             netInfoString = GetRealVersionMessage(realVersion, releaseKey);
@@ -133,16 +132,19 @@ public class Helpers
             : string.Format(Constants.CheckerFound + Constants.CheckerFoundNotExact, realVersion, releaseKey);
     }
 
-    private static bool GetWindows8Message(string UserAgent, ref string userMessage)
+    /// <summary>
+    /// Gets a message for the Windows 8 OS.
+    /// </summary>
+    /// <param name="userAgent">The user agent.</param>
+    /// <param name="userMessage">The user message.</param>
+    /// <returns>True if the user agent has </returns>
+    private static bool GetWindows8Or10Message(string userAgent, ref string userMessage)
     {
-        if (Helpers.HasWindows8(UserAgent) || Helpers.Has45(UserAgent))
+        bool hasWindows10 = Helpers.HasWindows10(userAgent);
+        if (Helpers.HasWindows8(userAgent) || hasWindows10)
         {
-            var version = "4.5";
-
-            if (UserAgent == "4.5.1" || UserAgent == "4.5.2")
-                version = UserAgent;
-
-            userMessage += String.Format(Constants.EarlyAdopter, "full install of .NET " + version);
+            var version = hasWindows10 ? "4.6" : "4.5";
+            userMessage += string.Format(Constants.InferredText, version);
             return true;
         }
 
@@ -256,11 +258,31 @@ public class Helpers
     /// <summary>
     /// Determines if the User Agent String indicates Windows 8
     /// </summary>
-    /// <param name="UserAgent">A User Agent String</param>
-    /// <returns></returns>
-    public static bool HasWindows8(String UserAgent)
+    /// <param name="userAgent">A User Agent String</param>
+    /// <returns>True if user agent contains "Windows NT 6.2" or "Windows NT 6.3"</returns>
+    public static bool HasWindows8(String userAgent)
     {
-        return UserAgent.Contains(Constants.Windows8) || UserAgent.Contains(Constants.Windows81);
+        // User Agent from Win 8.1 IE11:
+        //  Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; LCJB; rv:11.0) like Gecko
+        // User Agent from Windows 10 build 10074 IE11:
+        // "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; MALCJS; rv:11.0) like Gecko";
+        return userAgent.Contains(Constants.Windows8) || 
+            (userAgent.Contains(Constants.Windows81) && !userAgent.Contains("MALCJS"));
+    }
+
+    /// <summary>
+    /// Determines if the User Agent String indicates Windows 8
+    /// </summary>
+    /// <param name="userAgent">A User Agent String</param>
+    /// <returns>True if user agent contains "Windows NT 10"</returns>
+    public static bool HasWindows10(string userAgent)
+    {
+        // User Agent from Win 8.1 IE11:
+        //  Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; LCJB; rv:11.0) like Gecko
+        // User Agent from Windows 10 build 10074 IE11:
+        // "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; MALCJS; rv:11.0) like Gecko";
+        return userAgent.Contains(Constants.Windows10)
+            || (userAgent.Contains(Constants.Windows81) && userAgent.Contains("MALCJS"));
     }
 
     /// <summary>
@@ -352,6 +374,4 @@ public class Helpers
     {
         return UserAgent.Contains(Constants.Version10Full);
     }
-
-
 }
