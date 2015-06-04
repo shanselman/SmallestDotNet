@@ -38,6 +38,7 @@ public static class Constants
                                { 378758, "4.5.1" },
                                { 379893, "4.5.2" },
                                { 381029, "4.6 Preview" },
+                               { 393292, "4.6 Preview" },
                            };
 
     public const string Windows8 = "Windows NT 6.2";
