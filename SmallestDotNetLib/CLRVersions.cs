@@ -19,6 +19,7 @@ namespace SmallestDotNetLib
 	public static CLRVersion NET40Client = new CLRVersion() { Major = 4, Minor = 0, Profile = "client", Url = Constants.Version40ClientURL, PrettyVersion = ".NET 4.0 Client" };
 	public static CLRVersion NET40Full = new CLRVersion() { Major = 4, Minor = 0, Profile = "full", Url = Constants.Version40FullURL, PrettyVersion = ".NET 4.0" };
 	public static CLRVersion NET45Full = new CLRVersion() { Major = 4, Minor = 5, Profile = "full", Url = Constants.Version45URL, PrettyVersion = ".NET 4.5" };
+	public static CLRVersion NET46Full = new CLRVersion() { Major = 4, Minor = 6, Profile = "full", Url = Constants.Version46URL, PrettyVersion = ".NET 4.6" };
 
         /// <summary>
         /// A Dictionary of CLR Versions with information
@@ -34,7 +35,8 @@ namespace SmallestDotNetLib
                 {Constants.Version35SP1Full, NET35SP1Full},
                 {Constants.Version40Client, NET40Client},
                 {Constants.Version40Full, NET40Full},
-                {Constants.Version45Full, NET45Full}
+                {Constants.Version45Full, NET45Full},
+                {Constants.Version46Full, NET46Full}
             };
 
         /// <summary>
