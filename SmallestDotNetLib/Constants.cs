@@ -6,11 +6,11 @@ using System.Collections.Generic;
 /// </summary>
 public static class Constants
 {
-    public static readonly string DotNet = "4.6";
-    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version46WebUrl, DotNet);
-    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version46OfflineUrl, DotNet);
-    public const double DotNetOnlineMB = Version46WebMB;
-    public const double DotNetOfflineMB = Version46OfflineMB;
+    public static readonly string DotNet = "4.6.1";
+    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version461WebUrl, DotNet);
+    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version461OfflineUrl, DotNet);
+    public const double DotNetOnlineMB = Version461WebMB;
+    public const double DotNetOfflineMB = Version461OfflineMB;
 
     public const string WindowsUpdate = "<a href=\"http://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
@@ -42,12 +42,15 @@ public static class Constants
                                { 393292, "4.6 RC2" },
                                { 393295, "4.6" },
                                { 393297, "4.6" },
+                               { 394254, "4.6.1" },
+                               { 394271, "4.6.1" },
                            };
 
     public const string Windows8 = "Windows NT 6.2";
     public const string Windows81 = "Windows NT 6.3";
     public const string Windows10 = "Windows NT 10";
 
+    public const string Version461Full = ".NET 4.6.1";
     public const string Version46Full = ".NET 4.6";
     public const string Version45Full = ".NET 4.5";
     public const string Version40Full = ".NET4.0E";
@@ -59,6 +62,9 @@ public static class Constants
     public const string Version20Full = ".NET CLR 2.0";
     public const string Version11Full = ".NET CLR 1.1";
     public const string Version10Full = ".NET CLR 1.0";
+
+    private const string Version461WebUrl = "https://www.microsoft.com/en-us/download/details.aspx?id=49981";
+    private const string Version461OfflineUrl = "https://www.microsoft.com/en-us/download/details.aspx?id=49982";
 
     private const string Version46WebUrl = "http://go.microsoft.com/fwlink/?LinkId=528259";
     private const string Version46OfflineUrl = "http://go.microsoft.com/fwlink/?LinkId=528233";
@@ -73,6 +79,8 @@ public static class Constants
     public const string Version45URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
     public const string Version46URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
 
+    private const double Version461WebMB = 1.4;
+    private const double Version461OfflineMB = 64.5;
     private const double Version46WebMB = 1.4;
     private const int Version46OfflineMB = 63;
     public const int Version3OfflineMB = 38;

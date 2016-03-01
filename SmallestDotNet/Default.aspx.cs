@@ -30,6 +30,10 @@ public partial class _Default : System.Web.UI.Page
         developerOfflineResult.Text = String.Format(@"If you are a developer and are distributing your code on CD or DVD, you might want to download the 
          {0} on your media. The download is about {1} MB", Constants.DotNetOffline, Constants.DotNetOfflineMB);
         getdotnet.Visible = response.VersionCanBeDetermined;
+
+        if (response.VersionIsLatest)
+            getdotnet.Visible = false;
+
         checkdotnet.Visible = response.CanRunCheckApp;
 
         // Hide the 4.5 checker section if 

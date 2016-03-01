@@ -22,6 +22,11 @@ namespace SmallestDotNetLib
         /// </summary>
         public bool VersionCanBeDetermined { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the current dot net version is latest.
+        /// </summary>
+        public bool VersionIsLatest { get; set; }
+
         #endregion Properties
     }
 }
