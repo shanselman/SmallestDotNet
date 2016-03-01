@@ -43,7 +43,7 @@ public class Helpers
         net4 = GetWindows8Or10Message(UserAgent, ref netInfoString) || Get40Message(UserAgent, ref netInfoString);
         if (!string.IsNullOrEmpty(realVersion) || releaseKey != 0)
         {
-            netInfoString = GetRealVersionMessage(realVersion, releaseKey);
+            netInfoString = GetRealVersionMessage(ref realVersion, releaseKey);
         }
         else if (Helpers.Has35(UserAgent) || Helpers.Has35SP1C(UserAgent) || Helpers.Has35SP1E(UserAgent))
         {
@@ -83,6 +83,11 @@ public class Helpers
             response.VersionCanBeDetermined = false;
         }
 
+        if (response.VersionCanBeDetermined)
+        {
+            response.VersionIsLatest = Helpers.CheckVersionLatest(realVersion, ref netInfoString);                 
+        }
+
         //need to see if windows 2000 has the latest version
         foreach (KeyValuePair<string, string> windowsVersion in Constants.OldWindows)
         {
@@ -93,7 +98,7 @@ public class Helpers
         return response;
     }
 
-    /// <summary>
+      /// <summary>
     /// Gets the .Net version based on release key.
     /// </summary>
     /// <param name="releaseKey">The release key found in registry.</param>
@@ -119,7 +124,7 @@ public class Helpers
     /// <param name="realVersion">The real version.</param>
     /// <param name="releaseKey">The release key.</param>
     /// <returns>A message like "The .Net Checker application determined that you've got X.Y on your machine."</returns>
-    private static string GetRealVersionMessage(string realVersion, int releaseKey)
+    private static string GetRealVersionMessage(ref string realVersion, int releaseKey)
     {
         bool exact = true;
         if (releaseKey != 0)
@@ -165,7 +170,7 @@ public class Helpers
         {
             whichVersion = ".NET 4.0 Client Profile";
             ret = true;
-        }
+        }        
 
         if (ret)
         {
@@ -229,6 +234,15 @@ public class Helpers
         return "";
     }
 
+    private static bool CheckVersionLatest(string realVersion, ref string netInfoString)
+    {
+        if (realVersion != null && realVersion.Contains(Constants.DotNet))
+        {
+            netInfoString += String.Format(@"You have {0}, this is a recent version of .NET. Download an installer for the newest version <strong>{1}</strong>.", Constants.DotNet, Constants.DotNetOnline);
+            return true;
+        }
+        return false;
+    }
 
     public static bool Has45(String UserAgent)
     {
@@ -304,7 +318,7 @@ public class Helpers
     {
         return UserAgent.Contains(Constants.Version40Client) || UserAgent.StartsWith("4.0");
     }
-
+        
     /// <summary>
     /// Determines if the User Agent String indicates .NET 3.5 SP1 Full
     /// </summary>
@@ -373,5 +387,5 @@ public class Helpers
     public static bool Has10(String UserAgent)
     {
         return UserAgent.Contains(Constants.Version10Full);
-    }
+    }    
 }
