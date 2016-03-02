@@ -13,6 +13,11 @@ public class Helpers
         return GetUpdateInformation(userAgent, null, 0);
     }
 
+    public static UpdateInformationResponse GetUpdateInformation(string UserAgent, string realVersion)
+    {
+        return GetUpdateInformation(UserAgent, realVersion, 0);
+    }
+
     public static UpdateInformationResponse GetUpdateInformation(string UserAgent, string realVersion, int releaseKey)
     {
         bool net4 = false;
