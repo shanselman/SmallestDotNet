@@ -9,6 +9,11 @@ public static class Constants
     public static readonly string DotNet = "4.6.1";
     public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version461WebUrl, DotNet);
     public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version461OfflineUrl, DotNet);
+
+    // this variable can be updated with whatever constant is holiding the latest release URL and then should cascade to the Get.NET link
+    public static readonly string LatestDotNetRawUrl = Version461OfflineUrl;
+
+
     public const double DotNetOnlineMB = Version461WebMB;
     public const double DotNetOfflineMB = Version461OfflineMB;
 
@@ -44,6 +49,8 @@ public static class Constants
                                { 393297, "4.6" },
                                { 394254, "4.6.1" },
                                { 394271, "4.6.1" },
+                               { 394747, "4.6.2 Preview" },
+                               { 394748, "4.6.2 Preview" },
                            };
 
     public const string Windows8 = "Windows NT 6.2";
