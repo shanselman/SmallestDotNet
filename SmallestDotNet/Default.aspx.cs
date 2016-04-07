@@ -11,6 +11,11 @@ public partial class _Default : System.Web.UI.Page
         int releaseKey = 0;
         bool runFromChecker = false;
         string userAgentText = this.Request.UserAgent ?? string.Empty;
+
+        // set the Get.NET link button to the latest offline version
+        getdotnet.HRef = HttpUtility.HtmlEncode(Constants.LatestDotNetRawUrl);
+        getdotnet.Target = "_blank";
+
         userAgent.Text = HttpUtility.HtmlEncode(userAgentText);
 
         if (Request.QueryString["realversion"] != null || this.Request.QueryString["releaseKey"] != null)
