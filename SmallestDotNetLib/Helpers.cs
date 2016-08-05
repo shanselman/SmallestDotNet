@@ -33,7 +33,7 @@ public class Helpers
         }
         if (UserAgent.Contains("Mac"))
         {
-            response.Text = "It looks like you're running a Mac or an iPhone. There's no .NET Framework download from Microsoft for the Mac, but you might check out <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your mobile devices, check out <a href=\"http://xamarin.com/platform\">Xamarin</a> and write .NET apps for iOS and Android!";
+            response.Text = "It looks like you're running a Mac or an iPhone. You currently have two options: <a href=\"https://www.microsoft.com/net/core#macos\">.NET Core for Mac</a>, or <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your mobile devices, check out <a href=\"http://xamarin.com/platform\">Xamarin</a> and write .NET apps for iOS and Android!";
             return response;
         }
         if (UserAgent.Contains("nix"))
