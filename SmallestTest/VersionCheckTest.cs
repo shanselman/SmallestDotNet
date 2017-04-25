@@ -90,7 +90,7 @@
         {
             // Arrange
             const string UserAgent = ".NET Version 1.0";
-            const string RealVersion = "4.5.1";
+            const string RealVersion = "4.6.2";
             const string CheckerApplicationText = "The .Net Checker application determined that you have";
             const string UnableToDetermineText = "The application was not able to determine the exact version you have.";
             var releaseKey = 0;
@@ -124,7 +124,7 @@
 
                 // Assert
                 StringAssert.StartsWith(message, CheckerApplicationText);
-                StringAssert.Contains(message, releaseVersion.Value + " or greater");
+                StringAssert.Contains(message, releaseVersion.Value);
                 StringAssert.Contains(message, UnableToDetermineText, "The '...not able to determine the exact version...' message SHOULD appear if releaseKey is not contained in Constants.ReleaseVersions");
             }
         }
