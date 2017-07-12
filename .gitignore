@@ -12,3 +12,6 @@ TestResults
 *user
 
 [Pp]ackages
+
+# Visual Studio 2015/17 cache/options directory
+.vs/
