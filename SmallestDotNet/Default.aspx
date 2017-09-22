@@ -16,7 +16,24 @@
     <link href="css/m-buttons.min.css" rel="stylesheet" media="screen" />
     <link rel="Stylesheet" href="css/main.css" type="text/css" />
     <title>Get the .NET Framework Fast - Download the smallest .NET Framework Distribution possible</title>
-    
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000000",
+      "text": "#ffffff"
+    },
+    "button": {
+      "background": "transparent",
+      "text": "#ffffff",
+      "border": "#ffffff"
+    }
+  }
+})});
+</script>    
 </head>
 
 <body>
