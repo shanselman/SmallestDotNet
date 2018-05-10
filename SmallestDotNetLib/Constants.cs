@@ -6,16 +6,16 @@ using System.Collections.Generic;
 /// </summary>
 public static class Constants
 {
-    public static readonly string DotNet = "4.6.1";
-    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version461WebUrl, DotNet);
-    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version461OfflineUrl, DotNet);
+    public static readonly string DotNet = "4.7.2";
+    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version472WebUrl, DotNet);
+    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version472OfflineUrl, DotNet);
 
     // this variable can be updated with whatever constant is holiding the latest release URL and then should cascade to the Get.NET link
-    public static readonly string LatestDotNetRawUrl = Version461OfflineUrl;
+    public static readonly string LatestDotNetRawUrl = Version472OfflineUrl;
 
 
-    public const double DotNetOnlineMB = Version461WebMB;
-    public const double DotNetOfflineMB = Version461OfflineMB;
+    public const double DotNetOnlineMB = Version472WebMB;
+    public const double DotNetOfflineMB = Version472OfflineMB;
 
     public const string WindowsUpdate = "<a href=\"http://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
@@ -79,6 +79,9 @@ public static class Constants
     public const string Version11Full = ".NET CLR 1.1";
     public const string Version10Full = ".NET CLR 1.0";
 
+    private const string Version472WebUrl = "https://go.microsoft.com/fwlink/?LinkId=863262";
+    private const string Version472OfflineUrl = "https://go.microsoft.com/fwlink/?LinkId=863265";
+
     private const string Version461WebUrl = "https://www.microsoft.com/en-us/download/details.aspx?id=49981";
     private const string Version461OfflineUrl = "https://www.microsoft.com/en-us/download/details.aspx?id=49982";
 
@@ -94,6 +97,9 @@ public static class Constants
     public const string Version40ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
     public const string Version45URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
     public const string Version46URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
+
+    private const double Version472WebMB = 1.4;
+    private const double Version472OfflineMB = 63.8;
 
     private const double Version461WebMB = 1.4;
     private const double Version461OfflineMB = 64.5;
