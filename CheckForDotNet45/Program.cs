@@ -18,10 +18,10 @@ namespace CheckForDotNet45
         #region Fields
 
         /// <summary>Site URL with release key parameter</summary>
-        private const string SiteWithReleaseKey = "http://smallestdotnet.com/?releaseKey={0}";
+        private const string SiteWithReleaseKey = "https://smallestdotnet.com/?releaseKey={0}";
 
         /// <summary>Site URL with version parameter</summary>
-        private const string SiteWithVersion = "http://smallestdotnet.com/?realversion={0}";
+        private const string SiteWithVersion = "https://smallestdotnet.com/?realversion={0}";
 
         #endregion Fields
 

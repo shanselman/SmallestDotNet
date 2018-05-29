@@ -129,7 +129,7 @@ window.cookieconsent.initialise({
                 <h3>Integration</h3>
                 Want SmallestDotNet functionality for your own site? Add this chunk of JavaScript, it'll spit out HTML and you can style to taste.
                 <br />
-                <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</pre>
+                <pre>&LT;script type="text/javascript" src="https://www.smallestdotnet.com/javascript.ashx"&GT;&LT;/script&GT;</pre>
 
             </div>
         </div>
@@ -137,8 +137,8 @@ window.cookieconsent.initialise({
             <div class="span12">
                 Prefer a JavaScript Object (JSON) to detect .NET Framework installations? Try this instead:
                 <br />
-                <pre>&LT;script type="text/javascript" src="http://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</pre>
-                Get examples on <a href="http://www.hanselman.com/blog/SmallestDotNetUpdateNowWithNet4SupportandanincludableJavascriptapi.aspx">how to use the JSON object on Scott's Blog.</a>
+                <pre>&LT;script type="text/javascript" src="https://www.smallestdotnet.com/javascriptdom.ashx"&GT;&LT;/script&GT;</pre>
+                Get examples on <a href="https://www.hanselman.com/blog/SmallestDotNetUpdateNowWithNet4SupportandanincludableJavascriptapi.aspx">how to use the JSON object on Scott's Blog.</a>
 
 
             </div>
@@ -149,7 +149,7 @@ window.cookieconsent.initialise({
             <div class="span12 ">
                 <footer>
                     <hr />
-                    <p>&copy; <a href="http://www.hanselman.com">Scott Hanselman</a>, <a href="http://www.MichaelSarchet.com">Michael Sarchet</a> and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
+                    <p>&copy; <a href="https://www.hanselman.com">Scott Hanselman</a>, <a href="http://www.MichaelSarchet.com">Michael Sarchet</a> and Friends 2012. <a href="http://www.github.com/shanselman/smallestdotnet">See the Source and report issues</a>.
                     The lovely <a href="http://ace-subido.github.com/css3-microsoft-metro-buttons/index.html">CSS3 Microsoft-Modern Buttons</a> are by <a href="http://acesubido.com/">Ace Subido</a>.</p>
                 </footer>
             </div>
@@ -157,7 +157,7 @@ window.cookieconsent.initialise({
     </div>
     <!-- /container -->
 
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.1.min.js"></script>
     <script>
         (window.jQuery || document.write('<script src="/js/jquery-1.8.1.min.js"><\/script>'));
     </script>
