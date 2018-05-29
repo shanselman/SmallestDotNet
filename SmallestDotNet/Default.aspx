@@ -48,7 +48,7 @@ window.cookieconsent.initialise({
                 <a class="brand" href="#">SmallestDotNET</a>
                 <div class="nav-collapse pull-right">
                     <ul class="nav">
-                        <li><a href="http://www.hanselman.com"><i class="icon-sign-blank"></i> Scott's Blog</a></li>
+                        <li><a href="https://www.hanselman.com"><i class="icon-sign-blank"></i> Scott's Blog</a></li>
                         <li><a href="https://github.com/shanselman/SmallestDotNet/"><i class="icon-github-sign"></i> This site on GitHub</a></li>
                         <li><a href="https://github.com/shanselman/SmallestDotNet/issues"><i class="icon-heart"></i> Report a Bug</a></li>
                     </ul>
@@ -70,7 +70,7 @@ window.cookieconsent.initialise({
                         <br />
                         <a runat="server" id="getdotnet" class="m-btn big" href="#"><i class="icon-download-alt"></i>  <strong>Get .NET</strong> </a>
 
-                        <a runat="server" visible="false" id="checkdotnet" class="m-btn big" href="http://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a>
+                        <a runat="server" visible="false" id="checkdotnet" class="m-btn big" href="https://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe"><strong><i class="icon-download-alt"> </i> .NET Checker</strong></a>
 
                     </div>
             </div>
@@ -80,7 +80,7 @@ window.cookieconsent.initialise({
             <div class="span12">
                 <h2>What about .NET 4.5/4.6?</h2>
                 
-                Download this application <a href="http://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
+                Download this application <a href="https://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
                 This harmless code signed application will tell us if you have .NET 4.5 or 4.6 (including minor versions). Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
             </div>
         </div>
