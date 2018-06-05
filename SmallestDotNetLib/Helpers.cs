@@ -28,12 +28,12 @@ public class Helpers
         // Check for windows phone first as it may contain 'Mac' in User Agent
         if (UserAgent.Contains("Windows Phone"))
         {
-            response.Text = "It looks like you're running a Windows Phone, awesome! There's no .NET Framework download for the Windows phone, but you might check out <a href=\"https://dev.windows.com/\"/>the Windows Dev Center</a> or <a href=\"http://www.windowsphone.com/store/\"/>the Windows Phone Store</a>";
+            response.Text = "It looks like you're running a Windows Phone, awesome! There's no .NET Framework download for the Windows phone, but you might check out <a href=\"https://dev.windows.com/\"/>the Windows Dev Center</a> or <a href=\"https://www.windowsphone.com/store/\"/>the Windows Phone Store</a>";
             return response;
         }
         if (UserAgent.Contains("Mac"))
         {
-            response.Text = "It looks like you're running a Mac or an iPhone. You currently have two options: <a href=\"https://www.microsoft.com/net/core#macos\">.NET Core for Mac</a>, or <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your mobile devices, check out <a href=\"http://xamarin.com/platform\">Xamarin</a> and write .NET apps for iOS and Android!";
+            response.Text = "It looks like you're running a Mac or an iPhone. You currently have two options: <a href=\"https://www.microsoft.com/net/core#macos\">.NET Core for Mac</a>, or <a href=\"http://www.go-mono.com/mono-downloads/download.html\">Mono</a>, which is an Open Source platform that can run .NET code on a Mac. For your mobile devices, check out <a href=\"https://xamarin.com/platform\">Xamarin</a> and write .NET apps for iOS and Android!";
             return response;
         }
         if (UserAgent.Contains("nix"))
@@ -233,7 +233,7 @@ public class Helpers
     {
         if (UserAgent.Contains(agent))
         {
-            return String.Format("It looks like you're running {1}. Sorry, but .NET 3.5 isn't supported on {1}, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "http://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en", friendlyName);
+            return String.Format("It looks like you're running {1}. Sorry, but .NET 3.5 isn't supported on {1}, but you can still run <a href=\"{0}\">NET Framework 2.0 SP1</a>", "https://www.microsoft.com/downloads/details.aspx?familyid=79BC3B77-E02C-4AD3-AACF-A7633F706BA5&displaylang=en", friendlyName);
         }
 
         return "";

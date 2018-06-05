@@ -17,7 +17,7 @@ public static class Constants
     public const double DotNetOnlineMB = Version472WebMB;
     public const double DotNetOfflineMB = Version472OfflineMB;
 
-    public const string WindowsUpdate = "<a href=\"http://www.update.microsoft.com\">Windows Update</a>";
+    public const string WindowsUpdate = "<a href=\"https://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
                            For you, it'll probably be <strong>around {0} megabytes total</strong>.";
 
@@ -85,18 +85,18 @@ public static class Constants
     private const string Version461WebUrl = "https://www.microsoft.com/en-us/download/details.aspx?id=49981";
     private const string Version461OfflineUrl = "https://www.microsoft.com/en-us/download/details.aspx?id=49982";
 
-    private const string Version46WebUrl = "http://go.microsoft.com/fwlink/?LinkId=528259";
-    private const string Version46OfflineUrl = "http://go.microsoft.com/fwlink/?LinkId=528233";
+    private const string Version46WebUrl = "https://go.microsoft.com/fwlink/?LinkId=528259";
+    private const string Version46OfflineUrl = "https://go.microsoft.com/fwlink/?LinkId=528233";
 
-    public const string Version11URL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en";
-    public const string Version20URL = "http://www.microsoft.com/downloads/details.aspx?familyid=5B2C0358-915B-4EB5-9B1D-10E506DA9D0F&displaylang=en";
-    public const string Version30URL = "http://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en";
-    public const string Version35SP1FullURL = "http://www.microsoft.com/en-us/download/details.aspx?id=22";
-    public const string Version35SP1ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyId=8CEA6CD1-15BC-4664-B27D-8CEBA808B28B&displaylang=en";
-    public const string Version40FullURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=9f5e8774-c8dc-4ff6-8285-03a4c387c0db&displaylang=en";
-    public const string Version40ClientURL = "http://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
-    public const string Version45URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
-    public const string Version46URL = "http://www.microsoft.com/en-us/download/details.aspx?id=30653";
+    public const string Version11URL = "https://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en";
+    public const string Version20URL = "https://www.microsoft.com/downloads/details.aspx?familyid=5B2C0358-915B-4EB5-9B1D-10E506DA9D0F&displaylang=en";
+    public const string Version30URL = "https://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en";
+    public const string Version35SP1FullURL = "https://www.microsoft.com/en-us/download/details.aspx?id=22";
+    public const string Version35SP1ClientURL = "https://www.microsoft.com/downloads/details.aspx?FamilyId=8CEA6CD1-15BC-4664-B27D-8CEBA808B28B&displaylang=en";
+    public const string Version40FullURL = "https://www.microsoft.com/downloads/details.aspx?FamilyID=9f5e8774-c8dc-4ff6-8285-03a4c387c0db&displaylang=en";
+    public const string Version40ClientURL = "https://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
+    public const string Version45URL = "https://www.microsoft.com/en-us/download/details.aspx?id=30653";
+    public const string Version46URL = "https://www.microsoft.com/en-us/download/details.aspx?id=30653";
 
     private const double Version472WebMB = 1.4;
     private const double Version472OfflineMB = 63.8;
