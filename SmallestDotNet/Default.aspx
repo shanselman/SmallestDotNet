@@ -78,10 +78,10 @@ window.cookieconsent.initialise({
 
         <div class="row-fluid" runat="server" id="dotnet45">
             <div class="span12">
-                <h2>What about .NET 4.5/4.6?</h2>
+                <h2>What about .NET 4.5/4.6/4.7?</h2>
                 
                 Download this application <a href="https://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
-                This harmless code signed application will tell us if you have .NET 4.5 or 4.6 (including minor versions). Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
+                This harmless code signed application will tell us if you have .NET 4.5, 4.6 or 4.7 (including minor versions). Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
             </div>
         </div>
         <!-- Example row of columns -->
