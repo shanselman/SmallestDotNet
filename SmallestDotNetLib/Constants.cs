@@ -59,7 +59,7 @@ public static class Constants
                                { 461308, "4.7.1" },
                                { 461310, "4.7.1" },
                                { 461808, "4.7.2" },
-                               { 491814, "4.7.2" },
+                               { 461814, "4.7.2" },
                            };
 
     public const string Windows8 = "Windows NT 6.2";
