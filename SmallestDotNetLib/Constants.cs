@@ -6,19 +6,19 @@ using System.Collections.Generic;
 /// </summary>
 public static class Constants
 {
-    public static readonly string DotNet = "4.7.2";
-    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version472WebUrl, DotNet);
-    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version472OfflineUrl, DotNet);
+    public static readonly string DotNet = "4.8";
+    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version48WebUrl, DotNet);
+    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version48OfflineUrl, DotNet);
 
     // this variable can be updated with whatever constant is holiding the latest release URL and then should cascade to the Get.NET link
-    public static readonly string LatestDotNetRawUrl = Version472OfflineUrl;
+    public static readonly string LatestDotNetRawUrl = Version48OfflineUrl;
 
 
-    public const double DotNetOnlineMB = Version472WebMB;
-    public const double DotNetOfflineMB = Version472OfflineMB;
+    public const double DotNetOnlineMB = Version48WebMB;
+    public const double DotNetOfflineMB = Version48OfflineMB;
 
     public const string WindowsUpdate = "<a href=\"https://www.update.microsoft.com\">Windows Update</a>";
-    public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible. 
+    public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible.
                            For you, it'll probably be <strong>around {0} megabytes total</strong>.";
 
     public const string InferredText = "You have at least <strong>{0}</strong> on your machine. We can only infer this as the user agent of your browser doesn't give us the version. Try the .Net Checker application to get more accurate version information.";
@@ -59,7 +59,9 @@ public static class Constants
                                { 461308, "4.7.1" },
                                { 461310, "4.7.1" },
                                { 461808, "4.7.2" },
-                               { 491814, "4.7.2" },
+                               { 461814, "4.7.2" },
+                               { 528040, "4.8" },
+                               { 528049, "4.8" },
                            };
 
     public const string Windows8 = "Windows NT 6.2";
@@ -78,6 +80,10 @@ public static class Constants
     public const string Version20Full = ".NET CLR 2.0";
     public const string Version11Full = ".NET CLR 1.1";
     public const string Version10Full = ".NET CLR 1.0";
+
+
+    private const string Version48WebUrl = "https://dotnet.microsoft.com/download/thank-you/net48"; // or "https://go.microsoft.com/fwlink/?LinkId=2085155";
+    private const string Version48OfflineUrl = "https://dotnet.microsoft.com/download/thank-you/net48-offline"; // Or "https://go.microsoft.com/fwlink/?linkid=2088631"
 
     private const string Version472WebUrl = "https://go.microsoft.com/fwlink/?LinkId=863262";
     private const string Version472OfflineUrl = "https://go.microsoft.com/fwlink/?LinkId=863265";
@@ -98,9 +104,10 @@ public static class Constants
     public const string Version45URL = "https://www.microsoft.com/en-us/download/details.aspx?id=30653";
     public const string Version46URL = "https://www.microsoft.com/en-us/download/details.aspx?id=30653";
 
+    private const double Version48WebMB = 1.4;
+    private const double Version48OfflineMB = 69.3;
     private const double Version472WebMB = 1.4;
     private const double Version472OfflineMB = 63.8;
-
     private const double Version461WebMB = 1.4;
     private const double Version461OfflineMB = 64.5;
     private const double Version46WebMB = 1.4;
