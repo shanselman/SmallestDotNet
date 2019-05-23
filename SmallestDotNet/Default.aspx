@@ -8,7 +8,7 @@
     <meta name="Distribution" content="Global" />
     <meta name="t_omni_extblogid" content="msstoextblogs1" />
     <meta name="t_omni_blogname" content="Scott Hanselman" />
-    <meta name="viewport" content="width=device-width" /> 
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@ window.cookieconsent.initialise({
     }
   }
 })});
-</script>    
+</script>
 </head>
 
 <body>
@@ -78,10 +78,10 @@ window.cookieconsent.initialise({
 
         <div class="row-fluid" runat="server" id="dotnet45">
             <div class="span12">
-                <h2>What about .NET 4.5/4.6/4.7?</h2>
-                
+                <h2>What about .NET 4.5 or later?</h2>
+
                 Download this application <a href="https://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe" class="m-btn blue"><i class="icon-download-alt"> </i> .NET Checker</a> and run it.
-                This harmless code signed application will tell us if you have .NET 4.5, 4.6 or 4.7 (including minor versions). Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
+                This harmless code signed application will tell us if you have .NET 4.5, 4.6, 4.7 or 4.8 (including minor versions). Don't trust us? Here's <a href="https://github.com/shanselman/SmallestDotNet/blob/master/CheckForDotNet45/Program.cs">the code</a>.
             </div>
         </div>
         <!-- Example row of columns -->
@@ -111,7 +111,7 @@ window.cookieconsent.initialise({
                  Sometimes finding the right .NET Framework is confusing because different kinds of machines (x86, x64, ia64) that may or may not have different versions of .NET already on them.
                 <br />
                 <br />
-                 If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. It's not. Those big downloads are the Complete Offline Versions of every version of the .NET Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive. The download for .NET 4.5 is even smaller.
+                 If you look for .NET Downloads on Microsoft's site, it might look like the .NET Framework is 200+ megs. It's not. Those big downloads are the Complete Offline Versions of every version of the .NET Framework for every kind of machine possible. The big .NET download includes x86, x64, and ia64. It includes .NET 2.0, 3.0, and 3.5 code for all systems all in one super-archive. The downloads for .NET 4.5, 4.6, 4.7 and 4.8 are even smaller.
                 <br />
                 <br />
                  Why would you EVER want to download the whole archive? Only if you're a developer and you want to distribute the .NET Framework the widest possible audience in a format like a CD or DVD.
