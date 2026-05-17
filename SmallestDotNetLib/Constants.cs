@@ -6,16 +6,16 @@ using System.Collections.Generic;
 /// </summary>
 public static class Constants
 {
-    public static readonly string DotNet = "4.8";
-    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version48WebUrl, DotNet);
-    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version48OfflineUrl, DotNet);
+    public static readonly string DotNet = "4.8.1";
+    public static readonly string DotNetOnline = String.Format("<a href=\"{0}\">.NET {1} Web</a>", Version481WebUrl, DotNet);
+    public static readonly string DotNetOffline = String.Format("<a href=\"{0}\">.NET {1} Offline</a>", Version481OfflineUrl, DotNet);
 
     // this variable can be updated with whatever constant is holiding the latest release URL and then should cascade to the Get.NET link
-    public static readonly string LatestDotNetRawUrl = Version48OfflineUrl;
+    public static readonly string LatestDotNetRawUrl = Version481OfflineUrl;
 
 
-    public const double DotNetOnlineMB = Version48WebMB;
-    public const double DotNetOfflineMB = Version48OfflineMB;
+    public const double DotNetOnlineMB = Version481WebMB;
+    public const double DotNetOfflineMB = Version481OfflineMB;
 
     public const string WindowsUpdate = "<a href=\"https://www.update.microsoft.com\">Windows Update</a>";
     public const string WhyItIsSmall = @" The .NET installer is smart enough to look at your system and automatically download the <strong>smallest upgrade package</strong> possible.
@@ -61,7 +61,12 @@ public static class Constants
                                { 461808, "4.7.2" },
                                { 461814, "4.7.2" },
                                { 528040, "4.8" },
+                               { 528372, "4.8" },
+                               { 528449, "4.8" },
                                { 528049, "4.8" },
+                               { 533320, "4.8.1" },
+                               { 533325, "4.8.1" },
+                               { 533509, "4.8.1" },
                            };
 
     public const string Windows8 = "Windows NT 6.2";
@@ -70,6 +75,11 @@ public static class Constants
 
     public const string Version461Full = ".NET 4.6.1";
     public const string Version46Full = ".NET 4.6";
+    public const string Version481Full = ".NET 4.8.1";
+    public const string Version48Full = ".NET 4.8";
+    public const string Version472Full = ".NET 4.7.2";
+    public const string Version471Full = ".NET 4.7.1";
+    public const string Version47Full = ".NET 4.7";
     public const string Version45Full = ".NET 4.5";
     public const string Version40Full = ".NET4.0E";
     public const string Version40Client = ".NET4.0C";
@@ -82,8 +92,11 @@ public static class Constants
     public const string Version10Full = ".NET CLR 1.0";
 
 
-    private const string Version48WebUrl = "https://dotnet.microsoft.com/download/thank-you/net48"; // or "https://go.microsoft.com/fwlink/?LinkId=2085155";
-    private const string Version48OfflineUrl = "https://dotnet.microsoft.com/download/thank-you/net48-offline"; // Or "https://go.microsoft.com/fwlink/?linkid=2088631"
+    private const string Version481WebUrl = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net481-web-installer";
+    private const string Version481OfflineUrl = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net481-offline-installer";
+
+    private const string Version48WebUrl = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer";
+    private const string Version48OfflineUrl = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer";
 
     private const string Version472WebUrl = "https://go.microsoft.com/fwlink/?LinkId=863262";
     private const string Version472OfflineUrl = "https://go.microsoft.com/fwlink/?LinkId=863265";
@@ -103,7 +116,14 @@ public static class Constants
     public const string Version40ClientURL = "https://www.microsoft.com/downloads/details.aspx?FamilyID=68a7173d-7ee5-4213-a06f-f2e943ec9249&displaylang=en";
     public const string Version45URL = "https://www.microsoft.com/en-us/download/details.aspx?id=30653";
     public const string Version46URL = "https://www.microsoft.com/en-us/download/details.aspx?id=30653";
+    public const string Version47URL = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net47-web-installer";
+    public const string Version471URL = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net471-web-installer";
+    public const string Version472URL = "https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer";
+    public const string Version48URL = Version48WebUrl;
+    public const string Version481URL = Version481WebUrl;
 
+    private const double Version481WebMB = 1.4;
+    private const double Version481OfflineMB = 74.1;
     private const double Version48WebMB = 1.4;
     private const double Version48OfflineMB = 69.3;
     private const double Version472WebMB = 1.4;

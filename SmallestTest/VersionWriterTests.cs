@@ -12,7 +12,7 @@
                 major: 1,
                 minor: 0,
                 profile: ""full"",
-                servicePack: null                
+                servicePack: null
             }";
             
             int? servicePack = null;
@@ -156,6 +156,25 @@
             int? servicePack = null;
 
             var actual = SmallestDotNetLib.JsonVersions.WriteVersion(4, 5, "full", servicePack);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestPatchJson()
+        {
+            var expected = string.Join(System.Environment.NewLine, new[]
+            {
+                "{",
+                "                major: 4,",
+                "                minor: 8,",
+                "                patch: 1,",
+                "                profile: \"full\",",
+                "                servicePack: null",
+                "            }"
+            });
+
+            var actual = SmallestDotNetLib.JsonVersions.WriteVersion(SmallestDotNetLib.CLRVersions.NET481Full);
 
             Assert.AreEqual(expected, actual);
         }

@@ -86,6 +86,33 @@
         }
 
         [TestMethod]
+        public void CheckCurrentReleaseKeys()
+        {
+            const string UserAgent = ".NET Version 1.0";
+            const string CheckerApplicationText = "The .Net Checker application determined that you have";
+
+            string message = Helpers.GetUpdateInformation(UserAgent, null, 528372).Text;
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, "4.8");
+
+            message = Helpers.GetUpdateInformation(UserAgent, null, 528449).Text;
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, "4.8");
+
+            message = Helpers.GetUpdateInformation(UserAgent, null, 533320).Text;
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, "4.8.1");
+
+            message = Helpers.GetUpdateInformation(UserAgent, null, 533325).Text;
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, "4.8.1");
+
+            message = Helpers.GetUpdateInformation(UserAgent, null, 533509).Text;
+            StringAssert.StartsWith(message, CheckerApplicationText);
+            StringAssert.Contains(message, "4.8.1");
+        }
+
+        [TestMethod]
         public void CheckRealVersion()
         {
             // Arrange

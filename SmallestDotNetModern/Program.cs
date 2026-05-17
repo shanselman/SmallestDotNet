@@ -315,8 +315,12 @@ internal static class RequestHelpers
             return null;
         }
 
-        return versions.ServicePack.HasValue
-            ? $"{versions.Major}.{versions.Minor} SP{versions.ServicePack.Value}"
+        var version = versions.Patch.HasValue
+            ? $"{versions.Major}.{versions.Minor}.{versions.Patch.Value}"
             : $"{versions.Major}.{versions.Minor}";
+
+        return versions.ServicePack.HasValue
+            ? $"{version} SP{versions.ServicePack.Value}"
+            : version;
     }
 }

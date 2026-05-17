@@ -5,6 +5,8 @@ SmallestDotNet
 
 SmallestDotNet - [SmallestDotNet.com](https://smallestdotnet.com) is a single page site that does one thing. It tells you the smallest, easiest download you'd need to get the .NET Framework on your system. 
 
+It currently recommends .NET Framework 4.8.1 for machines that need the latest .NET Framework runtime. For new development, use modern .NET instead.
+
 The code sucks. I did it in an hour and I'm sad.
 
 Thanks to Calin Balauru for his help. Anything good here is him. All the bad is me.
@@ -23,6 +25,26 @@ Production now runs from `SmallestDotNetModern`, an ASP.NET Core app targeting .
 - DNS: hosted at DNSimple, not Azure DNS
 
 There is not currently a GitHub/Git deployment wired up for the Azure app. The app's deployment source is `None`; the production deployment was done manually with a prebuilt zip package and App Service zip deploy.
+
+## Project layout
+
+- `SmallestDotNetModern` - production ASP.NET Core/.NET 10 app. It preserves the original public routes, including `/`, `/VersionCheck.ashx`, `/javascript.ashx`, `/javascriptdom.ashx`, and the old `/smallestdotnet/...` redirects.
+- `SmallestDotNetModernLib` - SDK-style .NET 10 wrapper that links the original detection source files.
+- `SmallestDotNetLib` - original .NET Framework detection and output logic. Keep framework release keys and download URLs current here.
+- `SmallestDotNet` - original ASP.NET Web Forms app, kept for history/reference.
+- `CheckForDotNet45` - helper executable that reads the .NET Framework registry release key and returns to the website.
+- `SmallestTest` - legacy MSTest coverage for the detection and JavaScript output behavior.
+
+## Framework data maintenance
+
+The site intentionally focuses on .NET Framework, not modern .NET. New application development should use current .NET, but this site exists for people who need to run or detect .NET Framework.
+
+When Microsoft adds or documents new .NET Framework release keys, update:
+
+- `Constants.ReleaseVersions` for checker release-key detection.
+- `Constants.DotNet`, download URLs, and download sizes if the latest recommended .NET Framework runtime changes.
+- `CLRVersions.Versions` if `/javascriptdom.ashx` should advertise additional downloadable framework versions.
+- `SmallestTest` expectations for release keys and JavaScript payloads.
 
 ## Manual deployment
 

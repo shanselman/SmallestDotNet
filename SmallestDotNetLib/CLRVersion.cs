@@ -25,6 +25,8 @@
         /// </summary>
         public int? ServicePack { get; set; }
 
+        public int? Patch { get; set; }
+
         /// <summary>
         /// A URL to download the CLR Version Installer
         /// </summary>
@@ -40,8 +42,22 @@
 	{
 	    var version = (CLRVersion)obj;
 
-	    return version.Major == this.Major && version.Minor == this.Minor && version.Profile == this.Profile && version.ServicePack == this.ServicePack;
+	    return version.Major == this.Major && version.Minor == this.Minor && version.Profile == this.Profile && version.ServicePack == this.ServicePack && version.Patch == this.Patch;
 	}
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Major.GetHashCode();
+                hash = hash * 23 + Minor.GetHashCode();
+                hash = hash * 23 + (Profile == null ? 0 : Profile.GetHashCode());
+                hash = hash * 23 + ServicePack.GetHashCode();
+                hash = hash * 23 + Patch.GetHashCode();
+                return hash;
+            }
+        }
 
     }
 }

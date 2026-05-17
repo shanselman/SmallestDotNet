@@ -20,6 +20,11 @@ namespace SmallestDotNetLib
 	public static CLRVersion NET40Full = new CLRVersion() { Major = 4, Minor = 0, Profile = "full", Url = Constants.Version40FullURL, PrettyVersion = ".NET 4.0" };
 	public static CLRVersion NET45Full = new CLRVersion() { Major = 4, Minor = 5, Profile = "full", Url = Constants.Version45URL, PrettyVersion = ".NET 4.5" };
 	public static CLRVersion NET46Full = new CLRVersion() { Major = 4, Minor = 6, Profile = "full", Url = Constants.Version46URL, PrettyVersion = ".NET 4.6" };
+	public static CLRVersion NET47Full = new CLRVersion() { Major = 4, Minor = 7, Profile = "full", Url = Constants.Version47URL, PrettyVersion = ".NET 4.7" };
+	public static CLRVersion NET471Full = new CLRVersion() { Major = 4, Minor = 7, Patch = 1, Profile = "full", Url = Constants.Version471URL, PrettyVersion = ".NET 4.7.1" };
+	public static CLRVersion NET472Full = new CLRVersion() { Major = 4, Minor = 7, Patch = 2, Profile = "full", Url = Constants.Version472URL, PrettyVersion = ".NET 4.7.2" };
+	public static CLRVersion NET48Full = new CLRVersion() { Major = 4, Minor = 8, Profile = "full", Url = Constants.Version48URL, PrettyVersion = ".NET 4.8" };
+	public static CLRVersion NET481Full = new CLRVersion() { Major = 4, Minor = 8, Patch = 1, Profile = "full", Url = Constants.Version481URL, PrettyVersion = ".NET 4.8.1" };
 
         /// <summary>
         /// A Dictionary of CLR Versions with information
@@ -36,7 +41,12 @@ namespace SmallestDotNetLib
                 {Constants.Version40Client, NET40Client},
                 {Constants.Version40Full, NET40Full},
                 {Constants.Version45Full, NET45Full},
-                {Constants.Version46Full, NET46Full}
+                {Constants.Version46Full, NET46Full},
+                {Constants.Version47Full, NET47Full},
+                {Constants.Version471Full, NET471Full},
+                {Constants.Version472Full, NET472Full},
+                {Constants.Version48Full, NET48Full},
+                {Constants.Version481Full, NET481Full}
             };
 
         /// <summary>

@@ -44,6 +44,17 @@
         /// <returns>A Json string representing the version</returns>
         public static string WriteVersion(CLRVersion version)
         {
+            if (version.Patch.HasValue)
+            {
+                return String.Format(@"{{
+                major: {0},
+                minor: {1},
+                patch: {2},
+                profile: ""{3}"",
+                servicePack: {4}
+            }}", version.Major, version.Minor, version.Patch.Value, version.Profile, version.ServicePack.HasValue ? version.ServicePack.ToString() : "null");
+            }
+
             return String.Format(@"{{
                 major: {0},
                 minor: {1},
@@ -79,6 +90,24 @@
         /// <returns>A Json string representing the version with a download url</returns>
         public static string WriteVersionWithDownload(CLRVersion version)
         {
+            if (version.Patch.HasValue)
+            {
+                return String.Format(@"{{
+                                        major: {0},
+                                        minor: {1},
+                                        patch: {2},
+                                        profile: '{3}',
+                                        servicePack: {4},
+                                        url: '{5}'
+                                    }}",
+                           version.Major,
+                           version.Minor,
+                           version.Patch.Value,
+                           version.Profile,
+                           version.ServicePack.HasValue ? version.ServicePack.Value.ToString() : "null",
+                           version.Url);
+            }
+
             return String.Format(@"{{
                                         major: {0},
                                         minor: {1},

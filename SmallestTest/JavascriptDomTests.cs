@@ -27,6 +27,20 @@
 
         }
 
+        [TestMethod]
+        public void WriteCurrentFrameworkDownloads()
+        {
+            var downloads = JsonVersions.WriteDownloads();
+
+            StringAssert.Contains(downloads, "net47-web-installer");
+            StringAssert.Contains(downloads, "net471-web-installer");
+            StringAssert.Contains(downloads, "net472-web-installer");
+            StringAssert.Contains(downloads, "net48-web-installer");
+            StringAssert.Contains(downloads, "net481-web-installer");
+            StringAssert.Contains(downloads, "patch: 1");
+            StringAssert.Contains(downloads, "patch: 2");
+        }
+
 
         [TestMethod]
         public void Write40AsLatestVersion()
