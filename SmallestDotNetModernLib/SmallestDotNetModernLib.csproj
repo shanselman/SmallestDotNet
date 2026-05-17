@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SmallestDotNetLib\BrowserSupport.cs" Link="BrowserSupport.cs" />
+    <Compile Include="..\SmallestDotNetLib\CLRVersion.cs" Link="CLRVersion.cs" />
+    <Compile Include="..\SmallestDotNetLib\CLRVersions.cs" Link="CLRVersions.cs" />
+    <Compile Include="..\SmallestDotNetLib\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\SmallestDotNetLib\Helpers.cs" Link="Helpers.cs" />
+    <Compile Include="..\SmallestDotNetLib\JsonVersions.cs" Link="JsonVersions.cs" />
+    <Compile Include="..\SmallestDotNetLib\OperatingSystemSupport.cs" Link="OperatingSystemSupport.cs" />
+    <Compile Include="..\SmallestDotNetLib\UpdateInformationResponse.cs" Link="UpdateInformationResponse.cs" />
+  </ItemGroup>
+</Project>
