@@ -35,6 +35,16 @@ There is not currently a GitHub/Git deployment wired up for the Azure app. The a
 - `CheckForDotNet45` - helper executable that reads the .NET Framework registry release key and returns to the website.
 - `SmallestTest` - legacy MSTest coverage for the detection and JavaScript output behavior.
 
+## .NET checker executable
+
+The " .NET Checker" download is `CheckForDotNet45.exe`, built from `CheckForDotNet45\Program.cs` and hosted outside the App Service at:
+
+`https://hanselstorage.blob.core.windows.net/blog/CheckForDotNet45.exe`
+
+The App Service deployment does not update this blob. The current binary is intentionally simple: it reads the .NET Framework `Release` registry value and opens `https://smallestdotnet.com/?releaseKey=<value>`. Because version mapping happens on the website, the binary usually does not need to be rebuilt when new release keys are added to `Constants.ReleaseVersions`.
+
+If the executable is rebuilt, upload the new binary to the blob URL above and verify the site still links there. The currently hosted binary is not Authenticode-signed, so the website should not claim that it is code signed unless a signed replacement is uploaded.
+
 ## Framework data maintenance
 
 The site intentionally focuses on .NET Framework, not modern .NET. New application development should use current .NET, but this site exists for people who need to run or detect .NET Framework.
